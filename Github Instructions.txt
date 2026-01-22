@@ -1,0 +1,4 @@
+What to do every time you start working on the project
+
+Pull the changes
+In Git
