@@ -16,3 +16,6 @@ What to do every time you are working on the project
 7. After that, you should get a message with the number of changes made to each file. Then, run "git push" and you should see a final checklist of everything that was pushed or not.
 
 8. IMPORTANT: SINCE WE WILL ALL BE WORKING ON THIS PROJECT SIMULTANEOUSLY, WE WILL RUN INTO SITUATIONS WHERE THE CHANGES MAY OVERRIDE ONE ANOTHER
+
+
+BRANCHING - TESTING CREATING NEW BRANCH AND MERGING
