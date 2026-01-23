@@ -1,9 +1,18 @@
-What to do every time you start working on the project
+What to do every time you are working on the project
 
 1. Open Git Bash
+
 2. Make sure that you are in the working folder on your computer (should just be the repository name)
-- Run "cd Sunken_Secrets"
-3. Run "git pull" to get any git commits before opening Unity
-4. EVERY TIME after working in Unity, save the project in Unity, then in Git Bash (which would ideally remain open the whole time, if not make sure you're in the repository file) run the command "git add ."
-5. After running "git add .", you'll see a 
-. If there is a conflict on which files to pull from or if things are being worked on simultaneously, we will need to merge
+- Run "cd Sunken_Secrets".
+
+3. Run "git pull" to get any git commits before opening Unity.
+
+4. EVERY TIME after working in Unity, save the project in Unity, then in Git Bash (which would ideally remain open the whole time, if not make sure you're in the repository file) run the command "git status". You should see a list of the files that you modified. If, for the most part, they match up to the scripts/assets you were managing, that should be ok.
+
+5. Next, run "git add .", which will prepare the changes you made to be ready for a push to the branch.
+
+6. Then, run "git commit -m" followed by a quoted message that describes what changes were made to the branch (Ex: git commit -m "Finalized movement scripting and began script for dialogue").
+
+7. After that, you should get a message with the number of changes made to each file. Then, run "git push" and you should see a final checklist of everything that was pushed or not.
+
+8. IMPORTANT: SINCE WE WILL ALL BE WORKING ON THIS PROJECT SIMULTANEOUSLY, WE WILL RUN INTO SITUATIONS WHERE THE CHANGES MAY OVERRIDE ONE ANOTHER
