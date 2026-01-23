@@ -1,4 +1,9 @@
 What to do every time you start working on the project
 
-Pull the changes
-In Git
+1. Open Git Bash
+2. Make sure that you are in the working folder on your computer (should just be the repository name)
+- Run "cd Sunken_Secrets"
+3. Run "git pull" to get any git commits before opening Unity
+4. EVERY TIME after working in Unity, save the project in Unity, then in Git Bash (which would ideally remain open the whole time, if not make sure you're in the repository file) run the command "git add ."
+5. After running "git add .", you'll see a 
+. If there is a conflict on which files to pull from or if things are being worked on simultaneously, we will need to merge
