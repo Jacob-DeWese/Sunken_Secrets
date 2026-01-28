@@ -1,4 +1,31 @@
-What to do every time you are working on the project
+INSTRUCTIONS FOR FIRST TIME SET-UP
+
+1. Clone the repository: Choose a location on your computer, then in Git Bash run: "git clone https://github.com/Jacob-DeWese/Sunken_Secrets.git"
+
+2. Next, run this command to start working in that file: "cd Sunken_Secrets"
+
+3. Open this file in the repository: "ProjectSettings/ProjectVersion.txt"
+- Verify you see this: 
+m_EditorVersion: 6000.2.6f2
+m_EditorVersionWithRevision: 6000.2.6f2 (4a4dcaec6541)
+
+4. If you see the above in ProjectVersion.txt, then in Unity Hub got to Installs -> Add. Install that exact Unity version (6000.2.6f2) with these extensions:
+- Microsoft Visual Studio Community 2022
+- Universal Windows Platform Build Support
+- Web Build Support
+- Windows Build Support (IL2CPP)
+- Windows Dedicated Server Build Support
+
+5. Open the project in Unity Hub:
+- Open Unity Hub
+- Click "Open"
+- Select the root folder of the cloned repo (the folder containing Assets/ and ProjectSettings/)
+
+6. Verify Git is clean after import: In Git Bash run "git status". You should get a message like "nothing to commit, working tree clean". If you don't see this, reach out to me before you commit anything.
+
+
+
+WHAT TO DO EVERY TIME YOU WORK ON THE PROJECT
 
 1. Open Git Bash
 
@@ -7,15 +34,23 @@ What to do every time you are working on the project
 
 3. Run "git pull" to get any git commits before opening Unity.
 
-4. EVERY TIME after working in Unity, save the project in Unity, then in Git Bash (which would ideally remain open the whole time, if not make sure you're in the repository file) run the command "git status". You should see a list of the files that you modified. If, for the most part, they match up to the scripts/assets you were managing, that should be ok.
+7. Create your own branch (NEVER work directly on the main branch):
+- "git checkout main"
+- "git pull origin main"
+- "git checkout -b workflow/FIRST_NAME-LAST_NAME" (optionally, start with your first name and then list what you are working on that session, like this: "git checkout -b Jacob/finalized-movement-script")
+
+4. Work in Unity
+
+5. EVERY TIME after working in Unity, save the project in Unity, then in Git Bash (which would ideally remain open the whole time, if not make sure you're in the repository file) run the command "git status". You should see a list of the files that you modified. If, for the most part, they match up to the scripts/assets you were managing, that should be ok.
 
 5. Next, run "git add .", which will prepare the changes you made to be ready for a push to the branch.
 
 6. Then, run "git commit -m" followed by a quoted message that describes what changes were made to the branch (Ex: git commit -m "Finalized movement scripting and began script for dialogue").
 
-7. After that, you should get a message with the number of changes made to each file. Then, run "git push" and you should see a final checklist of everything that was pushed or not.
+7. After that, you should get a message with the number of changes made to each file. Then, run "git push -u origin" followed by the branch name (e.g. "git push -u origin Jacob/finalized-movement-script"). You should see a final checklist of everything that was pushed or not.
 
-8. IMPORTANT: SINCE WE WILL ALL BE WORKING ON THIS PROJECT SIMULTANEOUSLY, WE WILL RUN INTO SITUATIONS WHERE THE CHANGES MAY OVERRIDE ONE ANOTHER
+8. To verify it pushed, one final time run "git push". If it reads up-to-date, it should be good to go!
 
+9. Finally, go to GitHub and find the branch you made. Click on it, and you should see an option at the top that says "Compare and pull result". Click on it. This should take you to a new page where you see what the title was that you gave in Git Bash (which you can change if you want), a description you can add, and the changes made to the file. Also, verify above the file that the base is set to main and the compare is set to your branch title.
 
-BRANCHING - TESTING CREATING NEW BRANCH AND MERGING
+10. Verify all of that, and find the button that says "Create pull request". Give it a second to ensure there are no conflicts with the base branch, and then click "Merge pull request". Click "Confirm merge" and then delete the branch.
