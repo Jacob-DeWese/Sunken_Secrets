@@ -87,6 +87,7 @@ namespace DigitalWorlds.StarterPackage3D
         private bool isGrounded;
         private bool wasRunning;
         private bool canMove = true;
+        private Vector3 cameraOffset;
 
         public void EnableMovement(bool movementEnabled)
         {
@@ -109,6 +110,7 @@ namespace DigitalWorlds.StarterPackage3D
             rb = GetComponent<Rigidbody>();
             yaw = transform.eulerAngles.y;
             currentCameraDistance = cameraDistance;
+            cameraOffset = cameraTransform.position - cameraPivot.position;
 
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -140,11 +142,28 @@ namespace DigitalWorlds.StarterPackage3D
             moveInput = cameraTransform.forward * vertical + cameraTransform.right * horizontal;
             moveInput.y = 0;
 
-            if (moveInput.sqrMagnitude > 0.01f) // Prevents rotating when input is very low
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(moveInput);
-                rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * rotationSpeed));
+            // if (moveInput.sqrMagnitude > 0.01f) // Prevents rotating when input is very low
+            // {
+            //     Quaternion targetRotation = Quaternion.LookRotation(moveInput);
+            //     rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * rotationSpeed));
 
+            //     if (animator != null)
+            //     {
+            //         animator.SetBool(animationParameters.IsRunning, true);
+            //     }
+            // }
+            // else
+            // {
+            //     rb.angularVelocity = Vector3.zero;
+
+            //     if (animator != null)
+            //     {
+            //         animator.SetBool(animationParameters.IsRunning, false);
+            //     }
+            // }
+
+            if (moveInput.sqrMagnitude > 0.01f)
+            {
                 if (animator != null)
                 {
                     animator.SetBool(animationParameters.IsRunning, true);
@@ -152,13 +171,12 @@ namespace DigitalWorlds.StarterPackage3D
             }
             else
             {
-                rb.angularVelocity = Vector3.zero;
-
                 if (animator != null)
                 {
                     animator.SetBool(animationParameters.IsRunning, false);
                 }
             }
+
 
             // Handle jump input
             if (Input.GetButtonDown("Jump") && canMove)
@@ -273,29 +291,35 @@ namespace DigitalWorlds.StarterPackage3D
             }
         }
 
+        // private void HandleCamera()
+        // {
+        //     if (!lockCamera)
+        //     {
+        //         yaw += Input.GetAxis("Mouse X") * sensitivity;
+        //         pitch -= Input.GetAxis("Mouse Y") * sensitivity;
+        //         pitch = Mathf.Clamp(pitch, -30f, 60f);
+        //     }
+
+        //     Quaternion cameraRotation = Quaternion.Euler(pitch, yaw, 0);
+        //     Vector3 desiredPosition = cameraPivot.position - (cameraRotation * Vector3.forward * cameraDistance);
+
+        //     if (Physics.Raycast(cameraPivot.position, (desiredPosition - cameraPivot.position).normalized, out RaycastHit hit, maxDistance))
+        //     {
+        //         float targetDistance = Mathf.Clamp(hit.distance - 0.5f, minDistance, maxDistance);
+        //         currentCameraDistance = Mathf.Lerp(currentCameraDistance, targetDistance, Time.deltaTime * cameraDistanceSpeed);
+        //     }
+        //     else
+        //     {
+        //         currentCameraDistance = Mathf.Lerp(currentCameraDistance, maxDistance, Time.deltaTime * cameraDistanceSpeed);
+        //     }
+
+        //     cameraTransform.position = cameraPivot.position - (cameraRotation * Vector3.forward * currentCameraDistance);
+        //     cameraTransform.LookAt(cameraPivot);
+        // }
+
         private void HandleCamera()
         {
-            if (!lockCamera)
-            {
-                yaw += Input.GetAxis("Mouse X") * sensitivity;
-                pitch -= Input.GetAxis("Mouse Y") * sensitivity;
-                pitch = Mathf.Clamp(pitch, -30f, 60f);
-            }
-
-            Quaternion cameraRotation = Quaternion.Euler(pitch, yaw, 0);
-            Vector3 desiredPosition = cameraPivot.position - (cameraRotation * Vector3.forward * cameraDistance);
-
-            if (Physics.Raycast(cameraPivot.position, (desiredPosition - cameraPivot.position).normalized, out RaycastHit hit, maxDistance))
-            {
-                float targetDistance = Mathf.Clamp(hit.distance - 0.5f, minDistance, maxDistance);
-                currentCameraDistance = Mathf.Lerp(currentCameraDistance, targetDistance, Time.deltaTime * cameraDistanceSpeed);
-            }
-            else
-            {
-                currentCameraDistance = Mathf.Lerp(currentCameraDistance, maxDistance, Time.deltaTime * cameraDistanceSpeed);
-            }
-
-            cameraTransform.position = cameraPivot.position - (cameraRotation * Vector3.forward * currentCameraDistance);
+            cameraTransform.position = cameraPivot.position + cameraOffset;
             cameraTransform.LookAt(cameraPivot);
         }
 
