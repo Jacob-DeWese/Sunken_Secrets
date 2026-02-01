@@ -8,6 +8,8 @@ TagManager:
   - Death
   - Health
   - PlayerAttack
+  - NPC_Required
+  - NPC_Optional
   layers:
   - Default
   - TransparentFX
