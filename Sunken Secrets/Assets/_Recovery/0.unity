@@ -260,8 +260,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 0.09357579, z: 9.999999}
-  m_Center: {x: 0, y: -0.046787877, z: 0.0000000021749575}
+  m_Size: {x: 10, y: 2.2204458e-16, z: 9.999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &347782059
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,9 +544,6 @@ GameObject:
   - component: {fileID: 1052500499}
   - component: {fileID: 1052500498}
   - component: {fileID: 1052500500}
-  - component: {fileID: 1052500501}
-  - component: {fileID: 1052500503}
-  - component: {fileID: 1052500502}
   m_Layer: 0
   m_Name: Player_Character
   m_TagString: Untagged
@@ -563,12 +560,11 @@ Transform:
   m_GameObject: {fileID: 1052500495}
   serializedVersion: 2
   m_LocalRotation: {x: -0.60876137, y: -0, z: -0, w: 0.7933534}
-  m_LocalPosition: {x: -17.29, y: 0.976, z: 2.95}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.12, y: 1, z: 0.20000002}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1676150039}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 1149526587}
   m_LocalEulerAnglesHint: {x: -75, y: 0, z: 0}
 --- !u!23 &1052500498
 MeshRenderer:
@@ -645,89 +641,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 0.08224747, z: 10}
-  m_Center: {x: 0, y: -0.04112436, z: -0.00000059592196}
---- !u!114 &1052500501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052500495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29fc4e9aec236d94281131bb0567bab7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC_Tracking
-  npcs:
-  - {fileID: 1430451220}
-  - {fileID: 2021667450}
-  - {fileID: 206935606}
-  required_npcs: []
-  ocean: {fileID: 1775080957}
---- !u!54 &1052500502
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052500495}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &1052500503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052500495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70df0d5270aa659479c4a7c50eb007c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.StarterPackage3D.ThirdPersonController
-  animator: {fileID: 0}
-  animationParameters:
-    IsRunning: IsRunning
-    Jump: Jump
-  groundCheck: {fileID: 1676150039}
-  groundCheckRadius: 0.2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  movementSpeed: 5
-  sprintMultiplier: 1.5
-  rotationSpeed: 15
-  jumps: 1
-  jumpForce: 5
-  jumpBuffer: 0.075
-  coyoteTime: 0.125
-  lockCamera: 0
-  sensitivity: 2
-  cameraPivot: {fileID: 1052500496}
-  cameraTransform: {fileID: 1686098129}
-  cameraDistance: 5
-  minDistance: 1
-  maxDistance: 5
-  cameraDistanceSpeed: 15
+  m_Size: {x: 10, y: 2.2204458e-16, z: 9.999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1149526586
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,13 +654,14 @@ GameObject:
   - component: {fileID: 1149526587}
   - component: {fileID: 1149526588}
   - component: {fileID: 1149526589}
+  - component: {fileID: 1149526590}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1149526587
 Transform:
   m_ObjectHideFlags: 0
@@ -758,7 +674,9 @@ Transform:
   m_LocalPosition: {x: -17.29, y: 0.976, z: 2.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1052500496}
+  - {fileID: 1676150039}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1149526588
@@ -824,6 +742,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1149526590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149526586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fc4e9aec236d94281131bb0567bab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPC_Tracking
+  npcs:
+  - {fileID: 1430451220}
+  - {fileID: 2021667450}
+  - {fileID: 206935606}
+  required_npcs: []
+  ocean: {fileID: 1775080957}
 --- !u!1 &1180530248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,8 +1123,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 0.08111485, z: 9.999999}
-  m_Center: {x: 0, y: -0.040557407, z: -0.0000000021872353}
+  m_Size: {x: 10, y: 2.2204458e-16, z: 9.999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1589588281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,12 +1359,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676150038}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.020475686, z: -5.076479}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.60876137, y: -0, z: -0, w: 0.7933534}
+  m_LocalPosition: {x: 0, y: -0.986, z: -0.243}
+  m_LocalScale: {x: 0.12, y: 1, z: 0.20000003}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1052500496}
+  m_Father: {fileID: 1149526587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1686098126
 GameObject:
@@ -2088,8 +2024,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 0.08762079, z: 9.999999}
-  m_Center: {x: 0, y: -0.04381035, z: 5.8764815e-10}
+  m_Size: {x: 10, y: 2.2204458e-16, z: 9.999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2042318997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,6 +2326,5 @@ SceneRoots:
   - {fileID: 347782061}
   - {fileID: 2015977928}
   - {fileID: 1636958756}
-  - {fileID: 1052500496}
   - {fileID: 1149526587}
   - {fileID: 2042318998}
