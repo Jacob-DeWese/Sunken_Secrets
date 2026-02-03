@@ -1,0 +1,2 @@
+[NAME=Fisherman] Good morning.
+[NAME=NPC #1] Hello there!
