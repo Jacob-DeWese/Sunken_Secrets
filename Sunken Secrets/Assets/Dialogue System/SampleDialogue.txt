@@ -1,2 +1,2 @@
-[NAME=Fisherman] Good morning.
-[NAME=NPC #1] Hello there!
+[NAME=Caspian][SPEAKERSPRITE=Caspian] Good morning.
+[NAME=Will][SPEAKERSPRITE=Will] Go-go gadget remove water!!!!!!!!!!
