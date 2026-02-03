@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 0bd7918ba27e4a749b753ffda7b12b8a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - speakerLibrary: {fileID: 11400000, guid: 2dfcf5339e64fcd49a8074e1b0a46e4f, type: 2}
+  - dialogueParent: {fileID: 5578019121351468707, guid: 3623f48a075daf64396367ec4f08d4b9, type: 3}
+  - textBox: {instanceID: 0}
+  - nameText: {instanceID: 0}
+  - speakerImage: {instanceID: 0}
+  - continueImage: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
