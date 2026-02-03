@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PROTOTYPE Speaker Library
   m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.Dialogue.SpeakerLibrary
   speakerList:
-  - name: Fisherman
-    sprite: {fileID: 0}
-    nameColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
-    textColor: {r: 1, g: 1, b: 1, a: 1}
-  - name: NPC #1
-    sprite: {fileID: 0}
-    nameColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Caspian
+    sprite: {fileID: 21300000, guid: 6924da0c75abccf4786a097a8f05f30f, type: 3}
+    nameColor: {r: 0, g: 0.14643176, b: 0.59119487, a: 1}
+    textColor: {r: 0, g: 0.14509805, b: 0.5921569, a: 1}
+  - name: Will
+    sprite: {fileID: 21300000, guid: 5c213f6f2537c744e962c22b27ff0ef5, type: 3}
+    nameColor: {r: 0, g: 0, b: 0, a: 1}
+    textColor: {r: 0, g: 0, b: 0, a: 1}
