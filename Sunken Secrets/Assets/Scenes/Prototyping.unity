@@ -920,12 +920,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.Dialogue.DialogueTrigger
   buttonInput: 271
   dialogueManager: {fileID: 5331053125059052410}
-  textFile: {fileID: 4900000, guid: 59ad53baa154aac4aa75c17f0d98488a, type: 3}
+  primaryDialogue: {fileID: 0}
+  realignDialogue: []
   tagName: Player
   waitTime: 0.5
   singleUse: 0
   triggerType: 1
   hasBeenUsed: 0
+  primaryFileUsed: 0
   triggerEvents:
     onDialogueBegan:
       m_PersistentCalls:
@@ -1313,12 +1315,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.Dialogue.DialogueTrigger
   buttonInput: 101
   dialogueManager: {fileID: 5331053125059052410}
-  textFile: {fileID: 4900000, guid: 59ad53baa154aac4aa75c17f0d98488a, type: 3}
+  primaryDialogue: {fileID: 4900000, guid: 59ad53baa154aac4aa75c17f0d98488a, type: 3}
+  realignDialogue:
+  - {fileID: 4900000, guid: 59b1c71f600b3bd489916898ecd84d64, type: 3}
+  - {fileID: 4900000, guid: 89ca046af260e6c47b2ff959d598632d, type: 3}
   tagName: Player
   waitTime: 0.5
   singleUse: 0
   triggerType: 0
   hasBeenUsed: 0
+  primaryFileUsed: 0
   triggerEvents:
     onDialogueBegan:
       m_PersistentCalls:

@@ -5,6 +5,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace DigitalWorlds.Dialogue
 {
@@ -34,7 +35,10 @@ namespace DigitalWorlds.Dialogue
         [SerializeField] private DialogueManager dialogueManager;
 
         [Tooltip("Drag in the text file for this dialogue.")]
-        [SerializeField] private TextAsset textFile;
+        [SerializeField] private TextAsset primaryDialogue;
+
+        [Tooltip("Enter the text files for dialogue that the NPC will say to get the player to leave")]
+        [SerializeField] private List<TextAsset> realignDialogue = new();
 
         [Tooltip("Enter the tag name that should register collisions.")]
         [SerializeField] private string tagName = "Player";
@@ -49,6 +53,8 @@ namespace DigitalWorlds.Dialogue
         [SerializeField] private TriggerType triggerType;
 
         [HideInInspector] public bool hasBeenUsed = false;
+
+        [SerializeField] private bool primaryFileUsed = false;
 
         [SerializeField] private DialogueTriggerEvents triggerEvents;
 
@@ -71,7 +77,7 @@ namespace DigitalWorlds.Dialogue
 
         private void Update()
         {
-            if (Input.GetKeyDown(buttonInput) && !hasBeenUsed)
+            if (Input.GetKeyDown(buttonInput))
             {
                 if (dialogueManager.IsInDialogue && dialogueManager.CurrentTrigger != this)
                 {
@@ -106,6 +112,7 @@ namespace DigitalWorlds.Dialogue
             ReadTextFile();
             dialogueManager.StartDialogue(dialogue);
             triggerEvents.onDialogueBegan.Invoke();
+            hasBeenUsed = true;
         }
 
         public void DialogueEnded()
@@ -116,7 +123,27 @@ namespace DigitalWorlds.Dialogue
         private void ReadTextFile()
         {
             dialogue.Clear();
-            string txt = textFile.text;
+
+            // Makes it so once the primaryDialogue asset is used it can't be used again, then it randomly parses through the realignDialogue script
+            // to guide players to go to their next objective
+            TextAsset fileToUse;
+
+            if (!primaryFileUsed && primaryDialogue != null)
+            {
+                fileToUse = primaryDialogue;
+                primaryFileUsed = true;
+            }
+            else if (realignDialogue != null && realignDialogue.Count > 0)
+            {
+                int i = Random.Range(0, realignDialogue.Count);
+                fileToUse = realignDialogue[i];
+            }
+            else
+            {
+                return;
+            }
+
+            string txt = fileToUse.text;
             string[] lines = txt.Split(new[] { '\r', '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
 
             foreach (string line in lines)
@@ -149,7 +176,7 @@ namespace DigitalWorlds.Dialogue
 
         private void OnTriggerEnter(Collider other)
         {
-            if (string.IsNullOrEmpty(tagName) || (other.CompareTag(tagName) && !hasBeenUsed))
+            if (string.IsNullOrEmpty(tagName) || (other.CompareTag(tagName) && (!singleUse || !hasBeenUsed)))
             {
                 if (triggerType == TriggerType.TriggerCollision)
                 {
