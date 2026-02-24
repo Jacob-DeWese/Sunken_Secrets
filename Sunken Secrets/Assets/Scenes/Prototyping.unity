@@ -177,13 +177,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162035528}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1106556185}
-  m_Father: {fileID: 2078180437}
+  m_Father: {fileID: 1010248261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -674,13 +674,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520626254}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 398776201}
-  m_Father: {fileID: 2078180437}
+  m_Father: {fileID: 1010248261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1196,7 +1196,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 1686098128}
   m_PlaneDistance: 1
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -1258,6 +1258,8 @@ RectTransform:
   m_Children:
   - {fileID: 1136276947}
   - {fileID: 1994259989}
+  - {fileID: 162035529}
+  - {fileID: 520626255}
   m_Father: {fileID: 2078180437}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1477,7 +1479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.Dialogue.DialogueTrigger
   buttonInput: 271
-  dialogueManager: {fileID: 5331053125059052410}
+  dialogueManager: {fileID: 0}
   primaryDialogue: {fileID: 4900000, guid: 59ad53baa154aac4aa75c17f0d98488a, type: 3}
   realignDialogue:
   - {fileID: 4900000, guid: 59b1c71f600b3bd489916898ecd84d64, type: 3}
@@ -1510,12 +1512,12 @@ MonoBehaviour:
   npcsWithDialogue:
   - {fileID: 1430451220}
   npcJournalHeadshot:
-  - {fileID: 1429463651}
+  - {fileID: 0}
   cluesFromNPCS:
   - {fileID: 4900000, guid: 59ad53baa154aac4aa75c17f0d98488a, type: 3}
   journalText: {fileID: 1406308243}
   characterNameText: {fileID: 811111405}
-  journalParent: {fileID: 2078180436}
+  journalParent: {fileID: 1010248260}
   nextButton: {fileID: 162035528}
   prevButton: {fileID: 520626254}
 --- !u!1 &1106556184
@@ -2324,7 +2326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.Dialogue.DialogueTrigger
   buttonInput: 101
-  dialogueManager: {fileID: 5331053125059052410}
+  dialogueManager: {fileID: 0}
   primaryDialogue: {fileID: 4900000, guid: 59ad53baa154aac4aa75c17f0d98488a, type: 3}
   realignDialogue:
   - {fileID: 4900000, guid: 59b1c71f600b3bd489916898ecd84d64, type: 3}
@@ -3432,8 +3434,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1010248261}
-  - {fileID: 162035529}
-  - {fileID: 520626255}
   m_Father: {fileID: 946710679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
