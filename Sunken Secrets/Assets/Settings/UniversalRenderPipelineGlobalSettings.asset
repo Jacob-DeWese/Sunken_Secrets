@@ -62,9 +62,21 @@ MonoBehaviour:
       - rid: 4047952633415860230
       - rid: 4047952633415860231
       - rid: 4047952633415860232
+<<<<<<< HEAD
       - rid: 768341488133734400
       - rid: 768341488133734401
       - rid: 768341488133734402
+=======
+<<<<<<< HEAD
+      - rid: 839401667553132618
+      - rid: 839401667553132619
+      - rid: 839401667553132620
+=======
+      - rid: 839401667553132544
+      - rid: 839401667553132545
+      - rid: 839401667553132546
+>>>>>>> cff6595c9c3316a2596ad8048d7356ad3fa8a59c
+>>>>>>> 3622e7c8ece77b358bb3677d11bdb7747c8e8b0a
     m_RuntimeSettings:
       m_List: []
   m_AssetVersion: 9
@@ -97,7 +109,15 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+<<<<<<< HEAD
     - rid: 768341488133734400
+=======
+<<<<<<< HEAD
+    - rid: 839401667553132618
+=======
+    - rid: 839401667553132544
+>>>>>>> cff6595c9c3316a2596ad8048d7356ad3fa8a59c
+>>>>>>> 3622e7c8ece77b358bb3677d11bdb7747c8e8b0a
       type: {class: RayTracingRenderPipelineResources, ns: UnityEngine.Rendering.UnifiedRayTracing, asm: Unity.UnifiedRayTracing.Runtime}
       data:
         m_Version: 1
@@ -110,12 +130,28 @@ MonoBehaviour:
         m_BuildHlbvh: {fileID: 7200000, guid: 2d70cd6be91bd7843a39a54b51c15b13, type: 3}
         m_RestructureBvh: {fileID: 7200000, guid: 56641cb88dcb31a4398a4997ef7a7a8c, type: 3}
         m_Scatter: {fileID: 7200000, guid: a2eaeefdac4637a44b734e85b7be9186, type: 3}
+<<<<<<< HEAD
     - rid: 768341488133734401
+=======
+<<<<<<< HEAD
+    - rid: 839401667553132619
+=======
+    - rid: 839401667553132545
+>>>>>>> cff6595c9c3316a2596ad8048d7356ad3fa8a59c
+>>>>>>> 3622e7c8ece77b358bb3677d11bdb7747c8e8b0a
       type: {class: OnTilePostProcessResource, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
         m_Version: 0
         m_UberPostShader: {fileID: 4800000, guid: fe4f13c1004a07d4ea1e30bfd0326d9e, type: 3}
+<<<<<<< HEAD
     - rid: 768341488133734402
+=======
+<<<<<<< HEAD
+    - rid: 839401667553132620
+=======
+    - rid: 839401667553132546
+>>>>>>> cff6595c9c3316a2596ad8048d7356ad3fa8a59c
+>>>>>>> 3622e7c8ece77b358bb3677d11bdb7747c8e8b0a
       type: {class: URPReflectionProbeSettings, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
         version: 1
