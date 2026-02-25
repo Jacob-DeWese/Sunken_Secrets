@@ -233,7 +233,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 162035531}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1052500505}
+        m_TargetAssemblyTypeName: UI_Dialogue_Logic_Manager, Assembly-CSharp
+        m_MethodName: prevPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &162035531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,7 +742,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 520626257}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1052500505}
+        m_TargetAssemblyTypeName: UI_Dialogue_Logic_Manager, Assembly-CSharp
+        m_MethodName: nextPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &520626257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1279,7 +1303,6 @@ GameObject:
   - component: {fileID: 1052500499}
   - component: {fileID: 1052500498}
   - component: {fileID: 1052500500}
-  - component: {fileID: 1052500504}
   - component: {fileID: 1052500501}
   - component: {fileID: 1052500505}
   - component: {fileID: 1052500503}
@@ -1466,37 +1489,6 @@ MonoBehaviour:
   minDistance: 1
   maxDistance: 5
   cameraDistanceSpeed: 15
---- !u!114 &1052500504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052500495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a272d8bcac779e94daa97c703328eeb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.Dialogue.DialogueTrigger
-  buttonInput: 271
-  dialogueManager: {fileID: 0}
-  primaryDialogue: {fileID: 4900000, guid: 59ad53baa154aac4aa75c17f0d98488a, type: 3}
-  realignDialogue:
-  - {fileID: 4900000, guid: 59b1c71f600b3bd489916898ecd84d64, type: 3}
-  - {fileID: 4900000, guid: 89ca046af260e6c47b2ff959d598632d, type: 3}
-  tagName: Player
-  waitTime: 0.5
-  singleUse: 0
-  triggerType: 1
-  hasBeenUsed: 0
-  primaryFileUsed: 0
-  triggerEvents:
-    onDialogueBegan:
-      m_PersistentCalls:
-        m_Calls: []
-    onDialogueEnded:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!114 &1052500505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1511,15 +1503,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI_Dialogue_Logic_Manager
   npcsWithDialogue:
   - {fileID: 1430451220}
+  - {fileID: 2021667450}
   npcJournalHeadshot:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 5c213f6f2537c744e962c22b27ff0ef5, type: 3}
+  - {fileID: 21300000, guid: 9c22fce4ad6be504caea291b8ce118fe, type: 3}
+  headshotImage: {fileID: 1429463651}
   cluesFromNPCS:
   - {fileID: 4900000, guid: 59ad53baa154aac4aa75c17f0d98488a, type: 3}
+  - {fileID: 4900000, guid: c645e8ea288f23141945c53086f64af3, type: 3}
   journalText: {fileID: 1406308243}
   characterNameText: {fileID: 811111405}
   journalParent: {fileID: 1010248260}
-  nextButton: {fileID: 162035528}
-  prevButton: {fileID: 520626254}
+  nextButton: {fileID: 520626254}
+  prevButton: {fileID: 162035528}
 --- !u!1 &1106556184
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,7 +2322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.Dialogue.DialogueTrigger
   buttonInput: 101
-  dialogueManager: {fileID: 0}
+  dialogueManager: {fileID: 5331053125059052410}
   primaryDialogue: {fileID: 4900000, guid: 59ad53baa154aac4aa75c17f0d98488a, type: 3}
   realignDialogue:
   - {fileID: 4900000, guid: 59b1c71f600b3bd489916898ecd84d64, type: 3}
@@ -3266,9 +3262,10 @@ GameObject:
   - component: {fileID: 2021667451}
   - component: {fileID: 2021667454}
   - component: {fileID: 2021667453}
+  - component: {fileID: 2021667456}
   - component: {fileID: 2021667455}
   m_Layer: 0
-  m_Name: NPC_Test (1)
+  m_Name: Evil_Caspian
   m_TagString: NPC_Optional
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3367,6 +3364,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 0.08762079, z: 9.999999}
   m_Center: {x: 0, y: -0.04381035, z: 5.8764815e-10}
+--- !u!114 &2021667456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021667450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a272d8bcac779e94daa97c703328eeb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.Dialogue.DialogueTrigger
+  buttonInput: 101
+  dialogueManager: {fileID: 5331053125059052410}
+  primaryDialogue: {fileID: 4900000, guid: c645e8ea288f23141945c53086f64af3, type: 3}
+  realignDialogue:
+  - {fileID: 4900000, guid: 02478a7a53c520e44af962f12a58ae1c, type: 3}
+  - {fileID: 4900000, guid: 0b64176d3877a044e99edc857b795995, type: 3}
+  tagName: Player
+  waitTime: 0.5
+  singleUse: 0
+  triggerType: 0
+  hasBeenUsed: 0
+  primaryFileUsed: 0
+  triggerEvents:
+    onDialogueBegan:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueEnded:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &2042318997
 GameObject:
   m_ObjectHideFlags: 0
