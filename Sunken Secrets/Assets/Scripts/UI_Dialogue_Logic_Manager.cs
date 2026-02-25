@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.UI;
 using TMPro;
+using System.Reflection;
 
 public class UI_Dialogue_Logic_Manager : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class UI_Dialogue_Logic_Manager : MonoBehaviour
     [SerializeField] protected List<GameObject> npcsWithDialogue = new();
 
     [Tooltip("List for all the images that each NPC will have in the journal")]
-    [SerializeField] protected List<Image> npcJournalHeadshot = new();
+    [SerializeField] protected List<Sprite> npcJournalHeadshot = new();
+
+    [SerializeField] private Image headshotImage;
 
     [Tooltip("List for all the clues that the npcsWithDialogue list will have")]
     [SerializeField] protected List<TextAsset> cluesFromNPCS = new();
@@ -60,12 +63,9 @@ public class UI_Dialogue_Logic_Manager : MonoBehaviour
         for (int i = 0; i < npcsWithDialogue.Count; i++)
         {
             journal.Add(npcsWithDialogue[i].name, new List<string>());
-
-            if (i < npcJournalHeadshot.Count)
-            {
-                npcJournalHeadshot[i].gameObject.SetActive(false);
-            }
         }
+
+        headshotImage.gameObject.SetActive(false);
 
         journalText.text = "";
         characterNameText.text = "";
@@ -139,16 +139,18 @@ public class UI_Dialogue_Logic_Manager : MonoBehaviour
                 journalText.text = "";
                 characterNameText.text = "";
 
-                if (currentNpcIndex < npcJournalHeadshot.Count)
-                {
-                    npcJournalHeadshot[currentNpcIndex].gameObject.SetActive(false);
-                }
+                headshotImage.gameObject.SetActive(false);
             }
             else
             {
                 if (currentNpcIndex < npcJournalHeadshot.Count)
                 {
-                    npcJournalHeadshot[currentNpcIndex].gameObject.SetActive(true);
+                    headshotImage.sprite = npcJournalHeadshot[currentNpcIndex];
+                    headshotImage.gameObject.SetActive(true);
+                }
+                else
+                {
+                    headshotImage.gameObject.SetActive(false);
                 }
 
                 journalText.text = string.Join("\n\n", clues);

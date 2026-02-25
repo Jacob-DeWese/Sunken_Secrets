@@ -1,0 +1,1 @@
+[NAME=Evil Caspian][SPEAKERSPRITE=Evil Caspian] Did it work?

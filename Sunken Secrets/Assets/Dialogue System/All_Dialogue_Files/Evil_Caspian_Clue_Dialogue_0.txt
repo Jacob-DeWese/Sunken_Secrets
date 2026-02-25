@@ -1,0 +1,2 @@
+[NAME=Caspian][SPEAKERSPRITE=Caspian] Good morning.
+[NAME=Evil Caspian][SPEAKERSPRITE=Evil Caspian] I'm just here to test the journal lmao
