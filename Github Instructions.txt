@@ -6,8 +6,8 @@ INSTRUCTIONS FOR FIRST TIME SET-UP
 
 3. Open this file in the repository: "ProjectSettings/ProjectVersion.txt"
 - Verify you see this: 
-m_EditorVersion: 6000.2.6f2
-m_EditorVersionWithRevision: 6000.2.6f2 (4a4dcaec6541)
+m_EditorVersion: 6000.3.8f1
+m_EditorVersionWithRevision: 6000.3.8f1 (1c7db571dde0)
 
 4. If you see the above in ProjectVersion.txt, then in Unity Hub got to Installs -> Add. Install that exact Unity version (6000.2.6f2) with these extensions:
 - Microsoft Visual Studio Community 2022

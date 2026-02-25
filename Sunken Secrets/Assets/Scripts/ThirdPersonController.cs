@@ -112,7 +112,8 @@ namespace DigitalWorlds.StarterPackage3D
             currentCameraDistance = cameraDistance;
             cameraOffset = cameraTransform.position - cameraPivot.position;
 
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         private void Update()
