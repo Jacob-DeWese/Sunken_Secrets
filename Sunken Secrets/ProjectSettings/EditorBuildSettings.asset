@@ -6,8 +6,29 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Prototyping.unity
-    guid: bffcf4b7586581b4bb03e0b3163c1bc0
+    path: Assets/Scenes/Game Scenes/Main_Menu.unity
+    guid: 4b3aeebee5ab0a34a872e906e404bc01
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Level-Day 1.unity
+    guid: d82a9fdc2a96deb40b7ddf9e7888b0e6
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Level-Day 2.unity
+    guid: 297a8a09889eed047b54dabe4a456b9c
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Level-Day 3.unity
+    guid: 7866bd32c4d979b46a8b7efd3c5220f5
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Level-Day 4 (Morning).unity
+    guid: 8b92af8dd05fb6946a3e6d0fe70eb492
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Level-Day 4 (Good Ending).unity
+    guid: 7ac03fe61a2c6b84a851c29cdbe5fad8
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Level-Day 4 (Bad Ending).unity
+    guid: f351bab189b60874fb26467964df09a3
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Credits_Screen.unity
+    guid: 58658f1d1eb0f6c45a5dd089a5a74fd2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
