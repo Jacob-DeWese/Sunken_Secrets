@@ -2,6 +2,7 @@
 // University of Florida's Digital Worlds Institute
 // Written by Logan Kemper
 
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace DigitalWorlds.StarterPackage3D
@@ -74,6 +75,13 @@ namespace DigitalWorlds.StarterPackage3D
         [Tooltip("How fast the camera will move in or out when colliding with obstacles.")]
         [SerializeField] private float cameraDistanceSpeed = 15f;
 
+        [SerializeField] private float stepHeight = 0.5f;
+        [SerializeField] private float stepSmooth = 8f;
+
+        [Header("Step Settings (Collider Reference)")]
+        [Tooltip("Assign the main collider on the player")]
+        [SerializeField] private CapsuleCollider mainCollider;
+
         private Rigidbody rb;
         private Vector3 moveInput;
         private float pitch = 0f;
@@ -108,6 +116,11 @@ namespace DigitalWorlds.StarterPackage3D
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
+            if (!mainCollider)
+            {
+                mainCollider = GetComponent<CapsuleCollider>();
+            }
+
             yaw = transform.eulerAngles.y;
             currentCameraDistance = cameraDistance;
             cameraOffset = cameraTransform.position - cameraPivot.position;
@@ -205,6 +218,37 @@ namespace DigitalWorlds.StarterPackage3D
         {
             // Keep track of whether the player was on the ground last FixedUpdate frame
             bool wasGrounded = isGrounded;
+
+            // Step up logic
+
+            if (canMove && moveInput.sqrMagnitude > 0.01f && mainCollider != null)
+            {
+                Vector3 forward2D = moveInput.normalized;
+
+                float feetY = mainCollider.bounds.min.y;
+                Vector3 feet = new Vector3(transform.position.x, feetY + 0.05f, transform.position.z);
+
+                float forwardOffset = mainCollider.radius + 0.02f;
+                Vector3 origin = feet + forward2D * forwardOffset;
+
+                float maxDistance = Mathf.Max(0.7f, mainCollider.radius + 0.2f);
+
+                if (Physics.Raycast(origin, forward2D, out RaycastHit hit, maxDistance, ~0, QueryTriggerInteraction.Ignore))
+                {
+                    float obstacleHeight = hit.point.y - feetY;
+
+                    if (obstacleHeight > 0f && obstacleHeight <= stepHeight)
+                    {
+                        Vector3 targetPos = new Vector3(transform.position.x, transform.position.y + obstacleHeight, transform.position.z);
+                        Vector3 lerpedPos = Vector3.Lerp(transform.position, targetPos, Time.fixedDeltaTime * stepSmooth);
+                        rb.MovePosition(lerpedPos);
+                    }
+                }
+
+                // (Optional) visualize the ray:
+                // Debug.DrawRay(origin, forward2D * maxDistance, Color.yellow);
+            }
+
 
             // Check if the player is on the ground during this FixedUpdate frame
             isGrounded = CheckIfGrounded();
