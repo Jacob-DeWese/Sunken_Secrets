@@ -10,6 +10,7 @@ TagManager:
   - PlayerAttack
   - NPC_Required
   - NPC_Optional
+  - Collectible
   layers:
   - Default
   - TransparentFX
