@@ -119,6 +119,177 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &132798144
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7099446582199311964, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099446582199311964, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099446582199311964, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099446582199311964, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099446582199311964, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099446582199311964, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099446582199311964, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099446582199311964, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099446582199311964, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099446582199311964, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623923062436103398, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-11-tile 10 - above water 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e127ab0bac849ef4b99af80e0151de42, type: 3}
+--- !u!1001 &135266046
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 289810867560519725, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-13-tile 11 - above water 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102904575944180375, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102904575944180375, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102904575944180375, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102904575944180375, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102904575944180375, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102904575944180375, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102904575944180375, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102904575944180375, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102904575944180375, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102904575944180375, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b9a63be0b6379674a8517b974d4728a6, type: 3}
+--- !u!1001 &237936799
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1280170164302836456, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-12-water 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913963148539504722, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913963148539504722, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913963148539504722, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913963148539504722, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913963148539504722, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913963148539504722, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913963148539504722, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913963148539504722, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913963148539504722, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913963148539504722, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 69d8d3defa975604dadbdad80f1c3ac2, type: 3}
 --- !u!1 &550671804
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550671806}
   - component: {fileID: 550671805}
+  - component: {fileID: 550671807}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -216,6 +388,92 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &550671807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550671804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
+--- !u!1001 &815968036
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3582122310863172713, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582122310863172713, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582122310863172713, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582122310863172713, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582122310863172713, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582122310863172713, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582122310863172713, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582122310863172713, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582122310863172713, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582122310863172713, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250714082542382803, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-6-tile 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b439adffbe2bd1b45a769e0deae554b2, type: 3}
 --- !u!1 &886925274
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,9 +566,709 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &889005340
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 188006227614850752, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188006227614850752, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188006227614850752, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188006227614850752, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 188006227614850752, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188006227614850752, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188006227614850752, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188006227614850752, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188006227614850752, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188006227614850752, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707133338703037562, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-10-water 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5aebde346582d794db9b2d495a2f4047, type: 3}
+--- !u!1001 &950251482
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3913547680815621774, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-8-tile 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396751620946394164, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396751620946394164, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396751620946394164, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396751620946394164, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396751620946394164, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396751620946394164, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396751620946394164, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396751620946394164, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396751620946394164, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396751620946394164, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f98781e5b6af1b4988c74a107e8d2d3, type: 3}
+--- !u!1001 &1027620539
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 159675876403067383, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-0-tile 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 683589406699053901, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 683589406699053901, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 683589406699053901, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 683589406699053901, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 683589406699053901, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 683589406699053901, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 683589406699053901, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 683589406699053901, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 683589406699053901, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 683589406699053901, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cceffc480f6c9054a93a908f17145394, type: 3}
+--- !u!1001 &1079378702
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8346280946818058994, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346280946818058994, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346280946818058994, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346280946818058994, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346280946818058994, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346280946818058994, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346280946818058994, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346280946818058994, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346280946818058994, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346280946818058994, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689733828291579976, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-4-tile 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 251ccee4f742e55428bedce386b5ff0c, type: 3}
+--- !u!1001 &1131595123
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 10264010495722533, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-9-tile 9 - above water 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 824061685699567263, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 824061685699567263, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 824061685699567263, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 824061685699567263, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 824061685699567263, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 824061685699567263, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 824061685699567263, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 824061685699567263, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 824061685699567263, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 824061685699567263, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eb5e467417da69546888e0654e7c678b, type: 3}
+--- !u!1001 &1218410342
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2783447541423371890, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-14-water 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308767377692896456, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308767377692896456, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308767377692896456, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308767377692896456, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308767377692896456, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308767377692896456, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308767377692896456, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308767377692896456, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308767377692896456, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308767377692896456, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1775820966ccf0b4b900033d6a3763d4, type: 3}
+--- !u!1001 &1285073584
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1200356441476395794, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200356441476395794, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200356441476395794, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200356441476395794, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200356441476395794, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200356441476395794, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200356441476395794, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200356441476395794, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200356441476395794, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200356441476395794, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009543860417276328, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-15-tree
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ad45dc6a0bb4864f9b316d7f217422a, type: 3}
+--- !u!1001 &1300105833
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2589572900231783126, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-1-tile 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935171002465482860, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935171002465482860, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935171002465482860, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935171002465482860, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935171002465482860, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935171002465482860, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935171002465482860, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935171002465482860, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935171002465482860, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935171002465482860, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b38225ea204356b4aa5387c8bb733957, type: 3}
+--- !u!1001 &1571297935
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1664609618681160317, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-2-tile 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040747510531635399, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040747510531635399, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040747510531635399, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040747510531635399, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040747510531635399, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040747510531635399, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040747510531635399, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040747510531635399, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040747510531635399, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040747510531635399, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e3bd8009ccce11e4b8a27da624407090, type: 3}
+--- !u!1001 &1705950494
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8423576902929985161, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-5-tile 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200113228664009779, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200113228664009779, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200113228664009779, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200113228664009779, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200113228664009779, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200113228664009779, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200113228664009779, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200113228664009779, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200113228664009779, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200113228664009779, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32edaa5ed593c0348b34a60e7ca420e5, type: 3}
+--- !u!1001 &1831510616
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6979600971221918171, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-7-tile 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752760623378152289, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752760623378152289, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752760623378152289, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752760623378152289, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752760623378152289, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752760623378152289, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752760623378152289, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752760623378152289, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752760623378152289, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752760623378152289, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 13fc7cd2b498c8348b8fb86e819b834c, type: 3}
+--- !u!1001 &2027307326
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3872511676703756864, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
+      propertyPath: m_Name
+      value: Sunkeny City -  Voxel Desert-3-tile 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536880154890897658, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536880154890897658, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536880154890897658, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536880154890897658, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536880154890897658, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536880154890897658, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536880154890897658, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536880154890897658, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536880154890897658, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536880154890897658, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7bed38c8c49f2ea4b949ad5192c7c8a2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 886925277}
   - {fileID: 550671806}
+  - {fileID: 1027620539}
+  - {fileID: 1300105833}
+  - {fileID: 1571297935}
+  - {fileID: 2027307326}
+  - {fileID: 1079378702}
+  - {fileID: 1705950494}
+  - {fileID: 815968036}
+  - {fileID: 1831510616}
+  - {fileID: 950251482}
+  - {fileID: 1131595123}
+  - {fileID: 889005340}
+  - {fileID: 132798144}
+  - {fileID: 237936799}
+  - {fileID: 135266046}
+  - {fileID: 1218410342}
+  - {fileID: 1285073584}
