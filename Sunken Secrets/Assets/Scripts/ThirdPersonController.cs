@@ -192,26 +192,27 @@ namespace DigitalWorlds.StarterPackage3D
             }
 
 
-            // Handle jump input
-            if (Input.GetButtonDown("Jump") && canMove)
-            {
-                if (jumpsRemaining > 0 || coyoteTimeCounter > 0f)
-                {
-                    // Queue a jump so that during the next FixedUpdate frame the script knows that jump was pressed
-                    jumpQueued = true;
-                }
-                else
-                {
-                    // If no jumps are available, start the jump buffer timer
-                    jumpBufferCounter = jumpBuffer;
-                }
-            }
+            // Temporarily removed jump for better simulate of gameplay movement (WASD exclusive)
+            // // Handle jump input
+            // if (Input.GetButtonDown("Jump") && canMove)
+            // {
+            //     if (jumpsRemaining > 0 || coyoteTimeCounter > 0f)
+            //     {
+            //         // Queue a jump so that during the next FixedUpdate frame the script knows that jump was pressed
+            //         jumpQueued = true;
+            //     }
+            //     else
+            //     {
+            //         // If no jumps are available, start the jump buffer timer
+            //         jumpBufferCounter = jumpBuffer;
+            //     }
+            // }
 
-            // Decrease jump buffer timer if active
-            if (jumpBufferCounter > 0f)
-            {
-                jumpBufferCounter -= Time.deltaTime;
-            }
+            // // Decrease jump buffer timer if active
+            // if (jumpBufferCounter > 0f)
+            // {
+            //     jumpBufferCounter -= Time.deltaTime;
+            // }
         }
 
         private void Movement()
