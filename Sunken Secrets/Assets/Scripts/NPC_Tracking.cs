@@ -50,7 +50,6 @@ public class NPC_Tracking : MonoBehaviour
         if (other.gameObject.CompareTag("NPC_Required"))
         {
             required_npcs.Remove(other.gameObject);
-
-    }
+        }
     }
 }

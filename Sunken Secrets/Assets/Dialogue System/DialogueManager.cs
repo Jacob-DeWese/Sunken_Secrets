@@ -1,136 +1,217 @@
+// Unity Starter Package - Version 1
+// University of Florida's Digital Worlds Institute
+// Written by Michael O'Connell, then edited by Benjamin Cohen, Eric Bejleri, and Logan Kemper
+
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-//[RequireComponent(typeof(TMP_Text))]
+using TMPro;
 
-public class DialogueManager : MonoBehaviour
+namespace DigitalWorlds.Dialogue
 {
-    //DialogueField is the scriptable object!
-    public static UnityEvent<List<DialogueField>> NPCSpeaking = new UnityEvent<List<DialogueField>>();
-    public static UnityEvent TextPrinted = new UnityEvent();
-    List<DialogueField> TextRef; // stored dialogue
-    List<GameObject> instantiatedObjects = new List<GameObject>();
-    public GameObject textParent; // parent object for text, used to enable/disable dialogue box
-    public GameObject portraitParent; // parent object for portrait, used to enable/disable portrait
-    public GameObject nameParent; // parent object for name, used to enable/disable name
-    public GameObject choiceParent;
-    public GameObject dialogueChoicePrefab;
-    TMP_Text textComponent; // actual text on screen
-    int dialogueOrder;
-    int dialogueSet;
-
-
-
-    // Typewriter effect:
-    float charDelay = 0.05f;
-    void Awake()
+    /// <summary>
+    /// DialogueManager handles the dialogue that is sent by the DialogueTrigger. The sent text is navigated by DialogueManager and then displayed on the UI.
+    /// </summary>
+    public class DialogueManager : MonoBehaviour
     {
-        // Runs only once, on script instance creation. Used for initialization.
-        NPCSpeaking.AddListener(DialogueCall); // run dialogeue when event is called
-        textParent.SetActive(false);
-    }
+        [System.Serializable]
+        public class DialogueEvents
+        {
+            [Space(10)]
+            public UnityEvent onDialogueBegan, onDialogueEnded;
+        }
 
-    void Update()
-    {
-        // Runs every frame. Used for input checks and other things that need to be checked constantly.
-        if (Input.GetKeyDown(KeyCode.E))
-            DialogueCall(TextRef);
-    }
+        [Header("Speaker Library")]
+        [Tooltip("SpeakerLibrary ScriptableObject goes in here to access your list of speakers and their sprites.")]
+        [SerializeField] private SpeakerLibrary speakerLibrary;
 
-    public void DialogueCall(List<DialogueField> localText)
-    {
-    
-        
-            // activeInHierarchy checks if active IN SCENE, not just if its active
-            if (!textParent.activeInHierarchy)
+        [Header("UI Elements")]
+        [Tooltip("The parent GameObject of all the dialogue UI elements.")]
+        [SerializeField] private GameObject dialogueParent;
+
+        [Tooltip("The body text element.")]
+        [SerializeField] private TMP_Text textBox;
+
+        [Tooltip("The nameplate text element.")]
+        [SerializeField] private TMP_Text nameText;
+
+        [Tooltip("Image where the speaker sprites will appear.")]
+        [SerializeField] private Image speakerImage;
+
+        [Tooltip("This is the indicator image/button that shows that the next text can be shown.")]
+        [SerializeField] private GameObject continueImage;
+
+        [Header("Options")]
+        [Tooltip("Controls whether the texts scrolls or appears instantly.")]
+        [SerializeField] private bool scrollText = true;
+
+        [Tooltip("The speed of the scrolling text (in seconds per character).")]
+        [SerializeField] private float typeSpeed = 0.01f;
+
+        [Header("Events")]
+        [SerializeField] private DialogueEvents dialogueEvents;
+
+        public DialogueTrigger CurrentTrigger { get; set; }
+        public bool IsInDialogue { get; private set; } = false;
+
+        private readonly Dictionary<string, SpeakerLibrary.SpeakerInfo> speakerDictionary = new();
+        private Queue<string> inputStream = new();
+        private Coroutine scrollCoroutine;
+        private bool isTyping = false;
+        private bool cancelTyping = false;
+
+        private void Start()
+        {
+            dialogueParent.SetActive(false);
+
+            foreach (var info in speakerLibrary.speakerList)
             {
-                textParent.SetActive(true);
-                textComponent = GetComponent<TMP_Text>();
-                dialogueOrder = 0;
-                dialogueSet = 0;
-                TextRef = localText;
-                textComponent.text = TextRef[dialogueSet].dialogue[dialogueOrder];
-                StartCoroutine(WriteChar());
+                speakerDictionary[info.name] = info;
+            }
+        }
+
+        public void StartDialogue(Queue<string> dialogue)
+        {
+            IsInDialogue = true;
+            dialogueParent.SetActive(true);
+            continueImage.SetActive(false);
+            inputStream = dialogue;
+            AdvanceDialogue();
+            dialogueEvents.onDialogueBegan.Invoke();
+        }
+
+        public void AdvanceDialogue()
+        {
+            if (!IsInDialogue)
+            {
+                return;
+            }
+
+            if (isTyping)
+            {
+                cancelTyping = true;
+                return;
+            }
+
+            if (inputStream.Peek().Contains("EndQueue")) // Phrase to stop dialogue
+            {
+                inputStream.Dequeue();
+                EndDialogue();
+            }
+            else if (inputStream.Peek().Contains("[NAME=")) // Set the name of the speaker
+            {
+                string name = inputStream.Peek();
+                name = inputStream.Dequeue().Substring(name.IndexOf('=') + 1, name.IndexOf(']') - (name.IndexOf('=') + 1));
+
+                if (speakerDictionary.TryGetValue(name, out SpeakerLibrary.SpeakerInfo speaker))
+                {
+                    nameText.text = name;
+                    nameText.color = speaker.nameColor;
+                    textBox.color = speaker.textColor;
+                }
+                else
+                {
+                    Debug.LogWarning("Name not found in Speaker Library");
+                }
+
+                AdvanceDialogue();
+            }
+            else if (inputStream.Peek().Contains("[SPEAKERSPRITE=")) // Set the speaker sprite (if present)
+            {
+                string part = inputStream.Peek();
+                string spriteName = inputStream.Dequeue().Substring(part.IndexOf('=') + 1, part.IndexOf(']') - (part.IndexOf('=') + 1));
+
+                if (speakerDictionary.TryGetValue(spriteName, out SpeakerLibrary.SpeakerInfo speaker))
+                {
+                    speakerImage.sprite = speaker.sprite;
+                }
+
+                AdvanceDialogue();
             }
             else
             {
-                StopAllCoroutines(); // only dialogue should be running
+                if (scrollText)
+                {
+                    if (!isTyping)
+                    {
+                        string textString = inputStream.Dequeue();
 
-                if (textComponent.maxVisibleCharacters < textComponent.text.Length)
-                    textComponent.maxVisibleCharacters = textComponent.text.Length;
-                
+                        if (scrollCoroutine != null)
+                        {
+                            StopCoroutine(scrollCoroutine);
+                        }
+                        scrollCoroutine = StartCoroutine(TextScroll(textString));
+                    }
+                    else if (isTyping && !cancelTyping)
+                    {
+                        cancelTyping = true;
+                    }
+                }
                 else
                 {
-                    
-                    dialogueOrder++;
-                    // CHOICE
-                    // if (dialogueOrder < TextRef[dialogueSet].dialogue.Count && gameObject.activeInHierarchy)
-                    // {
-
-                    //     if (TextRef[dialogueSet].dialogue[dialogueOrder].Split('*').Length > 2)
-                    //     {
-                    //         float buttonOffset = 0;
-                    //         NPCSpeaking.RemoveListener(DialogueCall);
-                    //         choiceParent.SetActive(true);
-                    //         textComponent.text = TextRef[dialogueSet].dialogue[dialogueOrder].Split('*')[0];
-                    //         for (int i = 1; i < TextRef[dialogueSet].dialogue[dialogueOrder].Split('*').Length; i++)
-                    //         {
-                    //             int buttonIndex = dialogueSet + i;
-                    //             GameObject choiceButton = Instantiate(dialogueChoicePrefab, choiceParent.transform);
-                    //             choiceButton.GetComponent<RectTransform>().position = new Vector3(choiceButton.GetComponent<RectTransform>().position.x, choiceButton.GetComponent<RectTransform>().position.y - buttonOffset, 0);
-                    //             choiceButton.GetComponentInChildren<TMP_Text>().text = TextRef[dialogueSet].dialogue[dialogueOrder].Split('*')[i];
-                    //             choiceButton.GetComponent<Button>().onClick.AddListener(() => ChoiceCall(buttonIndex));
-                    //             instantiatedObjects.Add(choiceButton);
-                    //             buttonOffset += 30;
-                    //         }
-                    //     }
-                    //     else
-                    //         textComponent.text = TextRef[dialogueSet].dialogue[dialogueOrder];
-                    //     StartCoroutine(WriteChar());
-                    // }
-                    // END OF CHOICE
-
-                    if (dialogueOrder >= TextRef[dialogueSet].dialogue.Count) {
-                        textParent.SetActive(false);
-                        return;
-                    }
-
-                    textComponent.text = TextRef[dialogueSet].dialogue[dialogueOrder];
-                    StartCoroutine(WriteChar());
-                    
+                    textBox.text = inputStream.Dequeue();
+                    continueImage.SetActive(true);
                 }
+            }
 
+            speakerImage.gameObject.SetActive(speakerImage.sprite != null);
         }
-    }
-    public void ChoiceCall(int choice)
-    {
-        dialogueSet = choice;
-        dialogueOrder = -1;
-        foreach (GameObject choiceButton in instantiatedObjects)
-            Destroy(choiceButton);
-        instantiatedObjects.Clear();
-        NPCSpeaking.AddListener(DialogueCall);
-        choiceParent.SetActive(false);
-        DialogueCall(TextRef);
-    }
-    public void setUI()
-    {
-    
-    }
 
-
-    IEnumerator WriteChar()
-    {
-        textComponent.maxVisibleCharacters = 0;
-        foreach (char character in textComponent.text)
+        private IEnumerator TextScroll(string lineOfText)
         {
-            textComponent.maxVisibleCharacters++;
-            yield return new WaitForSeconds(charDelay);
+            continueImage.SetActive(false);
+            int letter = 0;
+            textBox.text = "";
+            isTyping = true;
+            cancelTyping = false;
+
+            while (isTyping && !cancelTyping && (letter < lineOfText.Length - 1))
+            {
+                textBox.text += lineOfText[letter];
+                letter++;
+                yield return new WaitForSeconds(typeSpeed);
+            }
+
+            textBox.text = lineOfText;
+            continueImage.SetActive(true);
+            isTyping = false;
+            cancelTyping = false;
         }
-        textComponent.maxVisibleCharacters = 99999;
-        TextPrinted.Invoke();
+
+        [ContextMenu("End Dialogue")]
+        public void EndDialogue()
+        {
+            if (!IsInDialogue)
+            {
+                return;
+            }
+
+            textBox.text = "";
+            nameText.text = "";
+            inputStream.Clear();
+            dialogueParent.SetActive(false);
+
+            IsInDialogue = false;
+            cancelTyping = false;
+            isTyping = false;
+
+            if (CurrentTrigger.singleUse)
+            {
+                CurrentTrigger.hasBeenUsed = true;
+            }
+
+            inputStream.Clear();
+
+            dialogueEvents.onDialogueEnded.Invoke();
+            CurrentTrigger.DialogueEnded();
+        }
+
+        private void OnValidate()
+        {
+            // Clamp typeSpeed to 0 in the inspector
+            typeSpeed = Mathf.Max(0f, typeSpeed);
+        }
     }
 }
