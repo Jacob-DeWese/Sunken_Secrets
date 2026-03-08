@@ -24,6 +24,10 @@ public class NPC_Tracking : MonoBehaviour
     [Tooltip("Ocean GameObject")]
     [SerializeField] protected GameObject ocean;
 
+    [SerializeField] protected float moveTime = 3f;
+    private float timer = 0f;
+    [SerializeField] protected float speed = 5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,9 +43,15 @@ public class NPC_Tracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (required_npcs.Count == 0 && ocean.transform.position.z >= -30)
+        if (required_npcs.Count == 0 && timer < moveTime)
         {
-            ocean.transform.Translate(0, 0, Time.deltaTime * -5);
+            Vector3 direction = new Vector3(0, -1, 0).normalized;
+            ocean.transform.Translate(direction * speed * Time.deltaTime);
+            timer += Time.deltaTime;
+        }
+        else if (required_npcs.Count == 0 && timer >= moveTime)
+        {
+            ocean.SetActive(false);
         }
     }
 
