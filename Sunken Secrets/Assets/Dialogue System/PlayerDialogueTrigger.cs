@@ -25,13 +25,18 @@ public class PlayerDialogueTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional"))
         {
+            if (other.gameObject.GetComponent<NPCDialogueControl>().dialogueFields.Count == 0)
+            {
+                UnityEngine.Debug.Log("No dialogue fields assigned to this NPC.");
+                return;
+            }
             // safe guard to ensure conversations don't happen repeatedly
-            if (!spoken_to_npcs.Contains(other.gameObject))
+            else if (!spoken_to_npcs.Contains(other.gameObject))
             {
                 dialoguePrefab.SetActive(true);
                 interactionOccurance.Invoke();
                 UnityEngine.Debug.Log("Interaction Occurred");
-                spoken_to_npcs.Add(other.gameObject);
+                
                 
             }
             else
@@ -44,7 +49,11 @@ public class PlayerDialogueTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional"))
         {
-            dialoguePrefab.SetActive(false);
+            dialoguePrefab.SetActive(false);    
+            interactionOccurance.RemoveAllListeners();
+            UnityEngine.Debug.Log("Interaction Ended");
+            spoken_to_npcs.Add(other.gameObject);
+
         }
     }
 }

@@ -4967,7 +4967,6 @@ GameObject:
   - component: {fileID: 2021667451}
   - component: {fileID: 2021667454}
   - component: {fileID: 2021667453}
-  - component: {fileID: 2021667456}
   - component: {fileID: 2021667455}
   m_Layer: 0
   m_Name: Evil_Caspian
@@ -5069,37 +5068,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 0.08762079, z: 9.999999}
   m_Center: {x: 0, y: -0.04381035, z: 5.8764815e-10}
---- !u!114 &2021667456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2021667450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a272d8bcac779e94daa97c703328eeb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.Dialogue.DialogueTrigger
-  buttonInput: 101
-  dialogueManager: {fileID: 0}
-  primaryDialogue: {fileID: 4900000, guid: c645e8ea288f23141945c53086f64af3, type: 3}
-  realignDialogue:
-  - {fileID: 4900000, guid: 02478a7a53c520e44af962f12a58ae1c, type: 3}
-  - {fileID: 4900000, guid: 0b64176d3877a044e99edc857b795995, type: 3}
-  tagName: Player
-  waitTime: 0.5
-  singleUse: 0
-  triggerType: 0
-  hasBeenUsed: 0
-  primaryFileUsed: 0
-  triggerEvents:
-    onDialogueBegan:
-      m_PersistentCalls:
-        m_Calls: []
-    onDialogueEnded:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!1001 &2034845652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7909,6 +7877,8 @@ MonoBehaviour:
   nameParent: {fileID: 1789999334}
   choiceParent: {fileID: 0}
   dialogueChoicePrefab: {fileID: 0}
+  currentSpeaker: 
+  dialoguePrefab: {fileID: 0}
 --- !u!64 &6126962207233457384
 MeshCollider:
   m_ObjectHideFlags: 0
