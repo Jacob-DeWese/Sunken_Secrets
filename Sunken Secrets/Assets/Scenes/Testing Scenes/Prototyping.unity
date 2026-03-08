@@ -826,6 +826,11 @@ Transform:
   - {fileID: 674115097}
   m_Father: {fileID: 4783771229513998182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &263542710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5540598636835148452, guid: c6b7384e29dbdb545beacd21938516dc, type: 3}
+  m_PrefabInstance: {fileID: 815762590217405424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &271392540 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: d9a7e50b7e99148488002d69d4cf01a4, type: 3}
@@ -1559,6 +1564,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: d9a7e50b7e99148488002d69d4cf01a4, type: 3}
+--- !u!1 &496736282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7865602214126551895, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
+  m_PrefabInstance: {fileID: 2711800882359273696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &506272126 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: d9a7e50b7e99148488002d69d4cf01a4, type: 3}
@@ -2032,6 +2042,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 803031995}
   m_SourcePrefab: {fileID: 100100000, guid: ccd7e13e21430d845b34980babf64755, type: 3}
+--- !u!1 &754083199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2601886630369081712, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
+  m_PrefabInstance: {fileID: 2711800882359273696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &757904999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2234,6 +2249,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: ccd7e13e21430d845b34980babf64755, type: 3}
+--- !u!1 &810747230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 448883440316229782, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
+  m_PrefabInstance: {fileID: 2711800882359273696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &811111405 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1830570905778793531, guid: b89522d965b2d464fb79641797ad3c0d, type: 3}
@@ -3470,8 +3490,8 @@ GameObject:
   - component: {fileID: 1430451221}
   - component: {fileID: 1430451224}
   - component: {fileID: 1430451223}
-  - component: {fileID: 1430451226}
   - component: {fileID: 1430451225}
+  - component: {fileID: 1430451226}
   m_Layer: 0
   m_Name: Will
   m_TagString: NPC_Required
@@ -3581,28 +3601,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1430451220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a272d8bcac779e94daa97c703328eeb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 952996263095cc04b9bc014782cc6ee3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.Dialogue.DialogueTrigger
-  buttonInput: 101
-  dialogueManager: {fileID: 5331053125059052410}
-  primaryDialogue: {fileID: 4900000, guid: 59ad53baa154aac4aa75c17f0d98488a, type: 3}
-  realignDialogue:
-  - {fileID: 4900000, guid: 59b1c71f600b3bd489916898ecd84d64, type: 3}
-  - {fileID: 4900000, guid: 89ca046af260e6c47b2ff959d598632d, type: 3}
-  tagName: Player
-  waitTime: 0.5
-  singleUse: 0
-  triggerType: 0
-  hasBeenUsed: 0
-  primaryFileUsed: 0
-  triggerEvents:
-    onDialogueBegan:
-      m_PersistentCalls:
-        m_Calls: []
-    onDialogueEnded:
-      m_PersistentCalls:
-        m_Calls: []
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueControl
+  dialogueFields:
+  - {fileID: 11400000, guid: 97bee7ebdef92e949a122425d0e0cfe0, type: 2}
 --- !u!4 &1441298150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d9a7e50b7e99148488002d69d4cf01a4, type: 3}
@@ -4253,6 +4256,11 @@ Transform:
   - {fileID: 941282221}
   m_Father: {fileID: 4783771229513998182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1789999334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1892150764352613614, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
+  m_PrefabInstance: {fileID: 2711800882359273696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1791655238
 GameObject:
   m_ObjectHideFlags: 0
@@ -5074,7 +5082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.Dialogue.DialogueTrigger
   buttonInput: 101
-  dialogueManager: {fileID: 5331053125059052410}
+  dialogueManager: {fileID: 0}
   primaryDialogue: {fileID: 4900000, guid: c645e8ea288f23141945c53086f64af3, type: 3}
   realignDialogue:
   - {fileID: 4900000, guid: 02478a7a53c520e44af962f12a58ae1c, type: 3}
@@ -5585,7 +5593,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5540598636835148452, guid: c6b7384e29dbdb545beacd21938516dc, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 4792853036538253560}
   m_SourcePrefab: {fileID: 100100000, guid: c6b7384e29dbdb545beacd21938516dc, type: 3}
 --- !u!1 &821784174818440582
 GameObject:
@@ -6508,6 +6519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1985049652855828689, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7100774382453869204, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6588,10 +6603,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4087373602493007163, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 448883440316229782, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6121698930715029693}
   m_SourcePrefab: {fileID: 100100000, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
 --- !u!33 &2823090746211741795
 MeshFilter:
@@ -7386,12 +7405,26 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 215260804466075675, guid: c6b7384e29dbdb545beacd21938516dc, type: 3}
   m_PrefabInstance: {fileID: 815762590217405424}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 263542710}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b87f12b20b34804195417860cc94896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_Dialogue_Logic_Manager
+--- !u!114 &4792853036538253560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263542710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1872c383e8a31d44886fda075c98eccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDialogueTrigger
+  spoken_to_npcs: []
+  dialoguePrefab: {fileID: 810747230}
 --- !u!1 &4822527024644762600
 GameObject:
   m_ObjectHideFlags: 0
@@ -7531,17 +7564,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 95951f244cac65c4994f39eb63a8c811, type: 3}
---- !u!114 &5331053125059052410 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4087373602493007163, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
-  m_PrefabInstance: {fileID: 2711800882359273696}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bd7918ba27e4a749b753ffda7b12b8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5333858870771105860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7870,6 +7892,23 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7100774382453869204, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
   m_PrefabInstance: {fileID: 2711800882359273696}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6121698930715029693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810747230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40324ff4ab5e5d4481e335b2248cb2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+  textParent: {fileID: 754083199}
+  portraitParent: {fileID: 496736282}
+  nameParent: {fileID: 1789999334}
+  choiceParent: {fileID: 0}
+  dialogueChoicePrefab: {fileID: 0}
 --- !u!64 &6126962207233457384
 MeshCollider:
   m_ObjectHideFlags: 0
