@@ -15,7 +15,9 @@ MonoBehaviour:
   portraits:
   - {fileID: 21300000, guid: 9c22fce4ad6be504caea291b8ce118fe, type: 3}
   - {fileID: 21300000, guid: 5c213f6f2537c744e962c22b27ff0ef5, type: 3}
-  NPCName: Will
+  characterNames: Caspian*Will
+  firstSpeaker: Caspian
+  secondSpeaker: Will
   dialogue:
   - Hello. This is a test.
   - You passed.
