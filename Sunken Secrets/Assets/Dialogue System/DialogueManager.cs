@@ -18,9 +18,12 @@ public class DialogueManager : MonoBehaviour
     public GameObject nameParent; // parent object for name, used to enable/disable name
     public GameObject choiceParent;
     public GameObject dialogueChoicePrefab;
+    public string currentSpeaker;
     TMP_Text textComponent; // actual text on screen
     int dialogueOrder;
     int dialogueSet;
+
+    public GameObject dialoguePrefab;
 
 
 
@@ -31,6 +34,7 @@ public class DialogueManager : MonoBehaviour
         // Runs only once, on script instance creation. Used for initialization.
         NPCSpeaking.AddListener(DialogueCall); // run dialogeue when event is called
         textParent.SetActive(false);
+        dialoguePrefab.SetActive(false);
     }
 
     void Update()
@@ -48,11 +52,20 @@ public class DialogueManager : MonoBehaviour
             if (!textParent.activeInHierarchy)
             {
                 textParent.SetActive(true);
+                dialoguePrefab.SetActive(true);
                 textComponent = GetComponent<TMP_Text>();
                 dialogueOrder = 0;
                 dialogueSet = 0;
                 TextRef = localText;
                 textComponent.text = TextRef[dialogueSet].dialogue[dialogueOrder];
+                // set text and portrait based on first speaker
+                currentSpeaker = TextRef[dialogueSet].firstSpeaker;
+                nameParent.GetComponent<TMP_Text>().text = currentSpeaker;
+                // set portrait based on current speaker
+                portraitParent.GetComponent<Image>().sprite = TextRef[dialogueSet].portraits[0];
+
+
+                  
                 StartCoroutine(WriteChar());
             }
             else
@@ -95,10 +108,22 @@ public class DialogueManager : MonoBehaviour
 
                     if (dialogueOrder >= TextRef[dialogueSet].dialogue.Count) {
                         textParent.SetActive(false);
+                        dialoguePrefab.SetActive(false);
                         return;
                     }
 
                     textComponent.text = TextRef[dialogueSet].dialogue[dialogueOrder];
+                    // change speaker & portrait based on dialogue order (even = first speaker, odd = second speaker)
+                    if (dialogueOrder % 2 == 0) {
+                        currentSpeaker = TextRef[dialogueSet].firstSpeaker;
+                        portraitParent.GetComponent<Image>().sprite = TextRef[dialogueSet].portraits[0];
+                    }
+                    else {
+                        currentSpeaker = TextRef[dialogueSet].secondSpeaker;   
+                        portraitParent.GetComponent<Image>().sprite = TextRef[dialogueSet].portraits[1];
+                    }
+                    // set nameplate based on current speaker
+                    nameParent.GetComponent<TMP_Text>().text = currentSpeaker;
                     StartCoroutine(WriteChar());
                     
                 }
