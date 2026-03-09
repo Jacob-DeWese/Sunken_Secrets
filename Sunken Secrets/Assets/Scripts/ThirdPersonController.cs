@@ -156,6 +156,19 @@ namespace DigitalWorlds.StarterPackage3D
             moveInput = cameraTransform.forward * vertical + cameraTransform.right * horizontal;
             moveInput.y = 0;
 
+            if (animator != null)
+            {
+                bool movingLeft = moveInput.x < -0.01f;
+                bool movingRight = moveInput.x > 0.01f;
+                bool movingUp = moveInput.z > 0.01f;
+                bool movingDown = moveInput.z < -0.01f;
+
+                animator.SetBool(animationParameters.MovingLeft, movingLeft);
+                animator.SetBool(animationParameters.MovingRight, movingRight);
+                animator.SetBool(animationParameters.MovingUp, movingUp);
+                animator.SetBool(animationParameters.MovingDown, movingDown);
+            }
+
             // if (moveInput.sqrMagnitude > 0.01f) // Prevents rotating when input is very low
             // {
             //     Quaternion targetRotation = Quaternion.LookRotation(moveInput);
@@ -176,20 +189,20 @@ namespace DigitalWorlds.StarterPackage3D
             //     }
             // }
 
-            if (moveInput.sqrMagnitude > 0.01f)
-            {
-                if (animator != null)
-                {
-                    animator.SetBool(animationParameters.IsRunning, true);
-                }
-            }
-            else
-            {
-                if (animator != null)
-                {
-                    animator.SetBool(animationParameters.IsRunning, false);
-                }
-            }
+            // if (moveInput.sqrMagnitude > 0.01f)
+            // {
+            //     if (animator != null)
+            //     {
+            //         animator.SetBool(animationParameters.IsRunning, true);
+            //     }
+            // }
+            // else
+            // {
+            //     if (animator != null)
+            //     {
+            //         animator.SetBool(animationParameters.IsRunning, false);
+            //     }
+            // }
 
 
             // Temporarily removed jump for better simulate of gameplay movement (WASD exclusive)
@@ -302,12 +315,12 @@ namespace DigitalWorlds.StarterPackage3D
             }
 
             // Keep track of whether the player is running this FixedUpdate frame
-            bool isRunning = moveInput != Vector3.zero && isGrounded;
-            if (isRunning != wasRunning)
-            {
-                OnRunningStateChanged?.Invoke(isRunning);
-                wasRunning = isRunning;
-            }
+            // bool isRunning = moveInput != Vector3.zero && isGrounded;
+            // if (isRunning != wasRunning)
+            // {
+            //     OnRunningStateChanged?.Invoke(isRunning);
+            //     wasRunning = isRunning;
+            // }
 
             if (jumpQueued)
             {
@@ -377,11 +390,16 @@ namespace DigitalWorlds.StarterPackage3D
         [System.Serializable]
         public class AnimationParameters
         {
-            [Tooltip("Bool parameter: " + nameof(IsRunning))]
-            public string IsRunning = "IsRunning";
+            // [Tooltip("Bool parameter: " + nameof(IsRunning))]
+            // public string IsRunning = "IsRunning";
 
             [Tooltip("Trigger parameter: " + nameof(Jump))]
             public string Jump = "Jump";
+
+            public string MovingLeft = "movingLeft";
+            public string MovingRight = "movingRight";
+            public string MovingUp = "movingUp";
+            public string MovingDown = "movingDown";
         }
     }
 }

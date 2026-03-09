@@ -54,6 +54,8 @@ public class UI_Dialogue_Logic_Manager : MonoBehaviour
         }
 
         instance = this;
+
+        journalParent.SetActive(false);
         // DontDestroyOnLoad(gameObject);
     }
 
@@ -70,8 +72,7 @@ public class UI_Dialogue_Logic_Manager : MonoBehaviour
         journalText.text = "";
         characterNameText.text = "";
 
-        journalParent.SetActive(false);
-        journalParentActive = false;
+        // journalParentActive = false;
     }
 
     // Update is called once per frame
@@ -79,10 +80,10 @@ public class UI_Dialogue_Logic_Manager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            journalParentActive = !journalParentActive;
-            journalParent.SetActive(journalParentActive);
+            bool newState = !journalParent.activeSelf;
+            journalParent.SetActive(newState);
 
-            if (journalParentActive)
+            if (newState)
             {
                 UpdateJournalUI();
             }
