@@ -52,8 +52,10 @@ public class PlayerDialogueTrigger : MonoBehaviour
             dialoguePrefab.SetActive(false);    
             interactionOccurance.RemoveAllListeners();
             UnityEngine.Debug.Log("Interaction Ended");
-            spoken_to_npcs.Add(other.gameObject);
-
+            if (!spoken_to_npcs.Contains(other.gameObject))
+            {
+                spoken_to_npcs.Add(other.gameObject);
+            }
         }
     }
 }

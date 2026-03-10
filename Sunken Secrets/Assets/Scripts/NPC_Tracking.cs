@@ -27,6 +27,7 @@ public class NPC_Tracking : MonoBehaviour
     [SerializeField] protected float moveTime = 3f;
     private float timer = 0f;
     [SerializeField] protected float speed = 5f;
+    [SerializeField] protected Light lightSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,6 +44,12 @@ public class NPC_Tracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (required_npcs.Count > 0)
+        {
+            // TODO: Implement light source movement based on the number of required NPCs remaining
+            // For example, you could adjust the intensity or range of a light source here
+            lightSource.transform.Rotate(Vector3.up, (npcs.Count/270.0f) * Time.deltaTime);
+        }
         if (required_npcs.Count == 0 && timer < moveTime)
         {
             Vector3 direction = new Vector3(0, -1, 0).normalized;
