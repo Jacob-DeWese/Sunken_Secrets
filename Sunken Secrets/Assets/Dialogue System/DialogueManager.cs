@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -19,6 +20,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject choiceParent;
     public GameObject dialogueChoicePrefab;
     public string currentSpeaker;
+    public string prevSpeaker;
     TMP_Text textComponent; // actual text on screen
     int dialogueOrder;
     int dialogueSet;
@@ -60,6 +62,7 @@ public class DialogueManager : MonoBehaviour
                 textComponent.text = TextRef[dialogueSet].dialogue[dialogueOrder];
                 // set text and portrait based on first speaker
                 currentSpeaker = TextRef[dialogueSet].firstSpeaker;
+                prevSpeaker = TextRef[dialogueSet].secondSpeaker;
                 nameParent.GetComponent<TMP_Text>().text = currentSpeaker;
                 // set portrait based on current speaker
                 portraitParent.GetComponent<Image>().sprite = TextRef[dialogueSet].portraits[0];
@@ -114,13 +117,19 @@ public class DialogueManager : MonoBehaviour
 
                     textComponent.text = TextRef[dialogueSet].dialogue[dialogueOrder];
                     // change speaker & portrait based on dialogue order (even = first speaker, odd = second speaker)
-                    if (dialogueOrder % 2 == 0) {
-                        currentSpeaker = TextRef[dialogueSet].firstSpeaker;
-                        portraitParent.GetComponent<Image>().sprite = TextRef[dialogueSet].portraits[0];
+                    if (textComponent.text[0] == '*') // indicates the same speaker as previous line, so don't change portrait or name
+                    {
+                        textComponent.text = textComponent.text.Remove(0, 1);
                     }
                     else {
-                        currentSpeaker = TextRef[dialogueSet].secondSpeaker;   
-                        portraitParent.GetComponent<Image>().sprite = TextRef[dialogueSet].portraits[1];
+                        string switchSpeaker = currentSpeaker;
+                        currentSpeaker = prevSpeaker;
+                        prevSpeaker = switchSpeaker;
+
+                        if (currentSpeaker == TextRef[dialogueSet].firstSpeaker)
+                            portraitParent.GetComponent<Image>().sprite = TextRef[dialogueSet].portraits[0];
+                        else
+                            portraitParent.GetComponent<Image>().sprite = TextRef[dialogueSet].portraits[1];
                     }
                     // set nameplate based on current speaker
                     nameParent.GetComponent<TMP_Text>().text = currentSpeaker;
