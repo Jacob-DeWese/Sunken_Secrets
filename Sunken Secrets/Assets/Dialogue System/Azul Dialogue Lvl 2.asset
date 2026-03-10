@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac8b02cb031062429a814f32cb68094, type: 3}
+  m_Name: Azul Dialogue Lvl 2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueField
+  portraits:
+  - {fileID: 21300000, guid: 6924da0c75abccf4786a097a8f05f30f, type: 3}
+  - {fileID: 21300000, guid: 22d6c034532d85644a1ce62797e81c94, type: 3}
+  characterNames: 
+  firstSpeaker: Ian
+  secondSpeaker: Azul
+  dialogue:
+  - Good morning, Azul.
+  - Oh, hi, Ian! How are you?
+  - Fine. And yourself?
+  - 'Well, I finally finished up with the meteorology basics, so I decided to move
+    on to history of natural disasters. This one''s about tsunamis, and they are
+    a seriously scary force of nature. '
+  - '*You know they can be over 100,000 meters tall? I mean, I...I''m babbling, aren''t
+    I? Sorry, I know I shouldn''t get carried away.'
+  - It's okay. Actually, it's nice to hear someone be so passionate about something.
+  - Oh! Thank you.
+  - You want your usual?
+  - Yep!
+  - Alright, you got it.
