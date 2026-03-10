@@ -1,2 +1,0 @@
-[NAME=Caspian][SPEAKERSPRITE=Caspian] Good morning.
-[NAME=Will][SPEAKERSPRITE=Will] Go-go gadget remove water!!!!!!!!!!

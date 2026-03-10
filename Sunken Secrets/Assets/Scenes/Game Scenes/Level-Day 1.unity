@@ -553,7 +553,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -609,13 +609,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550671804}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!114 &550671807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,7 +858,7 @@ GameObject:
   - component: {fileID: 1101220372}
   - component: {fileID: 1101220375}
   m_Layer: 0
-  m_Name: NPC_Kincaid
+  m_Name: Kincaid
   m_TagString: NPC_Required
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1143,6 +1143,7 @@ RectTransform:
   - {fileID: 4919629094530547166}
   - {fileID: 114095568}
   - {fileID: 519321837}
+  - {fileID: 1866756973}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1297,7 +1298,7 @@ GameObject:
   - component: {fileID: 1556729699}
   - component: {fileID: 1556729698}
   m_Layer: 0
-  m_Name: NPC_Azul
+  m_Name: Azul
   m_TagString: NPC_Required
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1692,6 +1693,81 @@ CapsuleCollider:
   m_Height: 1.8193097
   m_Direction: 1
   m_Center: {x: 0.014528811, y: 0.494962, z: 0.09325976}
+--- !u!1 &1866756972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1866756973}
+  - component: {fileID: 1866756975}
+  - component: {fileID: 1866756974}
+  m_Layer: 5
+  m_Name: Journal Indicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1866756973
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866756972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1114391496}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -590, y: -441}
+  m_SizeDelta: {x: 150, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1866756974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866756972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: fe3ecd8351807c64e9033c0da54ec343, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1866756975
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866756972}
+  m_CullTransparentMesh: 1
 --- !u!114 &1961783345 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8192344435193478185, guid: 55d230f34f6d86e4aa781412c354c5f7, type: 3}
@@ -1957,11 +2033,11 @@ PrefabInstance:
       objectReference: {fileID: 1830570906294740806}
     - target: {fileID: 795891578518491777, guid: 66beff746faec804a8e9e4053ae6e1ae, type: 3}
       propertyPath: npcsWithDialogue.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 795891578518491777, guid: 66beff746faec804a8e9e4053ae6e1ae, type: 3}
       propertyPath: npcJournalHeadshot.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 795891578518491777, guid: 66beff746faec804a8e9e4053ae6e1ae, type: 3}
       propertyPath: 'npcsWithDialogue.Array.data[0]'
@@ -1970,23 +2046,27 @@ PrefabInstance:
     - target: {fileID: 795891578518491777, guid: 66beff746faec804a8e9e4053ae6e1ae, type: 3}
       propertyPath: 'npcsWithDialogue.Array.data[1]'
       value: 
-      objectReference: {fileID: 1837462250}
+      objectReference: {fileID: 1556729691}
     - target: {fileID: 795891578518491777, guid: 66beff746faec804a8e9e4053ae6e1ae, type: 3}
       propertyPath: 'npcsWithDialogue.Array.data[2]'
       value: 
-      objectReference: {fileID: 1556729691}
+      objectReference: {fileID: 1837462250}
     - target: {fileID: 795891578518491777, guid: 66beff746faec804a8e9e4053ae6e1ae, type: 3}
       propertyPath: 'npcsWithDialogue.Array.data[3]'
       value: 
       objectReference: {fileID: 1837462250}
     - target: {fileID: 795891578518491777, guid: 66beff746faec804a8e9e4053ae6e1ae, type: 3}
+      propertyPath: 'npcJournalHeadshot.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 22d6c034532d85644a1ce62797e81c94, type: 3}
+    - target: {fileID: 795891578518491777, guid: 66beff746faec804a8e9e4053ae6e1ae, type: 3}
       propertyPath: 'npcJournalHeadshot.Array.data[2]'
       value: 
-      objectReference: {fileID: 21300000, guid: b32fca3aa7028344b8d36804930bbb35, type: 3}
+      objectReference: {fileID: 21300000, guid: 9c22fce4ad6be504caea291b8ce118fe, type: 3}
     - target: {fileID: 795891578518491777, guid: 66beff746faec804a8e9e4053ae6e1ae, type: 3}
       propertyPath: 'npcJournalHeadshot.Array.data[3]'
       value: 
-      objectReference: {fileID: 21300000, guid: 22d6c034532d85644a1ce62797e81c94, type: 3}
+      objectReference: {fileID: 21300000, guid: b32fca3aa7028344b8d36804930bbb35, type: 3}
     - target: {fileID: 1473770967965640056, guid: 66beff746faec804a8e9e4053ae6e1ae, type: 3}
       propertyPath: ocean
       value: 

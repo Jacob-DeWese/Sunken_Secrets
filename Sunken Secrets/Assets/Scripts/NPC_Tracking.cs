@@ -44,12 +44,6 @@ public class NPC_Tracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (required_npcs.Count > 0)
-        {
-            // TODO: Implement light source movement based on the number of required NPCs remaining
-            // For example, you could adjust the intensity or range of a light source here
-            lightSource.transform.Rotate(Vector3.up, (npcs.Count/270.0f) * Time.deltaTime);
-        }
         if (required_npcs.Count == 0 && timer < moveTime)
         {
             Vector3 direction = new Vector3(0, -1, 0).normalized;
@@ -67,6 +61,17 @@ public class NPC_Tracking : MonoBehaviour
         if (other.gameObject.CompareTag("NPC_Required"))
         {
             required_npcs.Remove(other.gameObject);
+
+        if (required_npcs.Count > 0)
+        {
+            // TODO: Implement light source movement based on the number of required NPCs remaining
+            // For example, you could adjust the intensity or range of a light source here
+            required_npcs.Remove(other.gameObject);
+            int npcsInteracted = npcs.Count - required_npcs.Count;
+            float targetX = npcsInteracted/(float)npcs.Count * 270f;
+            Vector3 currentEuler = lightSource.transform.localEulerAngles;
+            lightSource.transform.localEulerAngles = new Vector3(targetX, currentEuler.y, currentEuler.z);
+        }
         }
     }
 }
