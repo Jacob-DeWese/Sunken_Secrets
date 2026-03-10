@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 using System.Runtime.CompilerServices;
+using System.Reflection;
 
 public class UI_Inventory : MonoBehaviour
 {
@@ -13,8 +14,12 @@ public class UI_Inventory : MonoBehaviour
 
     [Tooltip("List for all the images that each item/clue will have in the inventory")]
     [SerializeField] protected List<Sprite> itemSprites = new();
+    [SerializeField] protected List<Sprite> buttonSprites = new();
 
     [SerializeField] private List<Image> inventorySlots = new();
+    [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private Button button;
+    
     private List<GameObject> inventoryItems = new();
     
     private int selectedIndex = -1;
@@ -22,13 +27,29 @@ public class UI_Inventory : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        inventoryPanel.SetActive(false);
+        button.onClick.AddListener(ToggleInventory);
     }
 
     // Update is called once per frame
     void Update()
     {
         SelectItem();
+    }
+
+    public void ToggleInventory()
+    {
+        inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+        if (inventoryPanel.activeSelf)
+        {
+            Debug.Log("Inventory Opened");
+            button.GetComponent<Image>().sprite = buttonSprites[1];
+        }
+        else
+        {
+            Debug.Log("Inventory Closed");
+            button.GetComponent<Image>().sprite = buttonSprites[0];
+        }
     }
 
     private void OnTriggerEnter(Collider other)
