@@ -344,6 +344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueControl
   dialogueFields:
   - {fileID: 11400000, guid: 4867bb0ebf176d341ad4dd251df7fdcf, type: 2}
+  repeatedFields: []
 --- !u!212 &271816573
 SpriteRenderer:
   serializedVersion: 2
@@ -1024,6 +1025,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueControl
   dialogueFields:
   - {fileID: 11400000, guid: 97bee7ebdef92e949a122425d0e0cfe0, type: 2}
+  repeatedFields:
+  - {fileID: 11400000, guid: 7c8eb22e1a98fc4428ae0d98ba69068e, type: 2}
 --- !u!65 &1101220375
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1367,6 +1370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueControl
   dialogueFields:
   - {fileID: 11400000, guid: 1341714763a04984aacbdd1f463a27ce, type: 2}
+  repeatedFields: []
 --- !u!212 &1556729696
 SpriteRenderer:
   serializedVersion: 2
@@ -1575,6 +1579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueControl
   dialogueFields:
   - {fileID: 11400000, guid: 8e348de9c8d2b8c4ebc64060f4ce0511, type: 2}
+  repeatedFields: []
 --- !u!212 &1837462255
 SpriteRenderer:
   serializedVersion: 2

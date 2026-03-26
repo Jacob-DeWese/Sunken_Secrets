@@ -19,6 +19,7 @@ public class PlayerDialogueTrigger : MonoBehaviour
     void Start()
     {
         dialoguePrefab.SetActive(false);
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -30,17 +31,13 @@ public class PlayerDialogueTrigger : MonoBehaviour
                 UnityEngine.Debug.Log("No dialogue fields assigned to this NPC.");
                 return;
             }
-            // safe guard to ensure conversations don't happen repeatedly
-            else if (!spoken_to_npcs.Contains(other.gameObject))
+        
+            else
             {
                 dialoguePrefab.SetActive(true);
-                interactionOccurance.Invoke();
+                interactionOccurance.Invoke();  
                 UnityEngine.Debug.Log("Interaction Occurred");
-                
-                
             }
-            else
-                UnityEngine.Debug.Log("NPC already interacted with");
             
         }
     }
@@ -54,7 +51,12 @@ public class PlayerDialogueTrigger : MonoBehaviour
             UnityEngine.Debug.Log("Interaction Ended");
             if (!spoken_to_npcs.Contains(other.gameObject))
             {
+                // if this is a new NPC interaction, add to spoken to list, and set repeat bool to true
+                other.gameObject.GetComponent<NPCDialogueControl>().repeat = true;
                 spoken_to_npcs.Add(other.gameObject);
+                
+               
+                
             }
         }
     }

@@ -60,9 +60,10 @@ public class NPC_Tracking : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC_Required"))
         {
-            required_npcs.Remove(other.gameObject);
+            //required_npcs.Remove(other.gameObject);
 
-        if (required_npcs.Count > 0)
+        // added second condition so sun will only rotate after first interaction
+        if (required_npcs.Count > 0 && required_npcs.Contains(other.gameObject))
         {
             // TODO: Implement light source movement based on the number of required NPCs remaining
             // For example, you could adjust the intensity or range of a light source here
