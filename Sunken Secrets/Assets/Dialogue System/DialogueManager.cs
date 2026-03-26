@@ -11,8 +11,10 @@ public class DialogueManager : MonoBehaviour
 {
     //DialogueField is the scriptable object!
     public static UnityEvent<List<DialogueField>> NPCSpeaking = new UnityEvent<List<DialogueField>>();
+    public GameObject player;
     public static UnityEvent TextPrinted = new UnityEvent();
     List<DialogueField> TextRef; // stored dialogue
+    
     List<GameObject> instantiatedObjects = new List<GameObject>();
     public GameObject textParent; // parent object for text, used to enable/disable dialogue box
     public GameObject portraitParent; // parent object for portrait, used to enable/disable portrait
@@ -67,8 +69,6 @@ public class DialogueManager : MonoBehaviour
                 // set portrait based on current speaker
                 portraitParent.GetComponent<Image>().sprite = TextRef[dialogueSet].portraits[0];
 
-
-                  
                 StartCoroutine(WriteChar());
             }
             else

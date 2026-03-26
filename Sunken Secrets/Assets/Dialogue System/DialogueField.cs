@@ -9,4 +9,5 @@ public class DialogueField : ScriptableObject
     public string firstSpeaker; // used to determine which portrait to show, and which name to show initially
     public string secondSpeaker; // used to determine which portrait to show, and which name to show when speaker changes
     public List<string> dialogue;
+
 }
