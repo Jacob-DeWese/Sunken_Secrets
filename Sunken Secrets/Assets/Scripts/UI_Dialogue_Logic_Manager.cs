@@ -126,8 +126,17 @@ public class UI_Dialogue_Logic_Manager : MonoBehaviour
 
     void UpdateJournalUI()
     {
-        if (npcsWithDialogue.Count == 0)
+        if (npcsWithDialogue == null || npcsWithDialogue.Count == 0)
+            return;
+
+        if (currentNpcIndex < 0 || currentNpcIndex >= npcsWithDialogue.Count)
+            return;
+
+        GameObject npc = npcsWithDialogue[currentNpcIndex];
+
+        if (npc == null)
         {
+            Debug.LogError($"NPC at index {currentNpcIndex} is NULL");
             return;
         }
 
