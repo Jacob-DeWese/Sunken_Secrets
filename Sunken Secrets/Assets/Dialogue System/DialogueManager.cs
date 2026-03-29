@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     public string prevSpeaker;
     TMP_Text textComponent; // actual text on screen
     int dialogueOrder;
-    int dialogueSet;
+    public int dialogueSet;
 
     public GameObject dialoguePrefab;
 
