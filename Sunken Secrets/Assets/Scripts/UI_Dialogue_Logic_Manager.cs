@@ -56,12 +56,13 @@ public class UI_Dialogue_Logic_Manager : MonoBehaviour
         instance = this;
 
         journalParent.SetActive(false);
-        // DontDestroyOnLoad(gameObject);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        npcsWithDialogue.RemoveAll(npc => npc == null);
+
         for (int i = 0; i < npcsWithDialogue.Count; i++)
         {
             journal.Add(npcsWithDialogue[i].name, new List<string>());
@@ -72,7 +73,6 @@ public class UI_Dialogue_Logic_Manager : MonoBehaviour
         journalText.text = "";
         characterNameText.text = "";
 
-        // journalParentActive = false;
     }
 
     // Update is called once per frame
@@ -131,7 +131,15 @@ public class UI_Dialogue_Logic_Manager : MonoBehaviour
             return;
         }
 
+        if (currentNpcIndex >= npcsWithDialogue.Count || npcsWithDialogue[currentNpcIndex] == null)
+        {
+            currentNpcIndex = 0;
+            return;
+        }
+
         string currentNPC = npcsWithDialogue[currentNpcIndex].name;
+
+        characterNameText.text = currentNPC;
 
         if (journal.TryGetValue(currentNPC, out List<string> clues))
         {
@@ -182,7 +190,7 @@ public class UI_Dialogue_Logic_Manager : MonoBehaviour
 
                         for (int i = 0; i < npcsWithDialogue.Count; i++)
                         {
-                            if (npcsWithDialogue[i].name == npcName)
+                            if (npcsWithDialogue[i] != null && npcsWithDialogue[i].name == npcName)
                             {
                                 currentNpcIndex = i;
                                 break;
