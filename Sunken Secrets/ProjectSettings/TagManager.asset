@@ -8,6 +8,7 @@ TagManager:
   - NPC_Optional
   - Collectible
   - Inventory
+  - Internal
   layers:
   - Default
   - TransparentFX

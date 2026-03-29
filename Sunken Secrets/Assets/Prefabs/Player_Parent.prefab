@@ -166,6 +166,7 @@ MonoBehaviour:
   ocean: {fileID: 0}
   moveTime: 9.6
   speed: 1
+  lightSource: {fileID: 0}
 --- !u!114 &795891578518491777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,12 +210,15 @@ MonoBehaviour:
   - {fileID: 0}
   itemSprites:
   - {fileID: 21300000, guid: 6924da0c75abccf4786a097a8f05f30f, type: 3}
+  buttonSprites: []
   inventorySlots:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  inventoryPanel: {fileID: 0}
+  button: {fileID: 0}
 --- !u!114 &5593490439323387652
 MonoBehaviour:
   m_ObjectHideFlags: 0

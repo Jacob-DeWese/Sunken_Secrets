@@ -60,7 +60,6 @@ public class NPC_Tracking : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC_Required"))
         {
-            //required_npcs.Remove(other.gameObject);
 
         // added second condition so sun will only rotate after first interaction
         if (required_npcs.Count > 0 && required_npcs.Contains(other.gameObject))
