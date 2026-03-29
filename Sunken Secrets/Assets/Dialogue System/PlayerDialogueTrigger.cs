@@ -4,6 +4,8 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
+using DigitalWorlds.StarterPackage3D;
+
 public class PlayerDialogueTrigger : MonoBehaviour
 {
     // this script stores information needed to trigger a dialogue interaction with an NPC
@@ -16,15 +18,24 @@ public class PlayerDialogueTrigger : MonoBehaviour
     public List<GameObject> internal_npcs = new List<GameObject>();
 
     public GameObject dialoguePrefab;
+    public ThirdPersonController controller;
 
+    
     void Start()
     {
         dialoguePrefab.SetActive(false);
         
     }
 
+    void Awake()
+    {
+        controller = GetComponent<ThirdPersonController>(); 
+    }
+
     void OnTriggerEnter(Collider other)
     {
+        //controller.EnableMovement(false);
+
         if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional"))
         {
             if (other.gameObject.GetComponent<NPCDialogueControl>().dialogueFields.Count == 0)
@@ -39,18 +50,21 @@ public class PlayerDialogueTrigger : MonoBehaviour
                 interactionOccurance.Invoke();  
                 UnityEngine.Debug.Log("Interaction Occurred");
             }
-            
         }
+
         else if (other.gameObject.CompareTag("Internal") && other.gameObject.GetComponent<InternalDialogueControl>().active)
         {
             dialoguePrefab.SetActive(true);
             interactionOccurance.Invoke();  
             UnityEngine.Debug.Log("Internal Dialogue Occurred");
         }
+
     }
 
     void OnTriggerExit(Collider other)
     {
+        //controller.EnableMovement(true);
+
         if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional") || other.gameObject.CompareTag("Internal"))
         {
             dialoguePrefab.SetActive(false);    
