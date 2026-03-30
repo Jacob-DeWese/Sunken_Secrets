@@ -5,7 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-//[RequireComponent(typeof(TMP_Text))]
+using DigitalWorlds.StarterPackage3D; // for third person controller
+
 
 public class DialogueManager : MonoBehaviour
 {
@@ -28,11 +29,18 @@ public class DialogueManager : MonoBehaviour
     public int dialogueSet;
 
     public GameObject dialoguePrefab;
-
-
+    
+    public ThirdPersonController controller; // disable movement while speaking
 
     // Typewriter effect:
     float charDelay = 0.05f;
+
+
+    void Start()
+    {
+        // THIS IS NOT WORKIKNG NEEDS TO BE FIXED
+        controller = player.GetComponent<ThirdPersonController>(); 
+    }
     void Awake()
     {
         // Runs only once, on script instance creation. Used for initialization.
@@ -68,7 +76,7 @@ public class DialogueManager : MonoBehaviour
                 nameParent.GetComponent<TMP_Text>().text = currentSpeaker;
                 // set portrait based on current speaker
                 portraitParent.GetComponent<Image>().sprite = TextRef[dialogueSet].portraits[0];
-
+                //controller.EnableMovement(false); // LOCK MOVEMENT WHILE SPEAKING
                 StartCoroutine(WriteChar());
             }
             else
@@ -109,13 +117,17 @@ public class DialogueManager : MonoBehaviour
                     // }
                     // END OF CHOICE
 
+                    // end speaking if at end
                     if (dialogueOrder >= TextRef[dialogueSet].dialogue.Count) {
                         textParent.SetActive(false);
                         dialoguePrefab.SetActive(false);
+                        //controller.EnableMovement(true); // UNLOCK MOVEMENT
                         return;
                     }
 
+                    // update speaker and continue writing chars
                     textComponent.text = TextRef[dialogueSet].dialogue[dialogueOrder];
+
                     // change speaker & portrait based on dialogue order (even = first speaker, odd = second speaker)
                     if (textComponent.text[0] == '*') // indicates the same speaker as previous line, so don't change portrait or name
                     {

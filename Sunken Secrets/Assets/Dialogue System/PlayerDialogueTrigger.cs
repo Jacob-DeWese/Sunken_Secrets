@@ -17,6 +17,7 @@ public class PlayerDialogueTrigger : MonoBehaviour
 
     public GameObject dialoguePrefab;
 
+    
     void Start()
     {
         dialoguePrefab.SetActive(false);
@@ -25,6 +26,7 @@ public class PlayerDialogueTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional"))
         {
             if (other.gameObject.GetComponent<NPCDialogueControl>().dialogueFields.Count == 0)
@@ -39,18 +41,20 @@ public class PlayerDialogueTrigger : MonoBehaviour
                 interactionOccurance.Invoke();  
                 UnityEngine.Debug.Log("Interaction Occurred");
             }
-            
         }
-        else if (other.gameObject.CompareTag("Internal") && other.gameObject.GetComponent<InternalDialogueControl>().active)
+
+        else if (other.gameObject.CompareTag("Internal") && other.gameObject.GetComponent<NPCDialogueControl>().active)
         {
             dialoguePrefab.SetActive(true);
             interactionOccurance.Invoke();  
             UnityEngine.Debug.Log("Internal Dialogue Occurred");
         }
+
     }
 
     void OnTriggerExit(Collider other)
     {
+
         if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional") || other.gameObject.CompareTag("Internal"))
         {
             dialoguePrefab.SetActive(false);    
@@ -62,7 +66,7 @@ public class PlayerDialogueTrigger : MonoBehaviour
                 {
                     // this could probably be optimized later with repeat dialogue being disabled for some internal npcs
                     internal_npcs.Add(other.gameObject);
-                    other.gameObject.GetComponent<InternalDialogueControl>().active = false;
+                    other.gameObject.GetComponent<NPCDialogueControl>().active = false;
                 }
             }
 
