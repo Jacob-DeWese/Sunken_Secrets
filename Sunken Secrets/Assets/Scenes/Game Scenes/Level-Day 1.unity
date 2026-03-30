@@ -358,11 +358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952996263095cc04b9bc014782cc6ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueControl
-  thisNPC: {fileID: 0}
   dialogueFields:
   - {fileID: 11400000, guid: 4867bb0ebf176d341ad4dd251df7fdcf, type: 2}
   repeatedFields: []
   repeat: 0
+  active: 1
 --- !u!212 &271816573
 SpriteRenderer:
   serializedVersion: 2
@@ -496,9 +496,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8135508537505564376, guid: 71a7482617928b44bb64ac53be630b90, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1270354129}
-    - targetCorrespondingSourceObject: {fileID: 8971878795329027225, guid: 71a7482617928b44bb64ac53be630b90, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1999605951}
     - targetCorrespondingSourceObject: {fileID: 562424725995941020, guid: 71a7482617928b44bb64ac53be630b90, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1386890527}
@@ -1002,7 +999,7 @@ Transform:
   m_GameObject: {fileID: 876752872}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -439.83, y: 1.9081802, z: -173.95}
+  m_LocalPosition: {x: -494.55, y: 10.718, z: -206.008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1040,12 +1037,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 876752872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7390d64845dd6d741ae81b8c00cbe223, type: 3}
+  m_Script: {fileID: 11500000, guid: 952996263095cc04b9bc014782cc6ee3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InternalDialogueControl
-  thisNPC: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueControl
   dialogueFields:
   - {fileID: 11400000, guid: 286c3e581716b1945a12ed7011f72778, type: 2}
+  repeatedFields: []
+  repeat: 0
   active: 1
 --- !u!1 &1101220366
 GameObject:
@@ -1227,12 +1225,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952996263095cc04b9bc014782cc6ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueControl
-  thisNPC: {fileID: 0}
   dialogueFields:
   - {fileID: 11400000, guid: 97bee7ebdef92e949a122425d0e0cfe0, type: 2}
   repeatedFields:
   - {fileID: 11400000, guid: 7c8eb22e1a98fc4428ae0d98ba69068e, type: 2}
   repeat: 0
+  active: 1
 --- !u!65 &1101220375
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1499,6 +1497,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -216.99992
       objectReference: {fileID: 0}
+    - target: {fileID: 5511885936429581352, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7316027460041023320}
     - target: {fileID: 6528895361197540061, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 219
@@ -1736,11 +1738,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952996263095cc04b9bc014782cc6ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueControl
-  thisNPC: {fileID: 0}
   dialogueFields:
   - {fileID: 11400000, guid: 1341714763a04984aacbdd1f463a27ce, type: 2}
   repeatedFields: []
   repeat: 0
+  active: 1
 --- !u!212 &1556729696
 SpriteRenderer:
   serializedVersion: 2
@@ -1974,11 +1976,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952996263095cc04b9bc014782cc6ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueControl
-  thisNPC: {fileID: 0}
   dialogueFields:
   - {fileID: 11400000, guid: 8e348de9c8d2b8c4ebc64060f4ce0511, type: 2}
   repeatedFields: []
   repeat: 0
+  active: 1
 --- !u!212 &1837462255
 SpriteRenderer:
   serializedVersion: 2
@@ -2215,13 +2217,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 448883440316229782, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
   m_PrefabInstance: {fileID: 1328432503}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1999605947 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8971878795329027225, guid: 71a7482617928b44bb64ac53be630b90, type: 3}
-  m_PrefabInstance: {fileID: 339622458}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1999605951
-MeshCollider:
 --- !u!1 &2032416890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,26 +2239,10 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999605947}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 6aa9d37a8ff059a49bb34287551be607, type: 3}
   m_GameObject: {fileID: 2032416890}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -53.88634, y: 8.80982, z: -32.14001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2362,7 +2341,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2802245074021303643}
@@ -2737,10 +2716,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.6132088
+  m_Height: 2.4207897
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.07091141, y: 0.046915054, z: 0.18412018}
 --- !u!4 &8906959360517644989
 Transform:
   m_ObjectHideFlags: 0
@@ -2831,7 +2810,6 @@ MonoBehaviour:
   spoken_to_npcs: []
   internal_npcs: []
   dialoguePrefab: {fileID: 1998797285}
-  controller: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

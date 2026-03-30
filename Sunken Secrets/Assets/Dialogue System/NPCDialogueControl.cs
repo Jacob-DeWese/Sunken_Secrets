@@ -3,14 +3,16 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
+public class NPCDialogueControl : MonoBehaviour {
 
-public class NPCDialogueControl : MonoBehaviour
-{
-    public GameObject thisNPC;
-    public List<DialogueField> dialogueFields; // list of dialogue fields for this NPC
+    public List<DialogueField> dialogueFields; // list of dialogue fields for this NPC / internal dialogue
     public List<DialogueField> repeatedFields; // dialogue fields for repeated interaction
-    // bool to control repeated interactions
+    
+    // REPEAT CONTROL
+    // bool to control repeated NPC interactions
     public bool repeat = false;
+    // bool to disable revisiting internal dialogue
+    public bool active = true;
     
     void OnTriggerEnter(Collider other)
     {
@@ -27,10 +29,17 @@ public class NPCDialogueControl : MonoBehaviour
 
     void StartTalking()
     {
-        if (!repeat)
-            DialogueManager.NPCSpeaking.Invoke(dialogueFields);
-        else if (repeat)
-            DialogueManager.NPCSpeaking.Invoke(repeatedFields);
+        if (this.gameObject.CompareTag("NPC_Required") || this.gameObject.CompareTag("NPC_Optional")) {
+            if (!repeat)
+                DialogueManager.NPCSpeaking.Invoke(dialogueFields);
+            else if (repeat)
+                DialogueManager.NPCSpeaking.Invoke(repeatedFields);
+        }
+        else if (this.gameObject.CompareTag("Internal"))
+        {
+            if (active)
+                DialogueManager.NPCSpeaking.Invoke(dialogueFields);
+        }
             
         
     }

@@ -4,8 +4,6 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
-using DigitalWorlds.StarterPackage3D;
-
 public class PlayerDialogueTrigger : MonoBehaviour
 {
     // this script stores information needed to trigger a dialogue interaction with an NPC
@@ -18,7 +16,6 @@ public class PlayerDialogueTrigger : MonoBehaviour
     public List<GameObject> internal_npcs = new List<GameObject>();
 
     public GameObject dialoguePrefab;
-    public ThirdPersonController controller;
 
     
     void Start()
@@ -27,14 +24,8 @@ public class PlayerDialogueTrigger : MonoBehaviour
         
     }
 
-    void Awake()
-    {
-        controller = GetComponent<ThirdPersonController>(); 
-    }
-
     void OnTriggerEnter(Collider other)
     {
-        //controller.EnableMovement(false);
 
         if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional"))
         {
@@ -52,7 +43,7 @@ public class PlayerDialogueTrigger : MonoBehaviour
             }
         }
 
-        else if (other.gameObject.CompareTag("Internal") && other.gameObject.GetComponent<InternalDialogueControl>().active)
+        else if (other.gameObject.CompareTag("Internal") && other.gameObject.GetComponent<NPCDialogueControl>().active)
         {
             dialoguePrefab.SetActive(true);
             interactionOccurance.Invoke();  
@@ -63,7 +54,6 @@ public class PlayerDialogueTrigger : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        //controller.EnableMovement(true);
 
         if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional") || other.gameObject.CompareTag("Internal"))
         {
@@ -76,7 +66,7 @@ public class PlayerDialogueTrigger : MonoBehaviour
                 {
                     // this could probably be optimized later with repeat dialogue being disabled for some internal npcs
                     internal_npcs.Add(other.gameObject);
-                    other.gameObject.GetComponent<InternalDialogueControl>().active = false;
+                    other.gameObject.GetComponent<NPCDialogueControl>().active = false;
                 }
             }
 
