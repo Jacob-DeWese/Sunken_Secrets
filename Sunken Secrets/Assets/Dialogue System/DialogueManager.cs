@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
 {
     //DialogueField is the scriptable object!
     public static UnityEvent<List<DialogueField>> NPCSpeaking = new UnityEvent<List<DialogueField>>();
+    public static UnityEvent PlayerFreeze = new UnityEvent();
     public GameObject player;
     public static UnityEvent TextPrinted = new UnityEvent();
     List<DialogueField> TextRef; // stored dialogue
@@ -36,14 +37,11 @@ public class DialogueManager : MonoBehaviour
     float charDelay = 0.05f;
 
 
-    void Start()
-    {
-        // THIS IS NOT WORKIKNG NEEDS TO BE FIXED
-        controller = player.GetComponent<ThirdPersonController>(); 
-    }
     void Awake()
     {
         // Runs only once, on script instance creation. Used for initialization.
+        controller = player.GetComponent<ThirdPersonController>(); 
+        PlayerFreeze.AddListener(controller.HandleInput);
         NPCSpeaking.AddListener(DialogueCall); // run dialogeue when event is called
         textParent.SetActive(false);
         dialoguePrefab.SetActive(false);
@@ -63,6 +61,9 @@ public class DialogueManager : MonoBehaviour
             // activeInHierarchy checks if active IN SCENE, not just if its active
             if (!textParent.activeInHierarchy)
             {
+                // assign control initially
+                controller = player.GetComponent<ThirdPersonController>(); 
+                controller.EnableMovement(false); // LOCK MOVEMENT WHILE SPEAKING
                 textParent.SetActive(true);
                 dialoguePrefab.SetActive(true);
                 textComponent = GetComponent<TMP_Text>();
@@ -76,7 +77,7 @@ public class DialogueManager : MonoBehaviour
                 nameParent.GetComponent<TMP_Text>().text = currentSpeaker;
                 // set portrait based on current speaker
                 portraitParent.GetComponent<Image>().sprite = TextRef[dialogueSet].portraits[0];
-                //controller.EnableMovement(false); // LOCK MOVEMENT WHILE SPEAKING
+
                 StartCoroutine(WriteChar());
             }
             else
@@ -121,7 +122,7 @@ public class DialogueManager : MonoBehaviour
                     if (dialogueOrder >= TextRef[dialogueSet].dialogue.Count) {
                         textParent.SetActive(false);
                         dialoguePrefab.SetActive(false);
-                        //controller.EnableMovement(true); // UNLOCK MOVEMENT
+                        controller.EnableMovement(true); // UNLOCK MOVEMENT
                         return;
                     }
 
@@ -161,10 +162,6 @@ public class DialogueManager : MonoBehaviour
         NPCSpeaking.AddListener(DialogueCall);
         choiceParent.SetActive(false);
         DialogueCall(TextRef);
-    }
-    public void setUI()
-    {
-    
     }
 
 

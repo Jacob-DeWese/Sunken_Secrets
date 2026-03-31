@@ -30,6 +30,7 @@ public class NPCDialogueControl : MonoBehaviour {
     void StartTalking()
     {
         if (this.gameObject.CompareTag("NPC_Required") || this.gameObject.CompareTag("NPC_Optional")) {
+            DialogueManager.PlayerFreeze.Invoke();
             if (!repeat)
                 DialogueManager.NPCSpeaking.Invoke(dialogueFields);
             else if (repeat)
@@ -37,6 +38,7 @@ public class NPCDialogueControl : MonoBehaviour {
         }
         else if (this.gameObject.CompareTag("Internal"))
         {
+            DialogueManager.PlayerFreeze.Invoke();
             if (active)
                 DialogueManager.NPCSpeaking.Invoke(dialogueFields);
         }

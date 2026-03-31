@@ -144,10 +144,15 @@ namespace DigitalWorlds.StarterPackage3D
             HandleCamera();
         }
 
-        private void HandleInput()
+        public void HandleInput()
         {
             if (!canMove)
             {
+                // set player to idle for dialogue interactions (idle anim)
+                animator.SetBool(animationParameters.MovingLeft, false);
+                animator.SetBool(animationParameters.MovingRight, false);
+                animator.SetBool(animationParameters.MovingUp, false);
+                animator.SetBool(animationParameters.MovingDown, false);
                 return;
             }
 

@@ -727,13 +727,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f40324ff4ab5e5d4481e335b2248cb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+  player: {fileID: 4139962278023166107, guid: 66beff746faec804a8e9e4053ae6e1ae, type: 3}
   textParent: {fileID: 1892150764352613614}
   portraitParent: {fileID: 7865602214126551895}
   nameParent: {fileID: 1892150764352613614}
   choiceParent: {fileID: 0}
   dialogueChoicePrefab: {fileID: 0}
   currentSpeaker: 
+  prevSpeaker: 
+  dialogueSet: 0
   dialoguePrefab: {fileID: 448883440316229782}
+  controller: {fileID: 0}
 --- !u!1 &7865602214126551895
 GameObject:
   m_ObjectHideFlags: 0
