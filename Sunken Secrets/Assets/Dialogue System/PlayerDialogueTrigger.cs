@@ -13,6 +13,7 @@ public class PlayerDialogueTrigger : MonoBehaviour
     //static --> only one instance of this variable can exist, and it is shared across all instances of the class
     public static UnityEvent interactionOccurance = new UnityEvent();
     public List<GameObject> spoken_to_npcs = new List<GameObject>();
+    public List<GameObject> internal_npcs = new List<GameObject>();
 
     public GameObject dialoguePrefab;
 
@@ -40,23 +41,41 @@ public class PlayerDialogueTrigger : MonoBehaviour
             }
             
         }
+        else if (other.gameObject.CompareTag("Internal") && other.gameObject.GetComponent<InternalDialogueControl>().active)
+        {
+            dialoguePrefab.SetActive(true);
+            interactionOccurance.Invoke();  
+            UnityEngine.Debug.Log("Internal Dialogue Occurred");
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional"))
+        if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional") || other.gameObject.CompareTag("Internal"))
         {
             dialoguePrefab.SetActive(false);    
             interactionOccurance.RemoveAllListeners();
             UnityEngine.Debug.Log("Interaction Ended");
-            if (!spoken_to_npcs.Contains(other.gameObject))
+            if (other.gameObject.CompareTag("Internal"))
             {
-                // if this is a new NPC interaction, add to spoken to list, and set repeat bool to true
-                other.gameObject.GetComponent<NPCDialogueControl>().repeat = true;
-                spoken_to_npcs.Add(other.gameObject);
-                
-               
-                
+                if (!internal_npcs.Contains(other.gameObject))
+                {
+                    // this could probably be optimized later with repeat dialogue being disabled for some internal npcs
+                    internal_npcs.Add(other.gameObject);
+                    other.gameObject.GetComponent<InternalDialogueControl>().active = false;
+                }
+            }
+
+            else if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional")) {
+
+                if (!spoken_to_npcs.Contains(other.gameObject))
+                {
+                        // if this is a new NPC interaction, add to spoken to list, and set repeat bool to true
+                        // ADD CONTROL TO SET repeat IFF dialogueSets have ALL been used
+                        
+                        other.gameObject.GetComponent<NPCDialogueControl>().repeat = true;
+                        spoken_to_npcs.Add(other.gameObject); 
+                }
             }
         }
     }

@@ -4,13 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class NPCDialogueControl : MonoBehaviour
+public class InternalDialogueControl : MonoBehaviour
 {
     public GameObject thisNPC;
     public List<DialogueField> dialogueFields; // list of dialogue fields for this NPC
-    public List<DialogueField> repeatedFields; // dialogue fields for repeated interaction
-    // bool to control repeated interactions
-    public bool repeat = false;
+    public bool active = true;
     
     void OnTriggerEnter(Collider other)
     {
@@ -27,12 +25,8 @@ public class NPCDialogueControl : MonoBehaviour
 
     void StartTalking()
     {
-        if (!repeat)
-            DialogueManager.NPCSpeaking.Invoke(dialogueFields);
-        else if (repeat)
-            DialogueManager.NPCSpeaking.Invoke(repeatedFields);
-            
-        
+        if (active)
+            DialogueManager.NPCSpeaking.Invoke(dialogueFields);  
     }
 
     void OnTriggerExit(Collider other)
