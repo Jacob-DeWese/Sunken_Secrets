@@ -1136,7 +1136,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1974282066, guid: 32f21f7a3b0f89b4d8591ec38f2e9de3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2299,7 +2299,7 @@ MonoBehaviour:
   minDistance: 1
   maxDistance: 5
   cameraDistanceSpeed: 15
-  stepHeight: 0.4
+  stepHeight: 0
   stepSmooth: 50
   mainCollider: {fileID: 8809246095224064399}
 --- !u!114 &1248561544929992903
@@ -2704,7 +2704,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7316027460041023320}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 923ea2b1442e40f419240b6d4297ce7d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
