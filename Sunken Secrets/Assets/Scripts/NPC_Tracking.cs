@@ -28,6 +28,19 @@ public class NPC_Tracking : MonoBehaviour
     private float timer = 0f;
     [SerializeField] protected float speed = 5f;
     [SerializeField] protected Light lightSource;
+    
+    [Header("Check Player Teleported to Pier")]
+    [SerializeField] private Transform player;
+    [SerializeField] private GameObject pierPosition;
+    [SerializeField] private float withinPierPosition = 1f;
+    [SerializeField] private float delayTideRecede = 1f;
+
+    private float? delayTimer = null;
+
+    private bool checkPlayerReachedPier()
+    {
+        return Vector3.Distance(player.position, pierPosition.transform.position) <= withinPierPosition;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,15 +57,26 @@ public class NPC_Tracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (required_npcs.Count == 0 && timer < moveTime)
+        if (required_npcs.Count == 0 && checkPlayerReachedPier())
         {
-            Vector3 direction = new Vector3(0, -1, 0).normalized;
-            ocean.transform.Translate(direction * speed * Time.deltaTime);
-            timer += Time.deltaTime;
-        }
-        else if (required_npcs.Count == 0 && timer >= moveTime)
-        {
-            ocean.SetActive(false);
+            if (delayTimer == null)
+                delayTimer = 0f;
+
+            delayTimer += Time.deltaTime;
+
+            if (delayTimer >= delayTideRecede)
+            {
+                if (timer < moveTime)
+                {
+                    Vector3 direction = new Vector3(0, -1, 0).normalized;
+                    ocean.transform.Translate(direction * speed * Time.deltaTime);
+                    timer += Time.deltaTime;
+                }
+                else
+                {
+                    ocean.SetActive(false);
+                }
+            }
         }
     }
 

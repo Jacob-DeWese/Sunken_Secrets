@@ -62706,7 +62706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.StarterPackage3D.Teleporter3D
   tagName: Player
-  destination: {fileID: 7902237672319429353}
+  destination: {fileID: 8954321198754349381}
   useDestinationRotation: 0
   requireKeyPress: 0
   teleportKey: 32
@@ -73114,6 +73114,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6049586445472432357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8954321198754349381}
+  m_Layer: 0
+  m_Name: Pier_Position
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8954321198754349381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6049586445472432357}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 186.43, y: 12.5, z: -35.09}
+  m_LocalScale: {x: 2.4999993, y: 2.5, z: 2.4999993}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2661740076443330859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6061085434147887868
 GameObject:
   m_ObjectHideFlags: 0
@@ -103342,6 +103373,7 @@ Transform:
   - {fileID: 6796566743886735374}
   - {fileID: 1465381988538055381}
   - {fileID: 1207498927332570560}
+  - {fileID: 8954321198754349381}
   - {fileID: 8537152113557892945}
   - {fileID: 822282071976860545}
   - {fileID: 275323483317758903}
