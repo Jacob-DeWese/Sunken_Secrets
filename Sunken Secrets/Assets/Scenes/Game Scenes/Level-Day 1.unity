@@ -470,6 +470,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2835637329801830704, guid: 71a7482617928b44bb64ac53be630b90, type: 3}
+      propertyPath: destination
+      value: 
+      objectReference: {fileID: 1528449651}
     - target: {fileID: 8568742580569132182, guid: 71a7482617928b44bb64ac53be630b90, type: 3}
       propertyPath: m_Name
       value: Map_Updated (Redone)
@@ -1412,6 +1416,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 6aa9d37a8ff059a49bb34287551be607, type: 3}
+--- !u!1 &1266944847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3918523104118333697, guid: 71a7482617928b44bb64ac53be630b90, type: 3}
+  m_PrefabInstance: {fileID: 339622458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1270354125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8135508537505564376, guid: 71a7482617928b44bb64ac53be630b90, type: 3}
@@ -1628,6 +1637,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!1 &1528449650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6049586445472432357, guid: 71a7482617928b44bb64ac53be630b90, type: 3}
+  m_PrefabInstance: {fileID: 339622458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1528449651 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8954321198754349381, guid: 71a7482617928b44bb64ac53be630b90, type: 3}
+  m_PrefabInstance: {fileID: 339622458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1550622769 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4824227197455121650, guid: 71a7482617928b44bb64ac53be630b90, type: 3}
@@ -2455,10 +2474,14 @@ MonoBehaviour:
   - {fileID: 1837462250}
   - {fileID: 271816566}
   required_npcs: []
-  ocean: {fileID: 0}
+  ocean: {fileID: 1266944847}
   moveTime: 9.6
   speed: 1
   lightSource: {fileID: 550671805}
+  player: {fileID: 8906959360517644989}
+  pierPosition: {fileID: 1528449650}
+  withinPierPosition: 1
+  delayTideRecede: 1
 --- !u!54 &5370303564991789154
 Rigidbody:
   m_ObjectHideFlags: 0
