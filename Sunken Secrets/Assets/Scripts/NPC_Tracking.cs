@@ -17,27 +17,24 @@ public class NPC_Tracking : MonoBehaviour
     [Header("Ocean Trigger System")]
     [Tooltip("List to store all the NPC GameObjects")]
     [SerializeField] protected List<GameObject> npcs = new();
-
     [Tooltip("List for all the required NPCs")]
     [SerializeField] protected List<GameObject> required_npcs = new();
-
     [Tooltip("Ocean GameObject")]
     [SerializeField] protected GameObject ocean;
-
     [SerializeField] protected float moveTime = 3f;
     private float timer = 0f;
     [SerializeField] protected float speed = 5f;
     [SerializeField] protected Light lightSource;
-    
-    [Header("Check Player Teleported to Pier")]
+
+    [Header("Pier Trigger")]
     [SerializeField] private Transform player;
     [SerializeField] private GameObject pierPosition;
     [SerializeField] private float withinPierPosition = 1f;
-    [SerializeField] private float delayTideRecede = 1f;
-
+    [SerializeField] private float delayTideRecede = 5.5f;
     private float? delayTimer = null;
+    private bool isReceding = false;
 
-    private bool checkPlayerReachedPier()
+    private bool PlayerAtPier()
     {
         return Vector3.Distance(player.position, pierPosition.transform.position) <= withinPierPosition;
     }
@@ -57,7 +54,7 @@ public class NPC_Tracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (required_npcs.Count == 0 && checkPlayerReachedPier())
+        if (required_npcs.Count == 0 && PlayerAtPier() && !isReceding)
         {
             if (delayTimer == null)
                 delayTimer = 0f;
@@ -66,16 +63,20 @@ public class NPC_Tracking : MonoBehaviour
 
             if (delayTimer >= delayTideRecede)
             {
-                if (timer < moveTime)
-                {
-                    Vector3 direction = new Vector3(0, -1, 0).normalized;
-                    ocean.transform.Translate(direction * speed * Time.deltaTime);
-                    timer += Time.deltaTime;
-                }
-                else
-                {
-                    ocean.SetActive(false);
-                }
+                isReceding = true;
+            }
+        }
+
+        if (isReceding && ocean.activeSelf)
+        {
+            if (timer < moveTime)
+            {
+                ocean.transform.Translate(Vector3.down * speed * Time.deltaTime);
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                ocean.SetActive(false);
             }
         }
     }
@@ -84,18 +85,14 @@ public class NPC_Tracking : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC_Required"))
         {
-
-        // added second condition so sun will only rotate after first interaction
-        if (required_npcs.Count > 0 && required_npcs.Contains(other.gameObject))
-        {
-            // TODO: Implement light source movement based on the number of required NPCs remaining
-            // For example, you could adjust the intensity or range of a light source here
-            required_npcs.Remove(other.gameObject);
-            int npcsInteracted = npcs.Count - required_npcs.Count;
-            float targetX = npcsInteracted/(float)npcs.Count * 270f;
-            Vector3 currentEuler = lightSource.transform.localEulerAngles;
-            lightSource.transform.localEulerAngles = new Vector3(targetX, currentEuler.y, currentEuler.z);
-        }
+            if (required_npcs.Count > 0 && required_npcs.Contains(other.gameObject))
+            {
+                required_npcs.Remove(other.gameObject);
+                int npcsInteracted = npcs.Count - required_npcs.Count;
+                float targetX = npcsInteracted / (float)npcs.Count * 270f;
+                Vector3 currentEuler = lightSource.transform.localEulerAngles;
+                lightSource.transform.localEulerAngles = new Vector3(targetX, currentEuler.y, currentEuler.z);
+            }
         }
     }
 }
