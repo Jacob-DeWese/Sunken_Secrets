@@ -14,11 +14,9 @@ public class UI_Inventory : MonoBehaviour
 
     [Tooltip("List for all the images that each item/clue will have in the inventory")]
     [SerializeField] protected List<Sprite> itemSprites = new();
-    [SerializeField] protected List<Sprite> buttonSprites = new();
 
     [SerializeField] private List<Image> inventorySlots = new();
     [SerializeField] private GameObject inventoryPanel;
-    [SerializeField] private Button button;
     
     private List<GameObject> inventoryItems = new();
     
@@ -28,34 +26,26 @@ public class UI_Inventory : MonoBehaviour
     void Start()
     {
         inventoryPanel.SetActive(false);
-        button.onClick.AddListener(ToggleInventory);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.I)) {
+            ToggleInventory();
+        }
+
         SelectItem();
     }
 
     public void ToggleInventory()
     {
         inventoryPanel.SetActive(!inventoryPanel.activeSelf);
-        if (inventoryPanel.activeSelf)
-        {
-            Debug.Log("Inventory Opened");
-            button.GetComponent<Image>().sprite = buttonSprites[1];
-        }
-        else
-        {
-            Debug.Log("Inventory Closed");
-            button.GetComponent<Image>().sprite = buttonSprites[0];
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Collectible"))
-        {
+        if (other.CompareTag("Collectible")) {
             AddItem(other.gameObject);
             other.gameObject.SetActive(false);
         }
@@ -63,10 +53,8 @@ public class UI_Inventory : MonoBehaviour
 
     public void SelectItem()
     {
-        for (int i = 0; i < inventoryItems.Count; i++)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-            {
+        for (int i = 0; i < inventoryItems.Count; i++) {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i)) {
                 selectedIndex = i;
                 Debug.Log("Selected Item: " + inventorySlots[i].name);
             }
@@ -75,8 +63,7 @@ public class UI_Inventory : MonoBehaviour
 
     public void AddItem(GameObject item)
     {
-        if (inventoryItems.Count >= 5)
-        {
+        if (inventoryItems.Count >= 5) {
             Debug.Log("Inventory Full");
             return;
         }
@@ -88,15 +75,13 @@ public class UI_Inventory : MonoBehaviour
 
     private void UpdateSlot(int index, GameObject item)
     {
-        if (index < 0 || index >= inventorySlots.Count)
-        {
+        if (index < 0 || index >= inventorySlots.Count) {
             return;
         }
 
         int collectibleIndex = collectibleItems.IndexOf(item);
 
-        if (collectibleIndex == -1)
-        {
+        if (collectibleIndex == -1) {
             Debug.Log("Item not found in collectibleItems list.");
             return;
         }
@@ -107,8 +92,7 @@ public class UI_Inventory : MonoBehaviour
 
     public GameObject GetSelectedItem()
     {
-        if (selectedIndex < 0 || selectedIndex >= collectibleItems.Count)
-        {
+        if (selectedIndex < 0 || selectedIndex >= collectibleItems.Count) {
             return null;
         }
 
