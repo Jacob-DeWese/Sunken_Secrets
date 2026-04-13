@@ -3,12 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
-using System.Runtime.CompilerServices;
 using System.Reflection;
+
 
 public class UI_Inventory : MonoBehaviour
 {
     [Header("Inventory logic")]
+    [SerializeField] protected GameObject tackleboxObject;
+    [SerializeField] protected Sprite tackleboxOpen;
+    [SerializeField] protected Sprite tackleboxClosed;
+    private Image tackleboxImage;
+
     [Tooltip("List to store EVERY collectible item/clue that will be used later in the game")]
     [SerializeField] protected List<GameObject> collectibleItems = new();
 
@@ -26,6 +31,8 @@ public class UI_Inventory : MonoBehaviour
     void Start()
     {
         inventoryPanel.SetActive(false);
+        tackleboxImage = tackleboxObject.GetComponent<Image>();
+        tackleboxImage.sprite = tackleboxClosed;
     }
 
     // Update is called once per frame
@@ -41,6 +48,15 @@ public class UI_Inventory : MonoBehaviour
     public void ToggleInventory()
     {
         inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+
+        if (inventoryPanel.activeSelf)
+        {
+            tackleboxImage.sprite = tackleboxOpen;
+        }
+        else
+        {
+            tackleboxImage.sprite = tackleboxClosed;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
