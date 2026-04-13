@@ -9,9 +9,9 @@ using UnityEngine.UI;
 using TMPro;
 using System.Reflection;
 
-public class UI_Dialogue_Logic_Manager : MonoBehaviour
+public class UI_Journal_Manager : MonoBehaviour
 {
-    private static UI_Dialogue_Logic_Manager instance;
+    private static UI_Journal_Manager instance;
 
     [Header("Dialogue logic that adds clues to a journal for each NPC encounter")]
     [Tooltip("List to store EVERY NPC who has dialogue options or interactions with the player. MUST be the gameObject, and each NPC has to have the same name across all levels")]
