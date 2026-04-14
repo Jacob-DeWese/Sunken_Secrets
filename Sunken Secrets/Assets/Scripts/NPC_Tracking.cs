@@ -33,6 +33,7 @@ public class NPC_Tracking : MonoBehaviour
     [SerializeField] private float delayTideRecede = 5.5f;
     private float? delayTimer = null;
     private bool isReceding = false;
+    private int initialRequiredCount;
 
     private bool PlayerAtPier()
     {
@@ -45,10 +46,9 @@ public class NPC_Tracking : MonoBehaviour
         for (int i = 0; i < npcs.Count; i++)
         {
             if (npcs[i].CompareTag("NPC_Required"))
-            {
                 required_npcs.Add(npcs[i]);
-            }
         }
+        initialRequiredCount = required_npcs.Count;
     }
 
     // Update is called once per frame
@@ -88,8 +88,15 @@ public class NPC_Tracking : MonoBehaviour
             if (required_npcs.Count > 0 && required_npcs.Contains(other.gameObject))
             {
                 required_npcs.Remove(other.gameObject);
-                int npcsInteracted = npcs.Count - required_npcs.Count;
-                float targetX = npcsInteracted / (float)npcs.Count * 270f;
+
+                int npcsInteracted = initialRequiredCount - required_npcs.Count; // ✅ required only
+                float progress = npcsInteracted / (float)initialRequiredCount;   // 0.0 → 1.0
+
+                // Map progress across your intended angle range (e.g. 180° → 270°)
+                float startAngle = 180f;
+                float endAngle = 270f;
+                float targetX = Mathf.Lerp(startAngle, endAngle, progress);      // ✅ respects start angle
+
                 Vector3 currentEuler = lightSource.transform.localEulerAngles;
                 lightSource.transform.localEulerAngles = new Vector3(targetX, currentEuler.y, currentEuler.z);
             }
