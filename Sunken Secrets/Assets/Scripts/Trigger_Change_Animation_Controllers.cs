@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Trigger_Change_Animation_Controllers : MonoBehaviour
 {
@@ -24,9 +25,15 @@ public class Trigger_Change_Animation_Controllers : MonoBehaviour
 
             if (switcher != null)
             {
-                switcher.SetAnimationController(locationController);
+                StartCoroutine(DelayAnimationSwitch(switcher));
             }
         }
 
+    }
+
+    private IEnumerator DelayAnimationSwitch(Animation_Trigger_Switching switcher)
+    {
+        yield return new WaitForSeconds(0.22f);
+        switcher.SetAnimationController(locationController);
     }
 }
