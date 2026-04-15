@@ -94,7 +94,7 @@ public class NPC_Tracking : MonoBehaviour
 
                 // Map progress across your intended angle range (e.g. 180° → 270°)
                 float startAngle = 180f;
-                float endAngle = 270f;
+                float endAngle = -90f;
                 float targetX = Mathf.Lerp(startAngle, endAngle, progress);      // ✅ respects start angle
 
                 Vector3 currentEuler = lightSource.transform.localEulerAngles;
