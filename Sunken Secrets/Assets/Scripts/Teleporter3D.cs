@@ -4,6 +4,7 @@
 
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 namespace DigitalWorlds.StarterPackage3D
 {
@@ -27,14 +28,25 @@ namespace DigitalWorlds.StarterPackage3D
         [Tooltip("The key input that the script is listening for.")]
         [SerializeField] private KeyCode teleportKey = KeyCode.Space;
 
+        [Header("Fade In/Out System")]
+        [Tooltip("The screen object that is used to fade in and out during teleportation")]
+        [SerializeField] private CanvasGroup fadeBlackScreen;
+
+        [Tooltip("Duration of the fade (in/out)")]
+        [SerializeField] protected float fadeTimeDuration = 0.2f;
+
+        [Tooltip("Duration of holding on black before fading again")]
+        [SerializeField] protected float timeToHold = 0.2f;
+
         [Space(20)]
         [SerializeField] private UnityEvent onTeleported;
 
         private Transform player;
+        private bool isFading = false;
 
         private void Update()
         {
-            if (Input.GetKeyDown(teleportKey) && requireKeyPress && player != null)
+            if (Input.GetKeyDown(teleportKey) && requireKeyPress && player != null && !isFading)
             {
                 TeleportPlayer();
             }
@@ -46,7 +58,7 @@ namespace DigitalWorlds.StarterPackage3D
             {
                 player = other.transform;
 
-                if (!requireKeyPress)
+                if (!requireKeyPress && !isFading)
                 {
                     TeleportPlayer();
                 }
@@ -70,18 +82,61 @@ namespace DigitalWorlds.StarterPackage3D
                 return;
             }
 
+            if (fadeBlackScreen != null)
+            {
+                StartCoroutine(FadeScreen());
+            }
+            else
+            {
+                if (useDestinationRotation)
+                {
+                    player.SetPositionAndRotation(destination.position, destination.rotation);
+                }
+                else
+                {
+                    player.position = destination.position;
+                }
+                
+                onTeleported.Invoke();
+            }
+        }
+
+        private IEnumerator FadeScreen()
+        {
+            isFading = true;
+            fadeBlackScreen.gameObject.SetActive(true);
+            yield return StartCoroutine(SetFadeAlpha(0f, 1f, fadeTimeDuration));
+            yield return new WaitForSeconds(timeToHold);
+            
             if (useDestinationRotation)
             {
-                // Move and rotate the player to the destination transform
                 player.SetPositionAndRotation(destination.position, destination.rotation);
             }
             else
             {
-                // Only move the player to the destination transform
                 player.position = destination.position;
             }
 
             onTeleported.Invoke();
+            yield return StartCoroutine(SetFadeAlpha(1f, 0f, fadeTimeDuration));
+            fadeBlackScreen.gameObject.SetActive(false);
+            isFading = false;
+
+        }
+
+        private IEnumerator SetFadeAlpha(float startAlpha, float endAlpha, float duration)
+        {
+            float elapsed = 0f;
+            fadeBlackScreen.alpha = startAlpha;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                fadeBlackScreen.alpha = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
+                yield return null;
+            }
+
+            fadeBlackScreen.alpha = endAlpha;
         }
     }
 }
