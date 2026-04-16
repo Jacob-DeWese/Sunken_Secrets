@@ -129,15 +129,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 452850380245613105, guid: 89b96b2647f657c41a8fed2451ecf359, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -490.88
+      value: -491.04
       objectReference: {fileID: 0}
     - target: {fileID: 452850380245613105, guid: 89b96b2647f657c41a8fed2451ecf359, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.387
+      value: 14.52
       objectReference: {fileID: 0}
     - target: {fileID: 452850380245613105, guid: 89b96b2647f657c41a8fed2451ecf359, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -209.445
+      value: -207.9
       objectReference: {fileID: 0}
     - target: {fileID: 452850380245613105, guid: 89b96b2647f657c41a8fed2451ecf359, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2320,6 +2320,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 448883440316229782, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
   m_PrefabInstance: {fileID: 1328432503}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2014214765 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1720108555297287032, guid: 653fce82f92581943951df501f536260, type: 3}
+  m_PrefabInstance: {fileID: 363815726629281790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2032416890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,9 +2417,33 @@ PrefabInstance:
       propertyPath: fadeBlackScreen
       value: 
       objectReference: {fileID: 1806479757}
+    - target: {fileID: 3494851142044038187, guid: 653fce82f92581943951df501f536260, type: 3}
+      propertyPath: destination
+      value: 
+      objectReference: {fileID: 2014214765}
+    - target: {fileID: 3494851142044038187, guid: 653fce82f92581943951df501f536260, type: 3}
+      propertyPath: fadeBlackScreen
+      value: 
+      objectReference: {fileID: 1806479757}
     - target: {fileID: 6108992375022118836, guid: 653fce82f92581943951df501f536260, type: 3}
       propertyPath: m_Name
       value: Map_Updated (Redone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695435839971605604, guid: 653fce82f92581943951df501f536260, type: 3}
+      propertyPath: requireKeyPress
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104251172706283577, guid: 653fce82f92581943951df501f536260, type: 3}
+      propertyPath: m_Size.x
+      value: 1.9765372
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104251172706283577, guid: 653fce82f92581943951df501f536260, type: 3}
+      propertyPath: m_Center.x
+      value: -0.4882686
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104251172706283577, guid: 653fce82f92581943951df501f536260, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744868212827069155, guid: 653fce82f92581943951df501f536260, type: 3}
       propertyPath: fadeBlackScreen
@@ -3657,7 +3686,7 @@ Transform:
   m_GameObject: {fileID: 7316027460041023320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -490.88, y: 10.718, z: -204.661}
+  m_LocalPosition: {x: -491.04, y: 10.851001, z: -203.116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
