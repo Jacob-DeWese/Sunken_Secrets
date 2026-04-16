@@ -6,6 +6,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 
+/*
+Add a checkbox condition to see if the teleport is the one from the diner to the dock/boat
+If yes, check to see what the position of the light source is. If it isn't at its final destination, then don't teleport.
+If the light is at the final position, then it will let the user teleport
+*/
+
 namespace DigitalWorlds.StarterPackage3D
 {
     /// <summary>
