@@ -13660,6 +13660,8 @@ MonoBehaviour:
   destination: {fileID: 8758049583452839923}
   useDestinationRotation: 0
   requireKeyPress: 0
+  isDinerInterior: 0
+  lightSource: {fileID: 0}
   teleportKey: 32
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
@@ -37703,6 +37705,8 @@ MonoBehaviour:
   destination: {fileID: 5670749862957494117}
   useDestinationRotation: 0
   requireKeyPress: 0
+  isDinerInterior: 0
+  lightSource: {fileID: 0}
   teleportKey: 32
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
@@ -37940,6 +37944,8 @@ MonoBehaviour:
   destination: {fileID: 1076553684928517024}
   useDestinationRotation: 0
   requireKeyPress: 0
+  isDinerInterior: 0
+  lightSource: {fileID: 0}
   teleportKey: 32
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
@@ -37981,6 +37987,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Trigger_Change_Animation_Controllers
   locationController: {fileID: 9100000, guid: 1dcd50a92ab687d41831108945c83e7e, type: 2}
+  isExitTrigger: 0
+  teleporter: {fileID: 0}
 --- !u!1 &3116291380374765915
 GameObject:
   m_ObjectHideFlags: 0
@@ -41669,6 +41677,8 @@ MonoBehaviour:
   destination: {fileID: 3079681456080934498}
   useDestinationRotation: 0
   requireKeyPress: 0
+  isDinerInterior: 0
+  lightSource: {fileID: 0}
   teleportKey: 32
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
@@ -45892,6 +45902,8 @@ MonoBehaviour:
   destination: {fileID: 1720108555297287032}
   useDestinationRotation: 0
   requireKeyPress: 0
+  isDinerInterior: 0
+  lightSource: {fileID: 0}
   teleportKey: 32
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
@@ -77840,6 +77852,8 @@ MonoBehaviour:
   destination: {fileID: 7793641656736301399}
   useDestinationRotation: 0
   requireKeyPress: 0
+  isDinerInterior: 0
+  lightSource: {fileID: 0}
   teleportKey: 32
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
@@ -77860,6 +77874,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Trigger_Change_Animation_Controllers
   locationController: {fileID: 9100000, guid: 638c0d9136fc4e940b61436f68dd6239, type: 2}
+  isExitTrigger: 1
+  teleporter: {fileID: 2629192731914288544}
 --- !u!1 &6416266266426552227
 GameObject:
   m_ObjectHideFlags: 0
@@ -83649,6 +83665,8 @@ MonoBehaviour:
   destination: {fileID: 2189279581175978507}
   useDestinationRotation: 0
   requireKeyPress: 0
+  isDinerInterior: 0
+  lightSource: {fileID: 0}
   teleportKey: 32
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
@@ -93680,6 +93698,8 @@ MonoBehaviour:
   destination: {fileID: 530023937483542473}
   useDestinationRotation: 0
   requireKeyPress: 0
+  isDinerInterior: 0
+  lightSource: {fileID: 0}
   teleportKey: 32
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2

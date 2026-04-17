@@ -1,9 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using DigitalWorlds.StarterPackage3D;
 
 public class Trigger_Change_Animation_Controllers : MonoBehaviour
 {
     [SerializeField] private RuntimeAnimatorController locationController;
+    [SerializeField] private bool isExitTrigger = false;
+    [SerializeField] private Teleporter3D teleporter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,15 +22,23 @@ public class Trigger_Change_Animation_Controllers : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
         {
-            Animation_Trigger_Switching switcher = other.GetComponent<Animation_Trigger_Switching>();
-
-            if (switcher != null)
-            {
-                StartCoroutine(DelayAnimationSwitch(switcher));
-            }
+            return;
         }
+
+        Animation_Trigger_Switching switcher = other.GetComponent<Animation_Trigger_Switching>();
+
+        if (switcher == null)
+        {
+            return;
+        }
+
+        if (isExitTrigger && teleporter != null && !teleporter.canLeaveDiner)
+        {
+            return;
+        }
+        StartCoroutine(DelayAnimationSwitch(switcher));
 
     }
 

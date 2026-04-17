@@ -1,12 +1,10 @@
-// using UnityEngine;
-// using System.Collections;
-// using System.Collections.Generic;
-// using Unity.VisualScripting;
-// using System.ComponentModel.Design;
-// using UnityEngine.SceneManagement;
-// using System.IO;
-// using UnityEngine.UI;
-// using TMPro;
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine.SceneManagement;
+using System.IO;
+
 
 // /*
 // How I am thinking about how the notepad/order taking mechanics will work:
@@ -22,157 +20,156 @@
 // - When the food is taken back to the right person, remove it from the list and continue until list is empty
 // */
 
-// public class UI_Notepad_Manager : MonoBehaviour
-// {
-//     private static UI_Notepad_Manager instance;
+public class UI_Notepad_Manager : MonoBehaviour
+{
+    private static UI_Notepad_Manager instance;
 
-//     [Header("Dialogue logic that adds clues to a journal for each NPC encounter")]
-//     [Tooltip("List to store EVERY NPC who has dialogue options or interactions with the player. MUST be the gameObject, and each NPC has to have the same name across all levels")]
-//     [SerializeField] protected List<GameObject> npcsWithDialogue = new();
+    [Header("NPC Order List")]
+    [Tooltip("List to store EVERY NPC who has dialogue options or interactions with the player. MUST be the gameObject, and each NPC has to have the same name across all levels")]
+    [SerializeField] protected List<GameObject> npcList = new();
+    [Tooltip("List for all the orders that the npcs will have")]
+    [SerializeField] protected List<TextAsset> npcOrders = new();
 
-//     [Tooltip("List for all the orders that the npcs will have")]
-//     [SerializeField] protected List<TextAsset> npcOrders = new();
+    [Header("Notepad UI")]
+    [Tooltip("Ordered map/dictionary used by the journal")]
+    [SerializeField] private TextMeshProUGUI characterNameText;
+    [SerializeField] private TextMeshProUGUI characterOrderText;
+    [SerializeField] private GameObject notepadParent;
 
-//     [Tooltip("Ordered map/dictionary used by the journal")]
-//     private Dictionary<string, List<string>> journal = new Dictionary<string, List<string>>() {};
+    private Dictionary<string, List<string>> notepad = new();
+    private Dictionary<string, TextAsset> npcOrderLookup = new();
+    private bool notepadParentActive;
+    private int currentNpcIndex = 0;
 
-//     [SerializeField] private TextMeshProUGUI journalText;
-    
-//     [SerializeField] private TextMeshProUGUI characterNameText;
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+            return;
+        }
 
-//     [SerializeField] private GameObject notepadParent;
+        instance = this;
 
+        notepadParent.SetActive(false);
+    }
 
-//     private bool notepadParentActive;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        npcList.RemoveAll(npc => npc == null);
 
-//     private int currentNpcIndex = 0;
+        for (int i = 0; i < npcList.Count; i++)
+        {
+            if (npcList[i] != null)
+            {
+                string npcName = npcList[i].name;
 
+                if (!notepad.ContainsKey(npcName))
+                {
+                    notepad[npcName] = new List<string>();
+                }
+                if (i < npcOrders.Count && npcOrders[i] != null)
+                {
+                    npcOrderLookup[npcName] = npcOrders[i];
+                }
+            }
+        }
 
-//     void Awake()
-//     {
-//         if (instance != null && instance != this)
-//         {
-//             Destroy(this);
-//             return;
-//         }
+        characterNameText.text = "";
+        characterNameText.text = "";
+    }
 
-//         instance = this;
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            bool newState = !notepadParent.activeSelf;
+            notepadParent.SetActive(newState);
 
-//         notepadParent.SetActive(false);
-//     }
+            if (newState)
+            {
+                UpdateNotepadUI();
+            }
+        }
+    }
 
-//     // Start is called once before the first execution of Update after the MonoBehaviour is created
-//     void Start()
-//     {
-//         npcsWithDialogue.RemoveAll(npc => npc == null);
+    void UpdateNotepadUI()
+    {
+        if (npcList.Count == 0)
+        {
+            return;
+        }
 
-//         for (int i = 0; i < npcsWithDialogue.Count; i++)
-//         {
-//             journal.Add(npcsWithDialogue[i].name, new List<string>());
-//         }
+        if (currentNpcIndex >= npcList.Count || npcList[currentNpcIndex] == null)
+        {
+            currentNpcIndex = 0;
+            return;
+        }
 
-//         headshotImage.gameObject.SetActive(false);
+        string currentNPC = npcList[currentNpcIndex].name;
 
-//         journalText.text = "";
-//         characterNameText.text = "";
+        characterNameText.text = currentNPC;
 
-//     }
+        if (notepad.TryGetValue(currentNPC, out List<string> orders))
+        {
+            if (orders.Count == 0)
+            {
+                characterOrderText.text = "";
+                return;
+            }
+            
+            characterOrderText.text = string.Join("\n\n", orders);
+        }
+    }
 
-//     // Update is called once per frame
-//     void Update()
-//     {
-//         if (Input.GetKeyDown(KeyCode.J))
-//         {
-//             bool newState = !notepadParent.activeSelf;
-//             notepadParent.SetActive(newState);
+    void OnTriggerEnter(Collider other)
+    {
+        if (!other.gameObject.CompareTag("NPC_Required") || !other.gameObject.CompareTag("NPC_Optional"))
+        {
+            return;
+        }
 
-//             if (newState)
-//             {
-//                 UpdateJournalUI();
-//             }
-//         }
-//     }
+        string npcName = other.gameObject.name;
 
-//     void UpdateJournalUI()
-//     {
-//         if (npcsWithDialogue.Count == 0)
-//         {
-//             return;
-//         }
+        if (!npcOrderLookup.ContainsKey(npcName))
+        {
+            return;
+        }
 
-//         if (currentNpcIndex >= npcsWithDialogue.Count || npcsWithDialogue[currentNpcIndex] == null)
-//         {
-//             currentNpcIndex = 0;
-//             return;
-//         }
+        pendingNpc = npcName;
+    }
 
-//         string currentNPC = npcsWithDialogue[currentNpcIndex].name;
+    public void NPCDialogue()
+    {
+        if (string.IsNullOrEmpty(pendingNpc))
+        {
+            return;
+        }
+        if (!npcOrderLookup.ContainsKey(pendingNpc))
+        {
+            return;
+        }
 
-//         characterNameText.text = currentNPC;
+        TextAsset characterOrderFile = npcOrderLookup[pendingNpc];
 
-//         if (journal.TryGetValue(currentNPC, out List<string> clues))
-//         {
-//             if (clues.Count == 0)
-//             {
-//                 journalText.text = "";
-//                 characterNameText.text = "";
+        if (orderFile == null)
+        {
+            return;
+        }
 
-//                 headshotImage.gameObject.SetActive(false);
-//             }
-//             else
-//             {
-//                 if (currentNpcIndex < npcJournalHeadshot.Count)
-//                 {
-//                     headshotImage.sprite = npcJournalHeadshot[currentNpcIndex];
-//                     headshotImage.gameObject.SetActive(true);
-//                 }
-//                 else
-//                 {
-//                     headshotImage.gameObject.SetActive(false);
-//                 }
+        string contents = orderFile.text;
 
-//                 journalText.text = string.Join("\n\n", clues);
-//                 characterNameText.text = currentNPC;
-//             }
-//         }
-//     }
+        if (!notepad[pendingNpc].Contains(contents))
+        {
+            notepad[pendingNpc].Add(contents);
+        }
 
-//     void OnTriggerEnter(Collider other)
-//     {
-//         if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional"))
-//         {
-//             string npcName = other.gameObject.name;
+        currentNpcIndex = npcList.FindIndex(n => n != null && n.name == pendingNpc);
 
-//             if (journal.ContainsKey(npcName)) {
-//                 string clueIndex = SceneManager.GetActiveScene().buildIndex.ToString();
-//                 string clueTextFileName = other.gameObject.name + "_Clue_Dialogue_" + clueIndex;
-//                 string path = Path.Combine(Application.dataPath, "Dialogue System", "All_Dialogue_Files", clueTextFileName + ".txt");
+        UpdateNotepadUI();
 
-//                 if (File.Exists(path))
-//                 {
-//                     string contents = File.ReadAllText(path);
-//                     Debug.Log(contents);
-
-//                     if (!journal[npcName].Contains(contents))
-//                     {
-//                         journal[npcName].Add(contents);
-
-//                         for (int i = 0; i < npcsWithDialogue.Count; i++)
-//                         {
-//                             if (npcsWithDialogue[i] != null && npcsWithDialogue[i].name == npcName)
-//                             {
-//                                 currentNpcIndex = i;
-//                                 break;
-//                             }
-//                         }
-//                         UpdateJournalUI();
-//                     }
-//                 }
-//                 else
-//                 {
-//                     Debug.LogError("File not found: " + path);
-//                 }
-//             }
-//         }
-//     }
-// }
+        pendingNpc = null;
+    }
+}
