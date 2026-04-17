@@ -89,13 +89,13 @@ public class NPC_Tracking : MonoBehaviour
             {
                 required_npcs.Remove(other.gameObject);
 
-                int npcsInteracted = initialRequiredCount - required_npcs.Count; // ✅ required only
-                float progress = npcsInteracted / (float)initialRequiredCount;   // 0.0 → 1.0
+                int npcsInteracted = initialRequiredCount - required_npcs.Count;
+                float progress = npcsInteracted / (float)initialRequiredCount;
 
                 // Map progress across your intended angle range (e.g. 180° → 270°)
                 float startAngle = 180f;
                 float endAngle = -90f;
-                float targetX = Mathf.Lerp(startAngle, endAngle, progress);      // ✅ respects start angle
+                float targetX = Mathf.Lerp(startAngle, endAngle, progress);
 
                 Vector3 currentEuler = lightSource.transform.localEulerAngles;
                 lightSource.transform.localEulerAngles = new Vector3(targetX, currentEuler.y, currentEuler.z);

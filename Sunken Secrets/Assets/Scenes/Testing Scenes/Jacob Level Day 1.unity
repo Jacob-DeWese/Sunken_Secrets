@@ -406,6 +406,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &314094165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2629192731914288544, guid: 653fce82f92581943951df501f536260, type: 3}
+  m_PrefabInstance: {fileID: 363815726629281790}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e541b6a46e4bc7645a3207c68cb3f78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DigitalWorlds.StarterPackage3D.Teleporter3D
 --- !u!1 &444269011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,9 +2421,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2629192731914288544, guid: 653fce82f92581943951df501f536260, type: 3}
+      propertyPath: lightSource
+      value: 
+      objectReference: {fileID: 550671805}
+    - target: {fileID: 2629192731914288544, guid: 653fce82f92581943951df501f536260, type: 3}
       propertyPath: fadeBlackScreen
       value: 
       objectReference: {fileID: 1806479757}
+    - target: {fileID: 2629192731914288544, guid: 653fce82f92581943951df501f536260, type: 3}
+      propertyPath: isDinerInterior
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3406260642319049601, guid: 653fce82f92581943951df501f536260, type: 3}
       propertyPath: fadeBlackScreen
       value: 
@@ -2425,6 +2444,18 @@ PrefabInstance:
       propertyPath: fadeBlackScreen
       value: 
       objectReference: {fileID: 1806479757}
+    - target: {fileID: 4410534890659053032, guid: 653fce82f92581943951df501f536260, type: 3}
+      propertyPath: teleporter
+      value: 
+      objectReference: {fileID: 314094165}
+    - target: {fileID: 4410534890659053032, guid: 653fce82f92581943951df501f536260, type: 3}
+      propertyPath: isExitTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225439189637264432, guid: 653fce82f92581943951df501f536260, type: 3}
+      propertyPath: requiresDinerExitCondition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6108992375022118836, guid: 653fce82f92581943951df501f536260, type: 3}
       propertyPath: m_Name
       value: Map_Updated (Redone)

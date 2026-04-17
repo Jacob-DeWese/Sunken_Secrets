@@ -31,6 +31,11 @@ namespace DigitalWorlds.StarterPackage3D
         [Tooltip("If true, the teleport key must be pressed once the player has entered the trigger. If false, they will be teleported as soon as they enter the trigger.")]
         [SerializeField] private bool requireKeyPress = true;
 
+        [Tooltip("If true, the script checks the position of the light source. If it hasn't reached the end, it won't teleport. If off, it freely teleports")]
+        [SerializeField] private bool isDinerInterior = false;
+
+        [SerializeField] protected Light lightSource;
+
         [Tooltip("The key input that the script is listening for.")]
         [SerializeField] private KeyCode teleportKey = KeyCode.Space;
 
@@ -52,6 +57,9 @@ namespace DigitalWorlds.StarterPackage3D
 
         private void Update()
         {
+            bool lightAtTargetRotation = lightSource != null && Mathf.Approximately(lightSource.transform.eulerAngles.x, 270f);
+            canLeaveDiner = !isDinerInterior || lightAtTargetRotation;
+
             if (Input.GetKeyDown(teleportKey) && requireKeyPress && player != null && !isFading)
             {
                 TeleportPlayer();
@@ -87,7 +95,15 @@ namespace DigitalWorlds.StarterPackage3D
                 Debug.LogWarning("Teleporter destination is not assigned");
                 return;
             }
-
+            if (player == null)
+            {
+                Debug.LogWarning("Player character is not assigned");
+                return;
+            }
+            if (isDinerInterior && !canLeaveDiner)
+            {
+                return;
+            }
             if (fadeBlackScreen != null)
             {
                 StartCoroutine(FadeScreen());
@@ -114,6 +130,12 @@ namespace DigitalWorlds.StarterPackage3D
             yield return StartCoroutine(SetFadeAlpha(0f, 1f, fadeTimeDuration));
             yield return new WaitForSeconds(timeToHold);
             
+            if (isDinerInterior && !canLeaveDiner)
+            {
+                isFading = false;
+                yield break;
+            }
+
             if (useDestinationRotation)
             {
                 player.SetPositionAndRotation(destination.position, destination.rotation);
@@ -143,6 +165,12 @@ namespace DigitalWorlds.StarterPackage3D
             }
 
             fadeBlackScreen.alpha = endAlpha;
+        }
+
+        public bool canLeaveDiner
+        {
+            get;
+            private set;
         }
     }
 }
