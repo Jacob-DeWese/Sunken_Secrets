@@ -174,35 +174,26 @@ public class UI_Journal_Manager : MonoBehaviour
         {
             string npcName = other.gameObject.name;
 
-            if (journal.ContainsKey(npcName)) {
-                string clueIndex = SceneManager.GetActiveScene().buildIndex.ToString();
-                string clueTextFileName = other.gameObject.name + "_Clue_Dialogue_" + clueIndex;
-                string path = Path.Combine(Application.dataPath, "Dialogue System", "All_Dialogue_Files", clueTextFileName + ".txt");
+            if (!journal.ContainsKey(npcName)) {
+                return;
+            }
 
-                if (File.Exists(path))
-                {
-                    string contents = File.ReadAllText(path);
-                    Debug.Log(contents);
+            int npcIndex = npcsWithDialogue.FindIndex(n => n != null && n.name == npcName);
+            if (npcIndex == -1) return;
 
-                    if (!journal[npcName].Contains(contents))
-                    {
-                        journal[npcName].Add(contents);
+            if (npcIndex >= cluesFromNPCS.Count || cluesFromNPCS[npcIndex] == null)
+            {
+                Debug.LogWarning($"No clue TextAsset assigned for NPC at index {npcIndex} ({npcName})");
+                return;
+            }
 
-                        for (int i = 0; i < npcsWithDialogue.Count; i++)
-                        {
-                            if (npcsWithDialogue[i] != null && npcsWithDialogue[i].name == npcName)
-                            {
-                                currentNpcIndex = i;
-                                break;
-                            }
-                        }
-                        UpdateJournalUI();
-                    }
-                }
-                else
-                {
-                    Debug.LogError("File not found: " + path);
-                }
+            string contents = cluesFromNPCS[npcIndex].text;
+
+            if (!journal[npcName].Contains(contents))
+            {
+                journal[npcName].Add(contents);
+                currentNpcIndex = npcIndex;
+                UpdateJournalUI();
             }
         }
     }
