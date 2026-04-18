@@ -64,6 +64,12 @@ public class DialogueManager : MonoBehaviour
                 // assign control initially
                 controller = player.GetComponent<ThirdPersonController>(); 
                 controller.EnableMovement(false); // LOCK MOVEMENT WHILE SPEAKING
+                Rigidbody rb = player.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.linearVelocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                }
                 textParent.SetActive(true);
                 dialoguePrefab.SetActive(true);
                 textComponent = GetComponent<TMP_Text>();
