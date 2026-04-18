@@ -24,22 +24,14 @@ public class UI_Notepad_Manager : MonoBehaviour
 {
     private static UI_Notepad_Manager instance;
 
-    [Header("NPC Order List")]
-    [Tooltip("List to store EVERY NPC who has dialogue options or interactions with the player. MUST be the gameObject, and each NPC has to have the same name across all levels")]
-    [SerializeField] protected List<GameObject> npcList = new();
-    [Tooltip("List for all the orders that the npcs will have")]
-    [SerializeField] protected List<TextAsset> npcOrders = new();
-
     [Header("Notepad UI")]
     [Tooltip("Ordered map/dictionary used by the journal")]
-    [SerializeField] private TextMeshProUGUI characterNameText;
-    [SerializeField] private TextMeshProUGUI characterOrderText;
+    [SerializeField] private List<TextMeshProUGUI> characterNameText;
+    [SerializeField] private List<TextMeshProUGUI> characterOrderText;
     [SerializeField] private GameObject notepadParent;
 
     private Dictionary<string, List<string>> notepad = new();
-    private Dictionary<string, TextAsset> npcOrderLookup = new();
     private bool notepadParentActive;
-    private int currentNpcIndex = 0;
 
     void Awake()
     {
@@ -57,32 +49,21 @@ public class UI_Notepad_Manager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        npcList.RemoveAll(npc => npc == null);
-
-        for (int i = 0; i < npcList.Count; i++)
+        for (int i = 0; i < characterNameText.Count; i++)
         {
-            if (npcList[i] != null)
-            {
-                string npcName = npcList[i].name;
+            characterNameText[i].text = "";
 
-                if (!notepad.ContainsKey(npcName))
-                {
-                    notepad[npcName] = new List<string>();
-                }
-                if (i < npcOrders.Count && npcOrders[i] != null)
-                {
-                    npcOrderLookup[npcName] = npcOrders[i];
-                }
-            }
         }
+        for (int i = 0; i < characterNameText.Count; i++)
+        {
+            characterOrderText[i].text = "";
 
-        characterNameText.text = "";
-        characterNameText.text = "";
+        }    
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         if (Input.GetKeyDown(KeyCode.N))
         {
             bool newState = !notepadParent.activeSelf;
@@ -95,81 +76,75 @@ public class UI_Notepad_Manager : MonoBehaviour
         }
     }
 
+    int WriteNextOrder(string npcName, string orderText)
+    {
+        for (int i = 0; i < characterNameText.Count; i++)
+        {
+            if (string.IsNullOrEmpty(characterOrderText[i].text))
+            {
+                characterNameText[i].text = $"Table {i + 1} - {npcName}";
+                characterOrderText[i].text = orderText;
+                return i;
+            }
+        }
+        return -1;
+    }
+
     void UpdateNotepadUI()
     {
-        if (npcList.Count == 0)
+        for (int i = 0; i < characterNameText.Count; i++)
         {
-            return;
+            characterNameText[i].text = "";
+            characterOrderText[i].text = "";
         }
 
-        if (currentNpcIndex >= npcList.Count || npcList[currentNpcIndex] == null)
+        int slotIndex = 0;
+        foreach (var order in notepad)
         {
-            currentNpcIndex = 0;
-            return;
-        }
-
-        string currentNPC = npcList[currentNpcIndex].name;
-
-        characterNameText.text = currentNPC;
-
-        if (notepad.TryGetValue(currentNPC, out List<string> orders))
-        {
-            if (orders.Count == 0)
+            if (order.Value.Count == 0)
             {
-                characterOrderText.text = "";
-                return;
+                continue;
+            }
+            if (slotIndex >= characterNameText.Count)
+            {
+                break;
             }
             
-            characterOrderText.text = string.Join("\n\n", orders);
+            characterNameText[slotIndex].text = $"Table {slotIndex + 1} - {order.Key}";
+            characterOrderText[slotIndex].text = string.Join("\n", order.Value);
+            slotIndex++;
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("NPC_Required") || !other.gameObject.CompareTag("NPC_Optional"))
+        if (!other.CompareTag("NPC_Required") && !other.CompareTag("NPC_Optional"))
+        {
+            return;
+        }
+
+        NPC_Food_Order npcOrder = other.GetComponent<NPC_Food_Order>();
+
+        if (npcOrder == null)
         {
             return;
         }
 
         string npcName = other.gameObject.name;
+        string orderText = npcOrder.GetOrderText();
 
-        if (!npcOrderLookup.ContainsKey(npcName))
+        if (string.IsNullOrEmpty(orderText))
         {
             return;
         }
-
-        pendingNpc = npcName;
-    }
-
-    public void NPCDialogue()
-    {
-        if (string.IsNullOrEmpty(pendingNpc))
+        if (!notepad.ContainsKey(npcName))
         {
-            return;
+            notepad[npcName] = new List<string>();
         }
-        if (!npcOrderLookup.ContainsKey(pendingNpc))
+        if (!notepad[npcName].Contains(orderText))
         {
-            return;
+            notepad[npcName].Add(orderText);
+            WriteNextOrder(npcName, orderText);
         }
-
-        TextAsset characterOrderFile = npcOrderLookup[pendingNpc];
-
-        if (orderFile == null)
-        {
-            return;
-        }
-
-        string contents = orderFile.text;
-
-        if (!notepad[pendingNpc].Contains(contents))
-        {
-            notepad[pendingNpc].Add(contents);
-        }
-
-        currentNpcIndex = npcList.FindIndex(n => n != null && n.name == pendingNpc);
-
-        UpdateNotepadUI();
-
-        pendingNpc = null;
     }
 }
