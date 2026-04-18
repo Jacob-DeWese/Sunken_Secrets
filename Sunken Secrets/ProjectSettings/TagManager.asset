@@ -9,6 +9,10 @@ TagManager:
   - Collectible
   - Inventory
   - Internal
+  - Burger
+  - Waffles
+  - Pancakes
+  - Steak
   layers:
   - Default
   - TransparentFX
