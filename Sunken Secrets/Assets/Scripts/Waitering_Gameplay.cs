@@ -1,4 +1,10 @@
 using UnityEngine;
+using UnityEditor;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine.SceneManagement;
+using System.IO;
 
 /*
 1. Randomly generate 1 of the 4 options that an NPC can order
@@ -14,15 +20,49 @@ using UnityEngine;
 
 public class Waitering_Gameplay : MonoBehaviour
 {
+
+    [Header("Waitering Gameplay")]
+    [Tooltip("List of locations to duplicate each object")]
+    [SerializeField] private List<Transform> foodSpawnLocations;
+    [Tooltip("List of food GameObjects to spawn")]
+    [SerializeField] private List<GameObject> foodObjects;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // Set all food order objects to inactive on start
+        for (int i = 0; i < foodObjects.Count; i++)
+        {
+            foodObjects[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    int randomNumberGeneration()
+    {
+        int randomNumber = Random.Range(0, 3);
+        return randomNumber;
+    }
+
+    void WaiteringGameplay()
+    {
+        // Randomly generate which food to produce first
+        int randomNumber = randomNumberGeneration();
+        GameObject randomFood = foodObjects[randomNumber];
+
+        // Create a duplicate of the food
+        GameObject duplicatedFoodOrder = GameObjectUtility.DuplicateGameObject(randomFood);
+        // Make sure it is active
+        if (duplicatedFoodOrder.activeInHierarchy == false)
+        {
+            duplicatedFoodOrder.SetActive(true);
+        }
+        
+
     }
 }
