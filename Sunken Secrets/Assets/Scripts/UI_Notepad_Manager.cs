@@ -1,10 +1,10 @@
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.IO;
-
 
 // /*
 // How I am thinking about how the notepad/order taking mechanics will work:
@@ -58,7 +58,7 @@ public class UI_Notepad_Manager : MonoBehaviour
         {
             characterOrderText[i].text = "";
 
-        }    
+        }
     }
 
     // Update is called once per frame
