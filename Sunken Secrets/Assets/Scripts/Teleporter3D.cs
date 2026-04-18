@@ -5,6 +5,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
 
 /*
 Add a checkbox condition to see if the teleport is the one from the diner to the dock/boat
@@ -34,6 +35,10 @@ namespace DigitalWorlds.StarterPackage3D
         [Tooltip("If true, the script checks the position of the light source. If it hasn't reached the end, it won't teleport. If off, it freely teleports")]
         [SerializeField] private bool isDinerInterior = false;
 
+        [Header("List of particle indicators")]
+        [Tooltip("If each object in the list is active, you cannot teleport")]
+        [SerializeField] protected List<GameObject> particleIndicators = new();
+
         [SerializeField] protected Light lightSource;
 
         [Tooltip("The key input that the script is listening for.")]
@@ -55,6 +60,21 @@ namespace DigitalWorlds.StarterPackage3D
         private Transform player;
         private bool isFading = false;
 
+        public bool AllParticlesDeactivated
+        {
+            get
+            {
+                for (int i = 0; i < particleIndicators.Count; i++)
+                {
+                    if (particleIndicators[i].activeInHierarchy == true)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
         private void Update()
         {
             bool lightAtTargetRotation = lightSource != null && Mathf.Approximately(lightSource.transform.eulerAngles.x, 270f);
@@ -72,6 +92,17 @@ namespace DigitalWorlds.StarterPackage3D
             {
                 player = other.transform;
 
+                for (int i = 0; i < particleIndicators.Count; i++)
+                {
+                    if (particleIndicators[i].activeInHierarchy == false)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
                 if (!requireKeyPress && !isFading)
                 {
                     TeleportPlayer();

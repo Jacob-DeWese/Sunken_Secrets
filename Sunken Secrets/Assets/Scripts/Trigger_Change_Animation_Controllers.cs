@@ -34,7 +34,7 @@ public class Trigger_Change_Animation_Controllers : MonoBehaviour
             return;
         }
 
-        if (isExitTrigger && teleporter != null && !teleporter.canLeaveDiner)
+        if (isExitTrigger && teleporter != null && (!teleporter.canLeaveDiner || !teleporter.AllParticlesDeactivated))
         {
             return;
         }
