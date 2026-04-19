@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Game Scenes/(Old) Level-Day 1.unity
     guid: d82a9fdc2a96deb40b7ddf9e7888b0e6
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Game Scenes/Credits_Screen.unity
     guid: 58658f1d1eb0f6c45a5dd089a5a74fd2
   m_configObjects:
