@@ -1,0 +1,15 @@
+# Unity YAML files - use Unity's smart merge driver
+*.unity merge=unityyamlmerge
+*.prefab merge=unityyamlmerge
+*.asset merge=unityyamlmerge
+*.meta merge=unityyamlmerge
+
+# Treat binary asset files as binary so git stops diffing them
+*.asset binary
+*.bundle binary
+*.fbx binary
+*.png binary
+*.jpg binary
+*.wav binary
+*.mp3 binary
+*.ogg binary
