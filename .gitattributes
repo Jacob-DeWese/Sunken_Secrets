@@ -1,15 +1,28 @@
-# Unity YAML files - use Unity's smart merge driver
+# =========================
+# Unity Smart Merging
+# =========================
+
 *.unity merge=unityyamlmerge
 *.prefab merge=unityyamlmerge
-*.asset merge=unityyamlmerge
 *.meta merge=unityyamlmerge
 
-# Treat binary asset files as binary so git stops diffing them
-*.asset binary
+# =========================
+# TextMesh Pro SDF Fonts (problem files)
+# These regenerate frequently and should NOT be merged
+# =========================
+
+**/*SDF.asset merge=ours
+
+# =========================
+# Binary assets (no diffing / merging)
+# =========================
+
 *.bundle binary
 *.fbx binary
 *.png binary
 *.jpg binary
+*.jpeg binary
 *.wav binary
 *.mp3 binary
 *.ogg binary
+*.tga binary
