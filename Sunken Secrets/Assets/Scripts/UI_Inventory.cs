@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
-using System.Reflection;
 
 
 public class UI_Inventory : MonoBehaviour
@@ -22,6 +21,8 @@ public class UI_Inventory : MonoBehaviour
 
     [SerializeField] private List<Image> inventorySlots = new();
     [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private List<Sprite> selectedCollectiblesImages = new(); 
+    [SerializeField] private Image inventoryBackgroundImg;
     
     private List<GameObject> inventoryItems = new();
     
@@ -73,6 +74,7 @@ public class UI_Inventory : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha1 + i)) {
                 selectedIndex = i;
                 Debug.Log("Selected Item: " + inventorySlots[i].name);
+                inventoryBackgroundImg.sprite = selectedCollectiblesImages[i];
             }
         }
     }
