@@ -63,6 +63,31 @@ public class Waitering_Gameplay : MonoBehaviour
             duplicatedFoodOrder.SetActive(true);
         }
         
+        Debug.Log("Current duplicated food: ${duplicatedFoodOrder}");
+    }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("NPC_Required") && !other.CompareTag("NPC_Optional"))
+        {
+            return;
+        }
+
+        NPC_Food_Order npcOrder = other.GetComponent<NPC_Food_Order>();
+        if (npcOrder == null)
+        {
+            return;
+        }
+        GameObject foodObj = npcOrder.GetFood();
+        if (foodObj == null)
+        {
+            return;
+        }
+
+        if (!foodObj.activeInHierarchy)
+        {
+            foodObj.SetActive(true);
+        }
+        
     }
 }
