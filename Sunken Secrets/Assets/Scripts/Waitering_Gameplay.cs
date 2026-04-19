@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -56,14 +55,14 @@ public class Waitering_Gameplay : MonoBehaviour
         GameObject randomFood = foodObjects[randomNumber];
 
         // Create a duplicate of the food
-        GameObject duplicatedFoodOrder = GameObjectUtility.DuplicateGameObject(randomFood);
+        GameObject duplicatedFoodOrder = Instantiate(randomFood);
         // Make sure it is active
         if (duplicatedFoodOrder.activeInHierarchy == false)
         {
             duplicatedFoodOrder.SetActive(true);
         }
         
-        Debug.Log("Current duplicated food: ${duplicatedFoodOrder}");
+        Debug.Log("Current duplicated food: {duplicatedFoodOrder}");
     }
 
     void OnTriggerEnter(Collider other)
