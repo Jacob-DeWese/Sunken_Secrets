@@ -17,11 +17,11 @@ public class PlayerDialogueTrigger : MonoBehaviour
 
     public GameObject dialoguePrefab;
 
-    
+
     void Start()
     {
         dialoguePrefab.SetActive(false);
-        
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -29,16 +29,16 @@ public class PlayerDialogueTrigger : MonoBehaviour
 
         if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional"))
         {
-            if (other.gameObject.GetComponent<NPCDialogueControl>().dialogueFields.Count == 0)
+            if (other.gameObject.GetComponent<NPCDialogueControl>().dialogueFields.Count == 0 && other.gameObject.GetComponent<NPCDialogueControl>().repeatedFields.Count == 0)
             {
                 UnityEngine.Debug.Log("No dialogue fields assigned to this NPC.");
                 return;
             }
-        
+
             else
             {
                 dialoguePrefab.SetActive(true);
-                interactionOccurance.Invoke();  
+                interactionOccurance.Invoke();
                 UnityEngine.Debug.Log("Interaction Occurred");
             }
         }
@@ -46,7 +46,7 @@ public class PlayerDialogueTrigger : MonoBehaviour
         else if (other.gameObject.CompareTag("Internal") && other.gameObject.GetComponent<NPCDialogueControl>().active)
         {
             dialoguePrefab.SetActive(true);
-            interactionOccurance.Invoke();  
+            interactionOccurance.Invoke();
             UnityEngine.Debug.Log("Internal Dialogue Occurred");
         }
 
@@ -57,7 +57,7 @@ public class PlayerDialogueTrigger : MonoBehaviour
 
         if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional") || other.gameObject.CompareTag("Internal"))
         {
-            dialoguePrefab.SetActive(false);    
+            dialoguePrefab.SetActive(false);
             interactionOccurance.RemoveAllListeners();
             UnityEngine.Debug.Log("Interaction Ended");
             if (other.gameObject.CompareTag("Internal"))
@@ -70,15 +70,14 @@ public class PlayerDialogueTrigger : MonoBehaviour
                 }
             }
 
-            else if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional")) {
+            else if (other.gameObject.CompareTag("NPC_Required") || other.gameObject.CompareTag("NPC_Optional"))
+            {
 
                 if (!spoken_to_npcs.Contains(other.gameObject))
                 {
-                        // if this is a new NPC interaction, add to spoken to list, and set repeat bool to true
-                        // ADD CONTROL TO SET repeat IFF dialogueSets have ALL been used
-                        
-                        other.gameObject.GetComponent<NPCDialogueControl>().repeat = true;
-                        spoken_to_npcs.Add(other.gameObject); 
+                    // if this is a new NPC interaction, add to spoken to list, and set repeat bool to true
+                    other.gameObject.GetComponent<NPCDialogueControl>().repeat = true;
+                    spoken_to_npcs.Add(other.gameObject);
                 }
             }
         }
