@@ -8166,12 +8166,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2f62179c2969b4daecdd038eecd2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Food_Order
-  foodOrder: {fileID: 1346341313}
+  foodOrder: {fileID: 373203719}
   foodOptions:
-  - {fileID: 1069749217}
-  - {fileID: 1346341313}
-  - {fileID: 1379343240}
-  - {fileID: 1741921300}
+  - {fileID: 24430366}
+  - {fileID: 373203719}
+  - {fileID: 2012565445}
+  - {fileID: 1527348857}
 --- !u!1 &1598057941
 GameObject:
   m_ObjectHideFlags: 0
@@ -99604,6 +99604,7 @@ GameObject:
   - component: {fileID: 9094497037736838278}
   - component: {fileID: 6218773193978320059}
   - component: {fileID: 1248561544929992903}
+  - component: {fileID: 9094497037736838279}
   m_Layer: 0
   m_Name: Player_Parent
   m_TagString: Player
@@ -122379,6 +122380,28 @@ MonoBehaviour:
   - {fileID: 2029926937}
   - {fileID: 271378415}
   notepadParent: {fileID: 1365678907}
+--- !u!114 &9094497037736838279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7316027460041023320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269f63696c810164e9554e818abde90c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Waitering_Gameplay
+  foodSpawnLocations:
+  - {fileID: 1815737004}
+  - {fileID: 853872985}
+  - {fileID: 1968659967}
+  - {fileID: 1137996469}
+  foodObjects:
+  - {fileID: 24430366}
+  - {fileID: 373203719}
+  - {fileID: 2012565445}
+  - {fileID: 1527348857}
 --- !u!1 &9094801937602631610
 GameObject:
   m_ObjectHideFlags: 0
