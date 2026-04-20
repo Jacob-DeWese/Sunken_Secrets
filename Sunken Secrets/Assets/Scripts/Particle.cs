@@ -8,7 +8,7 @@ public class Particle : MonoBehaviour
 { 
     // dialogue dependent particles are particles that will only be activated after a certain dialogue has been completed.
     // This is to ensure that the player cannot skip certain parts of the game by activating particles out of order.
-    //TODO: COME BACK TO THIS!
+    
     public string particleName;
 
     [Tooltip("If true, colliding with this particle activates the postcedingParticle")]
@@ -18,7 +18,7 @@ public class Particle : MonoBehaviour
     public GameObject postcedingParticle;
 
     public bool dialogueDependent = false;
-    public List<Particle> npcs = new List<Particle>();
+    public List<string> neededNPCs = new List<string>();
    
 
     void Start()
@@ -30,6 +30,17 @@ public class Particle : MonoBehaviour
         if (CompareTag("Directional"))
         {
             gameObject.SetActive(true);
+        }
+    }
+    // on enable add listener to dialogue manager for required dialogue completion
+    // add function to execute with the same parameters
+
+    void OnEnable()
+    {
+        if (dialogueDependent)
+        {
+            // Add listener to dialogue manager for required dialogue completion
+            NPCDialogueControl.dialogueComplete.AddListener(dialogueTrigger);
         }
     }
 
@@ -49,6 +60,20 @@ public class Particle : MonoBehaviour
             }
 
             gameObject.SetActive(false);
+        }
+    }
+
+    void dialogueTrigger(string npcName)
+    {
+        // store the npc name
+        if (neededNPCs.Contains(npcName))
+        {
+            neededNPCs.Remove(npcName);
+        }
+        // when size is correct trigger the remaining particle
+        if (neededNPCs.Count == 0 && postcedingParticle != null)
+        {
+            postcedingParticle.SetActive(true);
         }
     }
 }
