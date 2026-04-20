@@ -946,6 +946,7 @@ GameObject:
   - component: {fileID: 519321837}
   - component: {fileID: 519321839}
   - component: {fileID: 519321838}
+  - component: {fileID: 519321840}
   m_Layer: 5
   m_Name: Day Indicator
   m_TagString: Untagged
@@ -1010,6 +1011,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519321836}
   m_CullTransparentMesh: 1
+--- !u!114 &519321840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519321836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9182a51fe7392c438f25f7d7b48d066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_LightingIndicator
+  lightSource: {fileID: 550671805}
+  lightIndicatorBase: {fileID: 519321838}
+  lightAndNight:
+  - {fileID: 1816487361, guid: 2a2b602b20be5754291b04c5e10d7866, type: 3}
+  - {fileID: -285036225, guid: d7164e09078c417458c9f110d33b4aa5, type: 3}
 --- !u!1 &540461914
 GameObject:
   m_ObjectHideFlags: 0
@@ -6533,6 +6551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36066768d37b8464f875b966aea2a773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Teleport_Particle_Destroy
+  particles: []
+  triggerParticles: []
 --- !u!1 &876752872
 GameObject:
   m_ObjectHideFlags: 0
