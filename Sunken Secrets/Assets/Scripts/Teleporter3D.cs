@@ -135,6 +135,13 @@ namespace DigitalWorlds.StarterPackage3D
             {
                 return;
             }
+
+            if (!AllParticlesDeactivated)
+            {
+                Debug.Log("Cannot teleport — not all required particles collected.");
+                return;
+            }
+
             if (fadeBlackScreen != null)
             {
                 StartCoroutine(FadeScreen());
@@ -163,6 +170,14 @@ namespace DigitalWorlds.StarterPackage3D
             
             if (isDinerInterior && !canLeaveDiner)
             {
+                isFading = false;
+                yield break;
+            }
+
+            if (!AllParticlesDeactivated)
+            {
+                yield return StartCoroutine(SetFadeAlpha(1f, 0f, fadeTimeDuration));
+                fadeBlackScreen.gameObject.SetActive(false);
                 isFading = false;
                 yield break;
             }

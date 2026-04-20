@@ -6535,10 +6535,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.21
-  m_Height: 2.0420477
+  m_Radius: 1.3854623
+  m_Height: 2.7709246
   m_Direction: 1
-  m_Center: {x: 0, y: 1.0727559, z: 0}
+  m_Center: {x: 0, y: 1.0727558, z: -0.17546225}
 --- !u!114 &868672370
 MonoBehaviour:
   m_ObjectHideFlags: 0
