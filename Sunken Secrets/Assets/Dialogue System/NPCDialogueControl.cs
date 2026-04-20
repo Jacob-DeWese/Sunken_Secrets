@@ -11,10 +11,12 @@ public class NPCDialogueControl : MonoBehaviour
 
     // REPEAT CONTROL
     // bool to control repeated NPC interactions
+    public string npcName = "NPC";
     public bool repeat = false;
     // bool to disable revisiting internal dialogue
     public bool active = true;
     List<GameObject> spoken_to_npcs_storage;
+    public static UnityEvent<string> dialogueComplete = new UnityEvent<string>();
 
     void OnTriggerEnter(Collider other)
     {
@@ -57,6 +59,7 @@ public class NPCDialogueControl : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerDialogueTrigger.interactionOccurance.RemoveListener(StartTalking);
+            dialogueComplete?.Invoke(npcName); // ? nullable check
             if (dialogueFields.Count > 0)
             {
                 dialogueFields.RemoveAt(0); // remove first dialogue field to move to next one for next interaction

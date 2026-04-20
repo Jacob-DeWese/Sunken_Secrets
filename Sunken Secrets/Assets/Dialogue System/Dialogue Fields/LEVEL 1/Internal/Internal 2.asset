@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac8b02cb031062429a814f32cb68094, type: 3}
+  m_Name: Internal 2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueField
+  portraits:
+  - {fileID: 21300000, guid: 6924da0c75abccf4786a097a8f05f30f, type: 3}
+  - {fileID: 21300000, guid: 6924da0c75abccf4786a097a8f05f30f, type: 3}
+  firstSpeaker: Phone
+  secondSpeaker: Ian
+  dialogue:
+  - You have two unread messages. First unheard message. *BEEP*
+  - "*Ian, it's Wyatt.  I was cleaning up my place and think I found a record of
+    yours? I must\u2019ve borrowed it from you and forgot to give it back haha. "
+  - '*Anyways, let me know if you want to meet up so I can give it back and maybe
+    we could catch up? Give me a call back. Later.'
+  - '*End of message. Second unheard message. *BEEP*'
+  - '*Hey Ian. I--'
+  - There's no way in hell I'm listening to that. At least, not until I have some
+    drinks in me and can barely remember her name.
+  - '**BEEP* No more messages.'
+  - Great. Time to actually start the day.
