@@ -6,25 +6,31 @@ using System.Collections.Generic;
 
 public class Particle : MonoBehaviour
 { 
-    public string particleName;
-
-    // trigger particles are used to activate particles with tag "Conditional"
-    public bool trigger = false;
-    public GameObject postcedingParticle;
-
     // dialogue dependent particles are particles that will only be activated after a certain dialogue has been completed.
     // This is to ensure that the player cannot skip certain parts of the game by activating particles out of order.
     //TODO: COME BACK TO THIS!
+    public string particleName;
+
+    [Tooltip("If true, colliding with this particle activates the postcedingParticle")]
+    public bool trigger = false;
+
+    [Tooltip("The next particle to activate when this one is collected")]
+    public GameObject postcedingParticle;
+
     public bool dialogueDependent = false;
     public List<Particle> npcs = new List<Particle>();
-
-    // access teleport particle destroy script
-    Teleport_Particle_Destroy teleportParticleDestroy;
    
 
     void Start()
     {
-        teleportParticleDestroy = FindFirstObjectByType<Teleport_Particle_Destroy>();
+        if (CompareTag("Conditional"))
+        {
+            gameObject.SetActive(false);
+        }
+        if (CompareTag("Directional"))
+        {
+            gameObject.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -32,20 +38,17 @@ public class Particle : MonoBehaviour
     {
         
     }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Particle particle = this.gameObject.GetComponent<Particle>();
-            teleportParticleDestroy.particles.Remove(particle);
-            this.gameObject.SetActive(false);   
-
-            if (particle.trigger)
+            if (trigger && postcedingParticle != null)
             {
-                particle.postcedingParticle.SetActive(true);
-                teleportParticleDestroy.triggerParticles.Remove(particle);
+                postcedingParticle.SetActive(true);
             }
-      
+
+            gameObject.SetActive(false);
         }
     }
 }
