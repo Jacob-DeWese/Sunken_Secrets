@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
-public class NPCMove : MonoBehaviour
+public class NPC_Diver : MonoBehaviour
 {
     public List<Transform> points;
     public float speed = 1f;

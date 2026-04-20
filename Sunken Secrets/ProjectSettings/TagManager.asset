@@ -13,6 +13,8 @@ TagManager:
   - Waffles
   - Pancakes
   - Steak
+  - Directional
+  - Conditional
   layers:
   - Default
   - TransparentFX
