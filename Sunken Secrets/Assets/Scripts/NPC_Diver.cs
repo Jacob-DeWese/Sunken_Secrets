@@ -1,95 +1,115 @@
-using System.Diagnostics;
-using UnityEngine;
-using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class NPC_Diver : MonoBehaviour
+public class PathEnemy_Movement : MonoBehaviour
 {
-    public List<Transform> points;
-    public float speed = 1f;
-    Transform targetPoint;
-    bool lockMove = false;
-    public Animator animator;
-    bool left = true;
-    bool right = false;
-    Rigidbody rb;
+    public Rigidbody m_Rigidbody;
+    private float speed = 2f;
+    private bool wait = false;
+    private bool facingLeft = false;
+    private bool facingRight = true;
+    private bool facingUp = false;
+    private bool facingDown = false;
+    private float delay = 0.5f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void OnEnable()
+    public Transform objectToMove;
+    public Transform graphicsChild;
+    public Transform pathPoint1;
+    public Transform pathPoint2;
+    private Transform targetPoint;
+
+    [SerializeField] private Animator childAnimator;
+
+    void Start()
     {
-        targetPoint = points[0];
-        rb = GetComponent<Rigidbody>();
-        if (animator != null)
-        {
-            animator.SetBool("isWalkingLeft", left);
-            animator.SetBool("isWalkingRight", right);
-        }
+        m_Rigidbody = GetComponent<Rigidbody>();
+
+        facingRight = true;
+        facingLeft = false;
+        facingUp = false;
+        facingDown = false;
+
+        graphicsChild.localEulerAngles = Vector3.zero;
+        targetPoint = pathPoint2;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // isWalking is true
-        if (!lockMove)
+        if (!wait)
         {
-            if (transform.position == targetPoint.position)
-            {
-                if (targetPoint == points[points.Count - 1])
-                {
-                    changeDirection();
-                    targetPoint = points[0];
-                }
-                else if (points.Find(element => targetPoint) != null)
-                {
-                    changeDirection();
-                    targetPoint = points[points.IndexOf(targetPoint) + 1];
-                }
+            Vector3 moveDir = Vector3.zero;
 
+            if (facingRight)
+            {
+                moveDir = Vector3.right;
+                SetAnim(true, false, false, false);
             }
-            // animator here
-            rb.MovePosition(Vector3.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime));
-            //transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
+            else if (facingLeft)
+            {
+                moveDir = Vector3.left;
+                SetAnim(false, true, false, false);
+            }
+            else if (facingUp)
+            {
+                moveDir = Vector3.forward;
+                SetAnim(false, false, true, false);
+            }
+            else if (facingDown)
+            {
+                moveDir = Vector3.back;
+                SetAnim(false, false, false, true);
+            }
+
+            objectToMove.Translate(moveDir * Time.deltaTime * speed, Space.World);
+        }
+
+        if ((targetPoint == pathPoint1 && objectToMove.position.x < targetPoint.position.x) ||
+            (targetPoint == pathPoint2 && objectToMove.position.x > targetPoint.position.x))
+        {
+            if (!wait)
+            {
+                wait = true;
+                objectToMove.position = targetPoint.position;
+                StartCoroutine(delayTurn(delay));
+            }
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    IEnumerator delayTurn(float delayTime)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            lockMove = true;
+        yield return new WaitForSeconds(delayTime);
 
+        if (targetPoint == pathPoint1)
+        {
+            targetPoint = pathPoint2;
+
+            facingRight = true;
+            facingLeft = false;
+            facingUp = false;
+            facingDown = false;
         }
+        else
+        {
+            targetPoint = pathPoint1;
+
+            // go LEFT
+            facingRight = false;
+            facingLeft = true;
+            facingUp = false;
+            facingDown = false;
+        }
+
+        wait = false;
     }
 
-    void OnTriggerExit(Collider other)
+    void SetAnim(bool right, bool left, bool up, bool down)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            lockMove = false;
+        if (childAnimator == null) return;
 
-        }
-    }
-
-    void changeDirection()
-    {
-        if (animator != null)
-        {
-            if (left)
-            {
-                animator.SetBool("isWalkingLeft", false);
-                animator.SetBool("isWalkingRight", true);
-                left = false;
-                right = true;
-            }
-            if (right)
-            {
-                animator.SetBool("isWalkingLeft", true);
-                animator.SetBool("isWalkingRight", false);
-                left = true;
-                right = false;
-            }
-        }
+        childAnimator.SetBool("movingRight", right);
+        childAnimator.SetBool("movingLeft", left);
+        childAnimator.SetBool("movingUp", up);
+        childAnimator.SetBool("movingDown", down);
     }
 }
-
