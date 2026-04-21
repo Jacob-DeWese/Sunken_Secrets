@@ -1,0 +1,513 @@
+fileFormatVersion: 2
+guid: d2911acc7f62cb048a23684b15c458d9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 388
+        width: 76
+        height: 112
+      alignment: 9
+      pivot: {x: 0.6552057, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35aa0dd7d88fb7499c6a2b4c50a2ad6
+      internalID: 1533685249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 388
+        width: 76
+        height: 116
+      alignment: 9
+      pivot: {x: 0.65896106, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74be502fc81e7244b8432be762c0660e
+      internalID: 2119228934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 388
+        width: 76
+        height: 112
+      alignment: 9
+      pivot: {x: 0.65896124, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651612fbf1f47fa49ab9229932c3d039
+      internalID: -489065161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 388
+        width: 76
+        height: 112
+      alignment: 9
+      pivot: {x: 0.66039354, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe969c1a88ca0e49adcaabd8dc208dd
+      internalID: 1188995465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 260
+        width: 64
+        height: 112
+      alignment: 9
+      pivot: {x: 0.6581553, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be389fb5213b7d947b92bde5b7b8a488
+      internalID: 921033197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 260
+        width: 64
+        height: 116
+      alignment: 9
+      pivot: {x: 0.65475416, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 992d202983efd234d8af68d25d9da916
+      internalID: 858990481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 260
+        width: 64
+        height: 112
+      alignment: 9
+      pivot: {x: 0.65815544, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee03e87b85eae14babd1c7ebb2f1a49
+      internalID: -1897103822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 260
+        width: 64
+        height: 112
+      alignment: 9
+      pivot: {x: 0.65645504, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cfbc2fe5819fa14eab3e7cabb7c9ff1
+      internalID: -1847405086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 132
+        width: 68
+        height: 116
+      alignment: 9
+      pivot: {x: 0.61844134, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ac01b37480e0f48aeae531529d3987
+      internalID: -1377407548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 132
+        width: 68
+        height: 120
+      alignment: 9
+      pivot: {x: 0.616841, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dfe7e0a35eefa84990c70096faf53fe
+      internalID: -1636558832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 132
+        width: 68
+        height: 116
+      alignment: 9
+      pivot: {x: 0.61524063, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e16f3c2bb5f8e44487f96a39acc2d42
+      internalID: 1973519262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 132
+        width: 68
+        height: 116
+      alignment: 9
+      pivot: {x: 0.616841, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92603da7087c8ac42965a9d16f9f5ec9
+      internalID: 835899729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 4
+        width: 68
+        height: 116
+      alignment: 9
+      pivot: {x: 0.37995815, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bde33c5312d9d8a47a5469aa62c69a30
+      internalID: 1809127595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 4
+        width: 68
+        height: 120
+      alignment: 9
+      pivot: {x: 0.3815588, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dca345de93f8ae4fb3725a3376d44a5
+      internalID: 1487108352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 4
+        width: 68
+        height: 116
+      alignment: 9
+      pivot: {x: 0.3799582, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be167c9e8f4cb7f41bdea4bf76c8cbca
+      internalID: -1616762699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caspian_Diner_Oatmal_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 4
+        width: 68
+        height: 116
+      alignment: 9
+      pivot: {x: 0.3831594, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184cf242ef14b344296b81ab4c6b5284
+      internalID: -1942974267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3582493e7e3e75b4fb3f9df1e8d09c1b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Caspian_Diner_Oatmal_Idle_0: 1533685249
+      Caspian_Diner_Oatmal_Idle_1: 2119228934
+      Caspian_Diner_Oatmal_Idle_10: 1973519262
+      Caspian_Diner_Oatmal_Idle_11: 835899729
+      Caspian_Diner_Oatmal_Idle_12: 1809127595
+      Caspian_Diner_Oatmal_Idle_13: 1487108352
+      Caspian_Diner_Oatmal_Idle_14: -1616762699
+      Caspian_Diner_Oatmal_Idle_15: -1942974267
+      Caspian_Diner_Oatmal_Idle_2: -489065161
+      Caspian_Diner_Oatmal_Idle_3: 1188995465
+      Caspian_Diner_Oatmal_Idle_4: 921033197
+      Caspian_Diner_Oatmal_Idle_5: 858990481
+      Caspian_Diner_Oatmal_Idle_6: -1897103822
+      Caspian_Diner_Oatmal_Idle_7: -1847405086
+      Caspian_Diner_Oatmal_Idle_8: -1377407548
+      Caspian_Diner_Oatmal_Idle_9: -1636558832
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
