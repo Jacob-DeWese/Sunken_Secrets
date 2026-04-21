@@ -65,4 +65,15 @@ public class NPC_Food_Order : MonoBehaviour
     {
         return foodOrder;
     }
+
+    public void DeactivateAllFoodOptions()
+    {
+        for (int i = 0; i < foodOptions.Count; i++)
+        {
+            if (foodOptions[i] != null)
+            {
+                foodOptions[i].SetActive(false);
+            }
+        }
+    }
 }
