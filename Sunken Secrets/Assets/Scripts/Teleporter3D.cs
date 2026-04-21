@@ -15,9 +15,6 @@ If the light is at the final position, then it will let the user teleport
 
 namespace DigitalWorlds.StarterPackage3D
 {
-    /// <summary>
-    /// Teleports the player to another location.
-    /// </summary>
     public class Teleporter3D : MonoBehaviour
     {
         [Tooltip("Enter the player's tag name. Could be used for other tags as well.")]
@@ -53,6 +50,8 @@ namespace DigitalWorlds.StarterPackage3D
 
         [Tooltip("Duration of holding on black before fading again")]
         [SerializeField] protected float timeToHold = 0.2f;
+
+        [SerializeField] private Animator boatAnimator;
 
         [Space(20)]
         [SerializeField] private UnityEvent onTeleported;
@@ -156,7 +155,8 @@ namespace DigitalWorlds.StarterPackage3D
                 {
                     player.position = destination.position;
                 }
-                
+
+                PlayBoatAnimation();                
                 onTeleported.Invoke();
             }
         }
@@ -191,6 +191,8 @@ namespace DigitalWorlds.StarterPackage3D
                 player.position = destination.position;
             }
 
+            PlayBoatAnimation();
+
             onTeleported.Invoke();
             yield return StartCoroutine(SetFadeAlpha(1f, 0f, fadeTimeDuration));
             fadeBlackScreen.gameObject.SetActive(false);
@@ -217,6 +219,17 @@ namespace DigitalWorlds.StarterPackage3D
         {
             get;
             private set;
+        }
+
+        private void PlayBoatAnimation()
+        {
+            if (boatAnimator == null)
+            {
+                return;
+            }
+
+            boatAnimator.ResetTrigger("teleportedBoat");
+            boatAnimator.SetTrigger("teleportedBoat");
         }
     }
 }
