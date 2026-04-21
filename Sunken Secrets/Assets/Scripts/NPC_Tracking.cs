@@ -30,7 +30,7 @@ public class NPC_Tracking : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private GameObject pierPosition;
     [SerializeField] private float withinPierPosition = 1f;
-    [SerializeField] private float delayTideRecede = 5.5f;
+    [SerializeField] private float delayTideRecede = 10f;
     private float? delayTimer = null;
     private bool isReceding = false;
     private int initialRequiredCount;
@@ -92,7 +92,6 @@ public class NPC_Tracking : MonoBehaviour
                 int npcsInteracted = initialRequiredCount - required_npcs.Count;
                 float progress = npcsInteracted / (float)initialRequiredCount;
 
-                // Map progress across your intended angle range (e.g. 180° → 270°)
                 float startAngle = 180f;
                 float endAngle = -90f;
                 float targetX = Mathf.Lerp(startAngle, endAngle, progress);

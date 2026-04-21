@@ -18619,6 +18619,7 @@ MonoBehaviour:
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
   timeToHold: 0.2
+  boatAnimator: {fileID: 0}
   onTeleported:
     m_PersistentCalls:
       m_Calls: []
@@ -29657,6 +29658,7 @@ MonoBehaviour:
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
   timeToHold: 0.2
+  boatAnimator: {fileID: 0}
   onTeleported:
     m_PersistentCalls:
       m_Calls: []
@@ -55857,6 +55859,7 @@ MonoBehaviour:
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
   timeToHold: 0.2
+  boatAnimator: {fileID: 0}
   onTeleported:
     m_PersistentCalls:
       m_Calls: []
@@ -66442,6 +66445,7 @@ MonoBehaviour:
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
   timeToHold: 0.2
+  boatAnimator: {fileID: 0}
   onTeleported:
     m_PersistentCalls:
       m_Calls: []
@@ -67568,6 +67572,7 @@ MonoBehaviour:
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
   timeToHold: 0.2
+  boatAnimator: {fileID: 0}
   onTeleported:
     m_PersistentCalls:
       m_Calls: []
@@ -70775,6 +70780,7 @@ MonoBehaviour:
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
   timeToHold: 0.2
+  boatAnimator: {fileID: 0}
   onTeleported:
     m_PersistentCalls:
       m_Calls: []
@@ -73706,6 +73712,7 @@ MonoBehaviour:
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
   timeToHold: 0.2
+  boatAnimator: {fileID: 0}
   onTeleported:
     m_PersistentCalls:
       m_Calls: []
@@ -73997,6 +74004,7 @@ MonoBehaviour:
   fadeBlackScreen: {fileID: 0}
   fadeTimeDuration: 0.2
   timeToHold: 0.2
+  boatAnimator: {fileID: 0}
   onTeleported:
     m_PersistentCalls:
       m_Calls: []
@@ -85633,6 +85641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5201270530396904459}
   - component: {fileID: 3719693469073553227}
+  - component: {fileID: 269228815834453064}
   m_Layer: 0
   m_Name: Sunken City - Ruins 3 --0-boat
   m_TagString: Untagged
@@ -85649,7 +85658,7 @@ Transform:
   m_GameObject: {fileID: 7041235343158756693}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 223.79, y: 3.79, z: -12.34}
+  m_LocalPosition: {x: 223.79, y: 4.16, z: -12.34}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85678,6 +85687,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &269228815834453064
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7041235343158756693}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7044716543943246302
 GameObject:
   m_ObjectHideFlags: 0
