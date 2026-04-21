@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using System.Reflection;
 
 
 public class UI_Inventory : MonoBehaviour
@@ -23,10 +24,18 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private List<Sprite> selectedCollectiblesImages = new(); 
     [SerializeField] private Image inventoryBackgroundImg;
+    [SerializeField] private Sprite inventoryBackgroundSprite;
     
     private List<GameObject> inventoryItems = new();
     
     private int selectedIndex = -1;
+
+    private void ChangeInventorySlotAlpha(Image img, float alpha)
+    {
+        Color c = img.color;
+        c.a = alpha;
+        img.color = c;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -70,13 +79,24 @@ public class UI_Inventory : MonoBehaviour
 
     public void SelectItem()
     {
-        for (int i = 0; i < inventoryItems.Count; i++) {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i)) {
-                selectedIndex = i;
-                Debug.Log("Selected Item: " + inventorySlots[i].name);
-                inventoryBackgroundImg.sprite = selectedCollectiblesImages[i];
+    for (int i = 0; i < inventoryItems.Count; i++)
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+        {
+            if (selectedIndex == i)
+            {
+                selectedIndex = -1;
+                inventoryBackgroundImg.sprite = inventoryBackgroundSprite;
+                Debug.Log("Unselected Item");
+                return;
             }
+
+            selectedIndex = i;
+            Debug.Log("Selected Item: " + inventorySlots[i].name);
+
+            inventoryBackgroundImg.sprite = selectedCollectiblesImages[i];
         }
+    }
     }
 
     public void AddItem(GameObject item)
@@ -106,6 +126,8 @@ public class UI_Inventory : MonoBehaviour
 
         inventorySlots[index].sprite = itemSprites[collectibleIndex];
         inventorySlots[index].enabled = true;
+
+        ChangeInventorySlotAlpha(inventorySlots[index], 1f);
     }
 
     public GameObject GetSelectedItem()
