@@ -186,6 +186,11 @@ public class Waitering_Gameplay : MonoBehaviour
         if (currentlyServing.CompareTag(foodObj.tag))
         {
             Debug.Log($"Correct order delivered to '{other.gameObject.name}'!");
+            
+            UI_Notepad_Manager.Instance.MarkOrderCompleted(
+                other.gameObject.name,
+                npcOrder.GetOrderText()
+            );
 
             npcFoodOrders.Remove(foodObj);
             Destroy(currentlyServing);
