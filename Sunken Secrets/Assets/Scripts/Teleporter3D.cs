@@ -53,6 +53,8 @@ namespace DigitalWorlds.StarterPackage3D
 
         [SerializeField] private Animator boatAnimator;
 
+        [SerializeField] private GameObject playerParent;
+
         [Space(20)]
         [SerializeField] private UnityEvent onTeleported;
 
@@ -102,6 +104,14 @@ namespace DigitalWorlds.StarterPackage3D
                         return;
                     }
                 }
+
+                Rigidbody rb = playerParent.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.linearVelocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                }
+
                 if (!requireKeyPress && !isFading)
                 {
                     TeleportPlayer();
