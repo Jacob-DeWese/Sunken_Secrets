@@ -6,20 +6,6 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.IO;
 
-// /*
-// How I am thinking about how the notepad/order taking mechanics will work:
-// - Each NPC will have a marker for what their order is
-//     - In whatever script is tracking the order (either UI_Notepad_Manager or NPC_Tracking), make a public variable that takes in a GameObject of the food for that NPC
-// - When you interact with an NPC, behind the scenes the next available name in the list is updated to the NPC's name
-// - Each NPC's dialogue must have their order at the end (not for tracking purposes, but just for the sake of logical progression)
-// - Only once the dialogue interaction ends will you see the order appear in the notepad
-//     - Check what the GameObject is associated with what the NPC ordered (e.g. 'Cheeseburger') and find the associated order txt document (e.g. 'Cheeseburger Order') 
-//     - The GameObject can be the key for a map, and the text document can be the value
-// - A separate list will store the order in which the GameObjects have been assigned (it will have a set size)
-// - When the list is full, randomly pick which order to fulfill first (every order must be unique)
-// - When the food is taken back to the right person, remove it from the list and continue until list is empty
-// */
-
 public class UI_Notepad_Manager : MonoBehaviour
 {
     private static UI_Notepad_Manager instance;
@@ -32,6 +18,7 @@ public class UI_Notepad_Manager : MonoBehaviour
 
     private Dictionary<string, List<string>> notepad = new();
     private bool notepadParentActive;
+    public static UI_Notepad_Manager Instance => instance;
 
     void Awake()
     {
@@ -82,7 +69,7 @@ public class UI_Notepad_Manager : MonoBehaviour
         {
             if (string.IsNullOrEmpty(characterOrderText[i].text))
             {
-                characterNameText[i].text = $"Table {i + 1} - {npcName}";
+                characterNameText[i].text = $"Table {i + 1}";
                 characterOrderText[i].text = orderText;
                 return i;
             }
@@ -110,7 +97,7 @@ public class UI_Notepad_Manager : MonoBehaviour
                 break;
             }
             
-            characterNameText[slotIndex].text = $"Table {slotIndex + 1} - {order.Key}";
+            characterNameText[slotIndex].text = $"Table {slotIndex + 1}";
             characterOrderText[slotIndex].text = string.Join("\n", order.Value);
             slotIndex++;
         }
@@ -146,5 +133,25 @@ public class UI_Notepad_Manager : MonoBehaviour
             notepad[npcName].Add(orderText);
             WriteNextOrder(npcName, orderText);
         }
+    }
+
+    public void MarkOrderCompleted(string npcName, string orderText)
+    {
+        if (!notepad.ContainsKey(npcName))
+            return;
+
+        var list = notepad[npcName];
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            // match raw text OR already formatted text
+            if (list[i].Contains(orderText))
+            {
+                list[i] = $"<s>{orderText}</s>";
+                break;
+            }
+        }
+
+        UpdateNotepadUI();
     }
 }

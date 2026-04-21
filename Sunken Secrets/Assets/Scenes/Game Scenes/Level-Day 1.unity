@@ -32722,7 +32722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_Inventory
   tackleboxObject: {fileID: 6195846635416815552}
-  tackleboxOpen: {fileID: -527666710, guid: cde56076edf4bf14dad88c52a7ac88a6, type: 3}
+  tackleboxOpen: {fileID: -1706108463, guid: 14737c4e4e5a6a045a7c8b4763472d17, type: 3}
   tackleboxClosed: {fileID: -527666710, guid: cde56076edf4bf14dad88c52a7ac88a6, type: 3}
   collectibleItems:
   - {fileID: 0}
@@ -32939,6 +32939,7 @@ GameObject:
   - component: {fileID: 9094497037736838277}
   - component: {fileID: 534790200044001183}
   - component: {fileID: 5224240526819705531}
+  - component: {fileID: 9094497037736838280}
   - component: {fileID: 6338898783857292610}
   - component: {fileID: 9094497037736838278}
   - component: {fileID: 6218773193978320059}
@@ -33156,6 +33157,23 @@ MonoBehaviour:
   defaultController: {fileID: 9100000, guid: 1dcd50a92ab687d41831108945c83e7e, type: 2}
   servingController: {fileID: 9100000, guid: 993448346f7d776428f950109dcab03f, type: 2}
   playerAnimator: {fileID: 2354151138835813971}
+--- !u!114 &9094497037736838280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7316027460041023320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9182a51fe7392c438f25f7d7b48d066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_LightingIndicator
+  lightSource: {fileID: 550671805}
+  lightIndicatorBase: {fileID: 519321838}
+  lightAndNight:
+  - {fileID: 1816487361, guid: 2a2b602b20be5754291b04c5e10d7866, type: 3}
+  - {fileID: -285036225, guid: d7164e09078c417458c9f110d33b4aa5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

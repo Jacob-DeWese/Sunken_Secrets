@@ -22,7 +22,7 @@ public class UI_LightingIndicator : MonoBehaviour
         {
             for (int i = 0; i < lightAndNight.Count; i++)
             {
-                if (lightAndNight[i].name == "Night Indicator")
+                if (lightAndNight[i].name == "Night Indicator_0")
                 {
                     lightIndicatorBase.sprite = lightAndNight[i];
                 }
@@ -36,7 +36,7 @@ public class UI_LightingIndicator : MonoBehaviour
         {
             for (int i = 0; i < lightAndNight.Count; i++)
             {
-                if (lightAndNight[i].name == "Day Indicator")
+                if (lightAndNight[i].name == "Day Indicator_0")
                 {
                     lightIndicatorBase.sprite = lightAndNight[i];
                 }
