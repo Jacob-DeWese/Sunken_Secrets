@@ -9,12 +9,12 @@ TagManager:
   - Collectible
   - Inventory
   - Internal
-  - Burger
-  - Waffles
-  - Pancakes
-  - Steak
   - Directional
   - Conditional
+  - burger
+  - waffles
+  - pancakes
+  - steak
   layers:
   - Default
   - TransparentFX

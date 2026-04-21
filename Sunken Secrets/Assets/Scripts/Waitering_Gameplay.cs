@@ -23,16 +23,24 @@ public class Waitering_Gameplay : MonoBehaviour
     [Header("Waitering Gameplay")]
     [Tooltip("List of locations to duplicate each object")]
     [SerializeField] private List<Transform> foodSpawnLocations;
-    [Tooltip("List of food GameObjects to spawn")]
-    [SerializeField] private List<GameObject> foodObjects;
+
+    private List<GameObject> npcFoodOrders = new List<GameObject>();
+    private GameObject currentSpawnedFood = null;
+    private GameObject currentlyServing = null;
+    private bool activelyServingFood = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Set all food order objects to inactive on start
-        for (int i = 0; i < foodObjects.Count; i++)
+        GetNPCFoodOrders();
+
+        if (npcFoodOrders.Count > 0)
         {
-            foodObjects[i].SetActive(false);
+            WaiteringGameplay();
+        }
+        else
+        {
+            Debug.LogWarning("No NPC food orders found in scene.");
         }
     }
 
@@ -42,33 +50,121 @@ public class Waitering_Gameplay : MonoBehaviour
         
     }
 
-    int randomNumberGeneration()
+    void GetNPCFoodOrders()
     {
-        int randomNumber = Random.Range(0, 3);
-        return randomNumber;
+        npcFoodOrders.Clear();
+
+        NPC_Food_Order[] allFoodOrders = FindObjectsByType<NPC_Food_Order>(FindObjectsSortMode.None);
+
+        foreach (NPC_Food_Order npcOrder in allFoodOrders)
+        {
+            GameObject foodObj = npcOrder.GetFood();
+
+            if (foodObj != null)
+            {
+                npcFoodOrders.Add(foodObj);
+                foodObj.SetActive(false);
+                Debug.Log($"Collected food order '{foodObj.name}' from NPC '{npcOrder.gameObject.name}'");
+            }
+            else
+            {
+                Debug.LogWarning($"NPC '{npcOrder.gameObject.name}' has an NPC_Food_Order but GetFood() returned null.");
+            }
+        }
+        Debug.Log($"Total NPC food orders collected: {npcFoodOrders.Count}");
     }
 
     void WaiteringGameplay()
     {
-        // Randomly generate which food to produce first
-        int randomNumber = randomNumberGeneration();
-        GameObject randomFood = foodObjects[randomNumber];
-
-        // Create a duplicate of the food
-        GameObject duplicatedFoodOrder = Instantiate(randomFood);
-        // Make sure it is active
-        if (duplicatedFoodOrder.activeInHierarchy == false)
+        if (currentSpawnedFood != null || activelyServingFood)
         {
-            duplicatedFoodOrder.SetActive(true);
+            return;
         }
-        
-        Debug.Log("Current duplicated food: {duplicatedFoodOrder}");
+
+        if (npcFoodOrders.Count == 0)
+        {
+            Debug.Log("All food orders have been served!");
+            return;
+        }
+
+        int randomOrder = Random.Range(0, npcFoodOrders.Count);
+        GameObject nextOrder = npcFoodOrders[randomOrder];
+
+        if (nextOrder.CompareTag("burger"))
+        {
+            for (int i = 0; i < foodSpawnLocations.Count; i++)
+            {
+                if (foodSpawnLocations[i].name == "burgerfries_spawn")
+                {
+                    currentSpawnedFood = Instantiate(nextOrder, foodSpawnLocations[i].position, foodSpawnLocations[i].rotation);
+                    currentSpawnedFood.SetActive(true);
+                    break;
+                }
+            }
+        }
+        else if (nextOrder.CompareTag("waffles"))
+        {
+            for (int i = 0; i < foodSpawnLocations.Count; i++)
+            {
+                if (foodSpawnLocations[i].name == "chickenwaffles_spawn")
+                {
+                    currentSpawnedFood = Instantiate(nextOrder, foodSpawnLocations[i].position, foodSpawnLocations[i].rotation);
+                    currentSpawnedFood.SetActive(true);
+                    break;
+                }
+            }
+        }
+        else if (nextOrder.CompareTag("pancakes"))
+        {
+            for (int i = 0; i < foodSpawnLocations.Count; i++)
+            {
+                if (foodSpawnLocations[i].name == "pancakes_spawn")
+                {
+                    currentSpawnedFood = Instantiate(nextOrder, foodSpawnLocations[i].position, foodSpawnLocations[i].rotation);
+                    currentSpawnedFood.SetActive(true);
+                    break;
+                }
+            }
+        }
+        else if (nextOrder.CompareTag("steak"))
+        {
+            for (int i = 0; i < foodSpawnLocations.Count; i++)
+            {
+                if (foodSpawnLocations[i].name == "steakeggs_spawn")
+                {
+                    currentSpawnedFood = Instantiate(nextOrder, foodSpawnLocations[i].position, foodSpawnLocations[i].rotation);
+                    currentSpawnedFood.SetActive(true);
+                    break;
+                }
+            }
+        }
+
+        Debug.Log($"Spawned order: {nextOrder.name}");
     }
 
     void OnTriggerEnter(Collider other)
     {
+        if (!activelyServingFood && (other.CompareTag("burger") || other.CompareTag("waffles") 
+            || other.CompareTag("pancakes") || other.CompareTag("steak")))
+        {
+            currentlyServing = other.gameObject;
+            currentSpawnedFood = null;
+            currentlyServing.SetActive(false);
+            activelyServingFood = true;
+
+            Debug.Log($"Player picked up: {currentlyServing.name}");
+            return;
+        }
+
         if (!other.CompareTag("NPC_Required") && !other.CompareTag("NPC_Optional"))
         {
+            return;
+        }
+
+
+        if (!activelyServingFood || currentlyServing == null)
+        {
+            Debug.Log("Player has no food to serve.");
             return;
         }
 
@@ -83,10 +179,20 @@ public class Waitering_Gameplay : MonoBehaviour
             return;
         }
 
-        if (!foodObj.activeInHierarchy)
+        if (currentlyServing.name == foodObj.name + "(Clone)")
         {
-            foodObj.SetActive(true);
+            Debug.Log($"Correct order delivered to '{other.gameObject.name}'!");
+
+            npcFoodOrders.Remove(foodObj);
+            Destroy(currentlyServing);
+            currentlyServing = null;
+            activelyServingFood = false;
+
+            WaiteringGameplay();
         }
-        
+        else
+        {
+            Debug.Log($"Wrong order! NPC wants '{foodObj.name}' but player is holding '{currentlyServing.name}'.");
+        }
     }
 }
