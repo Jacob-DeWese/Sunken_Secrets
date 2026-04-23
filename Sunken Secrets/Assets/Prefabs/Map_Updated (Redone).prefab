@@ -11042,6 +11042,75 @@ Transform:
   - {fileID: 699799550226343745}
   m_Father: {fileID: 7284885071155370949}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &904637492163483858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2972536131183872903}
+  - component: {fileID: 6187990298856519660}
+  - component: {fileID: 8193409412520718830}
+  m_Layer: 0
+  m_Name: Teleport_Barrier (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2972536131183872903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904637492163483858}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -12.86, z: -1.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4372873690097148543}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6187990298856519660
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904637492163483858}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0078964, y: 5.019098, z: 0.29330444}
+  m_Center: {x: -7.658348, y: 2.009549, z: -5.5545044}
+--- !u!114 &8193409412520718830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904637492163483858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2fc2d19ad189b47aeb52fde3532d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelChange
+  index: 2
+  fadeBlackScreen: {fileID: 0}
+  fadeTimeDuration: 0.5
 --- !u!1 &905260083477844627
 GameObject:
   m_ObjectHideFlags: 0
@@ -67869,6 +67938,7 @@ Transform:
   - {fileID: 5805195012164947783}
   - {fileID: 1490989465961801909}
   - {fileID: 1144293116240610662}
+  - {fileID: 2972536131183872903}
   - {fileID: 9221741610231908302}
   - {fileID: 5327863416090695276}
   m_Father: {fileID: 8491999404476239487}
