@@ -82,6 +82,11 @@ namespace DigitalWorlds.StarterPackage3D
         [Tooltip("Assign the main collider on the player")]
         [SerializeField] private CapsuleCollider mainCollider;
 
+        [Header("Audio Settings (Footsteps)")]
+        [Tooltip("Assign the audio source for the player's footsteps.")]
+        [SerializeField] private AudioSource footstepAudioSource;
+        [SerializeField] private AudioClip footstepClip;
+
         private Rigidbody rb;
         private Vector3 moveInput;
         private float pitch = 0f;
@@ -127,6 +132,10 @@ namespace DigitalWorlds.StarterPackage3D
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            footstepAudioSource = GetComponent<AudioSource>();
+            footstepAudioSource.clip = footstepClip;
+
         }
 
         private void Update()
@@ -148,6 +157,10 @@ namespace DigitalWorlds.StarterPackage3D
         {
             if (!canMove)
             {
+                if (footstepAudioSource != null && footstepAudioSource.isPlaying)
+                {
+                    footstepAudioSource.Stop();
+                }   
                 // set player to idle for dialogue interactions (idle anim)
                 animator.SetBool(animationParameters.MovingLeft, false);
                 animator.SetBool(animationParameters.MovingRight, false);
@@ -163,6 +176,7 @@ namespace DigitalWorlds.StarterPackage3D
 
             if (animator != null)
             {
+                
                 bool movingLeft = moveInput.x < -0.01f;
                 bool movingRight = moveInput.x > 0.01f;
                 bool movingUp = moveInput.z > 0.01f;
@@ -172,6 +186,24 @@ namespace DigitalWorlds.StarterPackage3D
                 animator.SetBool(animationParameters.MovingRight, movingRight);
                 animator.SetBool(animationParameters.MovingUp, movingUp);
                 animator.SetBool(animationParameters.MovingDown, movingDown);
+
+                if (footstepAudioSource != null)
+                {
+                    if (movingLeft || movingRight || movingUp || movingDown)
+                    {
+                        if (!footstepAudioSource.isPlaying)
+                        {
+                            footstepAudioSource.Play();
+                        }
+                    }
+                    else
+                    {
+                        if (footstepAudioSource.isPlaying)
+                        {
+                            footstepAudioSource.Stop();
+                        }
+                    }
+                }
             }
 
             // if (moveInput.sqrMagnitude > 0.01f) // Prevents rotating when input is very low
