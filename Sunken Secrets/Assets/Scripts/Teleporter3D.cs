@@ -53,8 +53,6 @@ namespace DigitalWorlds.StarterPackage3D
 
         [SerializeField] private Animator boatAnimator;
 
-        [SerializeField] private GameObject playerParent;
-
         [Space(20)]
         [SerializeField] private UnityEvent onTeleported;
 
@@ -105,11 +103,10 @@ namespace DigitalWorlds.StarterPackage3D
                     }
                 }
 
-                Rigidbody rb = playerParent.GetComponent<Rigidbody>();
-                if (rb != null)
+                ThirdPersonController controlMovement = other.gameObject.GetComponent<ThirdPersonController>();
+                if (controlMovement != null)
                 {
-                    rb.linearVelocity = Vector3.zero;
-                    rb.angularVelocity = Vector3.zero;
+                    controlMovement.EnableMovement(false);
                 }
 
                 if (!requireKeyPress && !isFading)
@@ -125,6 +122,12 @@ namespace DigitalWorlds.StarterPackage3D
             {
                 player = null;
             }
+
+            ThirdPersonController controller = other.gameObject.GetComponent<ThirdPersonController>();
+            if (controller != null)
+                controller.EnableMovement(true);
+
+            player = null;
         }
 
         // Teleport the player to the specified destination

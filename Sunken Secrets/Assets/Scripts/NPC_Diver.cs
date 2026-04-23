@@ -21,6 +21,16 @@ public class PathEnemy_Movement : MonoBehaviour
 
     [SerializeField] private Animator childAnimator;
 
+    [Header("NPC Detection")]
+    [SerializeField] private float raycastLength = 5f;
+    [SerializeField] private string playerTag = "Player";
+
+    [Header("Caught Screen")]
+    [SerializeField] private Transform playerRespawnPoint;
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private Image caughtScreen;
+    [SerializeField] private float caughtScreenDuration = 2f;
+
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -32,6 +42,12 @@ public class PathEnemy_Movement : MonoBehaviour
 
         graphicsChild.localEulerAngles = Vector3.zero;
         targetPoint = pathPoint2;
+
+        if (caughtScreen != null)
+        {
+            caughtScreen.alpha = 0f;
+            caughtScreen.gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -62,6 +78,8 @@ public class PathEnemy_Movement : MonoBehaviour
             }
 
             objectToMove.Translate(moveDir * Time.deltaTime * speed, Space.World);
+
+            CheckRaycast();
         }
 
         if ((targetPoint == pathPoint1 && objectToMove.position.x < targetPoint.position.x) ||
@@ -111,5 +129,61 @@ public class PathEnemy_Movement : MonoBehaviour
         childAnimator.SetBool("movingLeft", left);
         childAnimator.SetBool("movingUp", up);
         childAnimator.SetBool("movingDown", down);
+    }
+
+    private void CheckRaycast()
+    {
+        Vector3 rayDirection = targetPoint == pathPoint2 ? Vector3.right : Vector3.left;
+
+        Ray ray = new Ray(objectToMove.position, rayDirection);
+
+        // Visible in the Scene view during play mode for debugging
+        Debug.DrawRay(objectToMove.position, rayDirection * raycastLength, Color.red);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, raycastLength))
+        {
+            if (hit.collider.CompareTag(playerTag))
+            {
+                CatchPlayer();
+            }
+        }
+    }
+
+    private void CatchPlayer()
+    {
+        if (playerTransform != null && playerRespawnPoint != null)
+        {
+            playerTransform.position = playerRespawnPoint.position;
+        }
+
+        if (caughtScreen != null)
+        {
+            StartCoroutine(ShowCaughtScreen());
+        }
+    }
+
+    private IEnumerator ShowCaughtScreen()
+    {
+        caughtScreen.gameObject.SetActive(true);
+
+        float elapsed = 0f;
+        while (elapsed < 0.5f)
+        {
+            elapsed += Time.deltaTime;
+            caughtScreen.alpha = Mathf.Lerp(0f, 1f, elapsed / 0.5f);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(caughtScreenDuration);
+
+        elapsed = 0f;
+        while (elapsed < 0.5f)
+        {
+            elapsed += Time.deltaTime;
+            caughtScreen.alpha = Mathf.Lerp(1f, 0f, elapsed / 0.5f);
+            yield return null;
+        }
+
+        caughtScreen.gameObject.SetActive(false);
     }
 }
