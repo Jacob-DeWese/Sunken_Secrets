@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac8b02cb031062429a814f32cb68094, type: 3}
+  m_Name: Azul Dialogue Lvl 2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueField
+  portraits:
+  - {fileID: 21300000, guid: 6924da0c75abccf4786a097a8f05f30f, type: 3}
+  - {fileID: 21300000, guid: f702f7df022646e40914bc18e1ca592e, type: 3}
+  firstSpeaker: Ian
+  secondSpeaker: Azul
+  dialogue:
+  - Good to see you again, Azul.
+  - Hi Ian! Oh -- you look exhausted. Are you okay?
+  - 'Yeah, yeah, I''m fine...just a little tired. Long night. '
+  - Understandable. You should get some coffee.
+  - 'Will do. I''ll make sure your order is in first. '
