@@ -59,6 +59,7 @@ namespace DigitalWorlds.StarterPackage3D
         private Transform player;
         private bool isFading = false;
 
+
         public bool AllParticlesDeactivated
         {
             get
@@ -103,10 +104,17 @@ namespace DigitalWorlds.StarterPackage3D
                     }
                 }
 
-                ThirdPersonController controlMovement = other.gameObject.GetComponent<ThirdPersonController>();
-                if (controlMovement != null)
+                ThirdPersonController controller = other.GetComponent<ThirdPersonController>();
+                if (controller != null)
                 {
-                    controlMovement.EnableMovement(false);
+                    controller.EnableMovement(false);
+                }
+
+                Rigidbody rb = other.attachedRigidbody;
+                if (rb != null)
+                {
+                    rb.linearVelocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
                 }
 
                 if (!requireKeyPress && !isFading)
@@ -123,11 +131,18 @@ namespace DigitalWorlds.StarterPackage3D
                 player = null;
             }
 
-            ThirdPersonController controller = other.gameObject.GetComponent<ThirdPersonController>();
+            ThirdPersonController controller = other.GetComponent<ThirdPersonController>();
             if (controller != null)
+            {
                 controller.EnableMovement(true);
+            }
 
-            player = null;
+            Rigidbody rb = other.attachedRigidbody;
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
         }
 
         // Teleport the player to the specified destination

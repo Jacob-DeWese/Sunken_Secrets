@@ -1,34 +1,56 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
     public int index = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Fade Settings")]
+    [SerializeField] private CanvasGroup fadeBlackScreen;
+    [SerializeField] private float fadeTimeDuration = 0.5f;
+
+    private bool isFading = false;
 
     public void LoadScene()
     {
+        if (!isFading)
+        {
+            StartCoroutine(FadeThenLoad());
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && !isFading)
+        {
+            StartCoroutine(FadeThenLoad());
+        }
+    }
+
+    private IEnumerator FadeThenLoad()
+    {
+        isFading = true;
+
+        fadeBlackScreen.gameObject.SetActive(true);
+        yield return StartCoroutine(Fade(0f, 1f));
+        yield return new WaitForSeconds(0.1f);
+
         SceneManager.LoadScene(index);
     }
 
-    // Method to load scenes adapted from here: https://docs.unity3d.com/6000.0/Documentation/ScriptReference/SceneManagement.SceneManager.LoadScene.html
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator Fade(float start, float end)
     {
-        if (other.CompareTag("Player"))
+        float elapsed = 0f;
+        fadeBlackScreen.alpha = start;
+
+        while (elapsed < fadeTimeDuration)
         {
-            SceneManager.LoadScene(index);
+            elapsed += Time.deltaTime;
+            fadeBlackScreen.alpha = Mathf.Lerp(start, end, elapsed / fadeTimeDuration);
+            yield return null;
         }
+
+        fadeBlackScreen.alpha = end;
     }
 }
