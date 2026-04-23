@@ -19,7 +19,7 @@ public class Particle : MonoBehaviour
 
     public bool dialogueDependent = false;
     public List<string> neededNPCs = new List<string>();
-   
+    
 
     void Start()
     {
@@ -69,9 +69,9 @@ public class Particle : MonoBehaviour
             neededNPCs.Remove(npcName);
         }
         // when size is correct trigger the remaining particle
-        if (neededNPCs.Count == 0 && postcedingParticle != null)
+        if (neededNPCs.Count == 0)
         {
-            postcedingParticle.SetActive(true);
+            this.gameObject.SetActive(true);
         }
     }
 }
