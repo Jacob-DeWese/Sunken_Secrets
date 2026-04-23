@@ -15,6 +15,9 @@ TagManager:
   - waffles
   - pancakes
   - steak
+  - Teleporter
+  - BoatAudioTrigger
+  - RuinAudioTrigger
   layers:
   - Default
   - TransparentFX

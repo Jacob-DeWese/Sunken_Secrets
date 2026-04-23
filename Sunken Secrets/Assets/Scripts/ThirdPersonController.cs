@@ -133,7 +133,7 @@ namespace DigitalWorlds.StarterPackage3D
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            footstepAudioSource = GetComponent<AudioSource>();
+           
             footstepAudioSource.clip = footstepClip;
 
         }
