@@ -126,10 +126,10 @@ TextureImporter:
       name: Wade_Idle_1
       rect:
         serializedVersion: 2
-        x: 164
-        y: 128
-        width: 60
-        height: 116
+        x: 168
+        y: 132
+        width: 48
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: Wade_Idle_7
       rect:
         serializedVersion: 2
-        x: 292
-        y: 124
-        width: 60
-        height: 116
+        x: 296
+        y: 132
+        width: 48
+        height: 108
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: Wade_Idle_9
       rect:
         serializedVersion: 2
-        x: 420
-        y: 124
-        width: 60
-        height: 116
+        x: 424
+        y: 132
+        width: 48
+        height: 108
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,9 +236,9 @@ TextureImporter:
       name: Wade_Idle_20
       rect:
         serializedVersion: 2
-        x: 164
+        x: 168
         y: 4
-        width: 56
+        width: 48
         height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}

@@ -59,6 +59,7 @@ namespace DigitalWorlds.StarterPackage3D
         private Transform player;
         private bool isFading = false;
 
+
         public bool AllParticlesDeactivated
         {
             get
@@ -102,6 +103,20 @@ namespace DigitalWorlds.StarterPackage3D
                         return;
                     }
                 }
+
+                ThirdPersonController controller = other.GetComponent<ThirdPersonController>();
+                if (controller != null)
+                {
+                    controller.EnableMovement(false);
+                }
+
+                Rigidbody rb = other.attachedRigidbody;
+                if (rb != null)
+                {
+                    rb.linearVelocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                }
+
                 if (!requireKeyPress && !isFading)
                 {
                     TeleportPlayer();
@@ -114,6 +129,19 @@ namespace DigitalWorlds.StarterPackage3D
             if (!string.IsNullOrEmpty(tagName) && other.CompareTag(tagName))
             {
                 player = null;
+            }
+
+            ThirdPersonController controller = other.GetComponent<ThirdPersonController>();
+            if (controller != null)
+            {
+                controller.EnableMovement(true);
+            }
+
+            Rigidbody rb = other.attachedRigidbody;
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
             }
         }
 

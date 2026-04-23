@@ -63,7 +63,7 @@ public class DialogueManager : MonoBehaviour
             {
                 // assign control initially
                 controller = player.GetComponent<ThirdPersonController>(); 
-                controller.EnableMovement(false); // LOCK MOVEMENT WHILE SPEAKING
+                controller.EnableMovement(false);
                 Rigidbody rb = player.GetComponent<Rigidbody>();
                 if (rb != null)
                 {

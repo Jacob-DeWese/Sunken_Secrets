@@ -21,6 +21,16 @@ public class PathEnemy_Movement : MonoBehaviour
 
     [SerializeField] private Animator childAnimator;
 
+    [Header("NPC Detection")]
+    [SerializeField] private float raycastLength = 5f;
+    [SerializeField] private string playerTag = "Player";
+
+    [Header("Caught Screen")]
+    [SerializeField] private Transform playerRespawnPoint;
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private GameObject caughtScreen;
+    private bool isCaught = false;
+
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -32,6 +42,11 @@ public class PathEnemy_Movement : MonoBehaviour
 
         graphicsChild.localEulerAngles = Vector3.zero;
         targetPoint = pathPoint2;
+
+        if (caughtScreen != null)
+        {
+            caughtScreen.SetActive(false);
+        }
     }
 
     void Update()
@@ -62,6 +77,8 @@ public class PathEnemy_Movement : MonoBehaviour
             }
 
             objectToMove.Translate(moveDir * Time.deltaTime * speed, Space.World);
+
+            CheckRaycast();
         }
 
         if ((targetPoint == pathPoint1 && objectToMove.position.x < targetPoint.position.x) ||
@@ -93,7 +110,6 @@ public class PathEnemy_Movement : MonoBehaviour
         {
             targetPoint = pathPoint1;
 
-            // go LEFT
             facingRight = false;
             facingLeft = true;
             facingUp = false;
@@ -105,11 +121,58 @@ public class PathEnemy_Movement : MonoBehaviour
 
     void SetAnim(bool right, bool left, bool up, bool down)
     {
-        if (childAnimator == null) return;
+        if (childAnimator == null) 
+        {
+            return;
+        }
 
         childAnimator.SetBool("movingRight", right);
         childAnimator.SetBool("movingLeft", left);
         childAnimator.SetBool("movingUp", up);
         childAnimator.SetBool("movingDown", down);
+    }
+
+    private void CheckRaycast()
+    {
+        Vector3 rayDirection = targetPoint == pathPoint2 ? Vector3.right : Vector3.left;
+
+        Ray ray = new Ray(objectToMove.position, rayDirection);
+
+        Debug.DrawRay(objectToMove.position, rayDirection * raycastLength, Color.red);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, raycastLength))
+        {
+            if (hit.collider.CompareTag(playerTag))
+            {
+                CatchPlayer();
+            }
+        }
+    }
+
+    private void CatchPlayer()
+    {
+        if (isCaught)
+        {
+            return;
+        }
+        isCaught = true;
+
+        PlayerCaught.isCaught = true;
+        PlayerCaught.respawnLocation = playerRespawnPoint;
+
+        if (caughtScreen != null)
+        {
+            caughtScreen.SetActive(true);
+        }
+    }
+
+    public void CloseCaughtScreen()
+    {
+        if (caughtScreen != null)
+        {
+            caughtScreen.SetActive(false);
+        }
+
+        isCaught = false;
     }
 }
