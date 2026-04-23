@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueField
   portraits:
   - {fileID: 21300000, guid: 6924da0c75abccf4786a097a8f05f30f, type: 3}
-  - {fileID: 21300000, guid: 22d6c034532d85644a1ce62797e81c94, type: 3}
+  - {fileID: 21300000, guid: f702f7df022646e40914bc18e1ca592e, type: 3}
   firstSpeaker: Ian
   secondSpeaker: Azul
   dialogue:
