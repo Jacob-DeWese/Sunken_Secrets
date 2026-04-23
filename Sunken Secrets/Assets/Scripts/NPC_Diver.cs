@@ -28,8 +28,8 @@ public class PathEnemy_Movement : MonoBehaviour
     [Header("Caught Screen")]
     [SerializeField] private Transform playerRespawnPoint;
     [SerializeField] private Transform playerTransform;
-    [SerializeField] private Image caughtScreen;
-    [SerializeField] private float caughtScreenDuration = 2f;
+    [SerializeField] private GameObject caughtScreen;
+    private bool isCaught = false;
 
     void Start()
     {
@@ -45,8 +45,7 @@ public class PathEnemy_Movement : MonoBehaviour
 
         if (caughtScreen != null)
         {
-            caughtScreen.alpha = 0f;
-            caughtScreen.gameObject.SetActive(false);
+            caughtScreen.SetActive(false);
         }
     }
 
@@ -111,7 +110,6 @@ public class PathEnemy_Movement : MonoBehaviour
         {
             targetPoint = pathPoint1;
 
-            // go LEFT
             facingRight = false;
             facingLeft = true;
             facingUp = false;
@@ -123,7 +121,10 @@ public class PathEnemy_Movement : MonoBehaviour
 
     void SetAnim(bool right, bool left, bool up, bool down)
     {
-        if (childAnimator == null) return;
+        if (childAnimator == null) 
+        {
+            return;
+        }
 
         childAnimator.SetBool("movingRight", right);
         childAnimator.SetBool("movingLeft", left);
@@ -137,7 +138,6 @@ public class PathEnemy_Movement : MonoBehaviour
 
         Ray ray = new Ray(objectToMove.position, rayDirection);
 
-        // Visible in the Scene view during play mode for debugging
         Debug.DrawRay(objectToMove.position, rayDirection * raycastLength, Color.red);
 
         if (Physics.Raycast(ray, out RaycastHit hit, raycastLength))
@@ -151,39 +151,28 @@ public class PathEnemy_Movement : MonoBehaviour
 
     private void CatchPlayer()
     {
-        if (playerTransform != null && playerRespawnPoint != null)
+        if (isCaught)
         {
-            playerTransform.position = playerRespawnPoint.position;
+            return;
         }
+        isCaught = true;
+
+        PlayerCaught.isCaught = true;
+        PlayerCaught.respawnLocation = playerRespawnPoint;
 
         if (caughtScreen != null)
         {
-            StartCoroutine(ShowCaughtScreen());
+            caughtScreen.SetActive(true);
         }
     }
 
-    private IEnumerator ShowCaughtScreen()
+    public void CloseCaughtScreen()
     {
-        caughtScreen.gameObject.SetActive(true);
-
-        float elapsed = 0f;
-        while (elapsed < 0.5f)
+        if (caughtScreen != null)
         {
-            elapsed += Time.deltaTime;
-            caughtScreen.alpha = Mathf.Lerp(0f, 1f, elapsed / 0.5f);
-            yield return null;
+            caughtScreen.SetActive(false);
         }
 
-        yield return new WaitForSeconds(caughtScreenDuration);
-
-        elapsed = 0f;
-        while (elapsed < 0.5f)
-        {
-            elapsed += Time.deltaTime;
-            caughtScreen.alpha = Mathf.Lerp(1f, 0f, elapsed / 0.5f);
-            yield return null;
-        }
-
-        caughtScreen.gameObject.SetActive(false);
+        isCaught = false;
     }
 }
