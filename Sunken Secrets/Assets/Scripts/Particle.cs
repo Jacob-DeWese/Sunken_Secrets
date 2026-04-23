@@ -32,8 +32,6 @@ public class Particle : MonoBehaviour
             gameObject.SetActive(true);
         }
     }
-    // on enable add listener to dialogue manager for required dialogue completion
-    // add function to execute with the same parameters
 
     void OnEnable()
     {

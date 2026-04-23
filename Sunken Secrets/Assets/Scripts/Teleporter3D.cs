@@ -102,6 +102,13 @@ namespace DigitalWorlds.StarterPackage3D
                         return;
                     }
                 }
+
+                ThirdPersonController controlMovement = other.gameObject.GetComponent<ThirdPersonController>();
+                if (controlMovement != null)
+                {
+                    controlMovement.EnableMovement(false);
+                }
+
                 if (!requireKeyPress && !isFading)
                 {
                     TeleportPlayer();
@@ -115,6 +122,12 @@ namespace DigitalWorlds.StarterPackage3D
             {
                 player = null;
             }
+
+            ThirdPersonController controller = other.gameObject.GetComponent<ThirdPersonController>();
+            if (controller != null)
+                controller.EnableMovement(true);
+
+            player = null;
         }
 
         // Teleport the player to the specified destination
