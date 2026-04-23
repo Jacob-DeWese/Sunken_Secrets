@@ -32219,8 +32219,6 @@ MonoBehaviour:
   stepHeight: 0
   stepSmooth: 50
   mainCollider: {fileID: 8809246095224064399}
-  footstepAudioSource: {fileID: 0}
-  footstepClip: {fileID: 8300000, guid: 6ec3ee00015e91a47a193c7c37367699, type: 3}
 --- !u!1001 &573584400985082392
 PrefabInstance:
   m_ObjectHideFlags: 0
