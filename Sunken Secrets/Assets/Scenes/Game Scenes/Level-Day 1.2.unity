@@ -29982,7 +29982,7 @@ PrefabInstance:
     - target: {fileID: 613013822690422651, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 62fa12ee8b70b6049a7edfc594df4624, type: 3}
+      objectReference: {fileID: 21300000, guid: ba3d421eab016474f94b62cb68194fbd, type: 3}
     - target: {fileID: 1709425949022468631, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -30001,15 +30001,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4118886973773070648, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 1.172025
       objectReference: {fileID: 0}
     - target: {fileID: 4118886973773070648, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 715
+      value: 765
       objectReference: {fileID: 0}
     - target: {fileID: 4118886973773070648, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -401
+      value: -428
       objectReference: {fileID: 0}
     - target: {fileID: 4293753332605675749, guid: a75785c299d3e7142872ee0608efdf21, type: 3}
       propertyPath: m_fontSize
@@ -50602,7 +50602,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6800d28cb3a632741842b72ffd54d66f, type: 2}
   repeatedFields: []
   npcName: NPC
-  repeat: 1
+  repeat: 0
   active: 1
 --- !u!1 &7068452722741407532
 GameObject:
